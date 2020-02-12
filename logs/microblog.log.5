@@ -1,0 +1,103 @@
+2020-01-31 02:58:48,971 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 137, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 14, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "C:\Users\aiman\PycharmProjects\site02\app\search.py", line 23, in query_index
+    'from': (page - 1) * per_page, 'size': per_page})
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 1548, in search
+    "GET", _make_path(index, doc_type, "_search"), params=params, body=body
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    timeout=timeout,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 261, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-01-31 02:59:06,870 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+2020-01-31 03:21:10,636 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+2020-01-31 03:21:51,322 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 137, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 14, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "C:\Users\aiman\PycharmProjects\site02\app\search.py", line 23, in query_index
+    'from': (page - 1) * per_page, 'size': per_page})
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 1548, in search
+    "GET", _make_path(index, doc_type, "_search"), params=params, body=body
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    timeout=timeout,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 261, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-01-31 03:26:09,832 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 137, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 14, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "C:\Users\aiman\PycharmProjects\site02\app\search.py", line 23, in query_index
+    'from': (page - 1) * per_page, 'size': per_page})
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 1548, in search
+    "GET", _make_path(index, doc_type, "_search"), params=params, body=body
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    timeout=timeout,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 261, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\base.py", line 182, in _raise_error
+    status_code, error_message, additional_info
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-01-31 03:27:28,885 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+2020-01-31 03:28:26,268 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
