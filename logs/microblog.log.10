@@ -1,4 +1,4 @@
-2020-01-31 02:26:05,593 ERROR: Exception on /auth/index [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-01-31 02:26:21,928 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 157, in _new_conn
     (self._dns_host, self.port), self.timeout, **extra_kw
@@ -37,7 +37,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
     self, "Failed to establish a new connection: %s" % e
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001684CBA91C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001684D5D0608>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
 
 During handling of the above exception, another exception occurred:
 
@@ -56,26 +56,18 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 34, in index
-    db.session.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
-    self.transaction.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 510, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
-    fn(*args, **kw)
-  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 35, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "C:\Users\aiman\PycharmProjects\site02\app\search.py", line 10, in add_to_index
-    body=payload)
+  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 137, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 14, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "C:\Users\aiman\PycharmProjects\site02\app\search.py", line 23, in query_index
+    'from': (page - 1) * per_page, 'size': per_page})
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
     return func(*args, params=params, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 398, in index
-    body=body,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 1548, in search
+    "GET", _make_path(index, doc_type, "_search"), params=params, body=body
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
     timeout=timeout,
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 254, in perform_request
     raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x000001684CBA91C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001684CBA91C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x000001684D5D0608>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001684D5D0608>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)

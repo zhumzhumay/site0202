@@ -1,5 +1,4 @@
-2020-01-31 03:51:41,724 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
-2020-01-31 03:52:13,016 ERROR: Exception on /auth/send_message/aim [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-01-31 04:15:23,765 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,8 +14,38 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 156, in send_message
-    return redirect(url_for('main.user', username=recipient))
+  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 77, in user
+    next_url=next_url, prev_url=prev_url)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\aiman\PycharmProjects\site02\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "C:\Users\aiman\PycharmProjects\site02\app\templates\user.html", line 14, in root
+    {% if user == current_user %}
+  File "C:\Users\aiman\PycharmProjects\site02\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 94, in block_body
+  File "C:\Users\aiman\PycharmProjects\site02\app\templates\base.html", line 139, in block_scripts
+    if (notifications[i].name == 'unread_message_count')
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
     return appctx.app.handle_url_build_error(error, endpoint, values)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
@@ -27,9 +56,10 @@ Traceback (most recent call last):
     endpoint, values, method=method, force_external=external
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.user' with values ['username']. Did you mean 'auth.user' instead?
-2020-01-31 03:57:13,281 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
-2020-01-31 03:58:25,575 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.notifications'. Did you mean 'auth.notifications' instead?
+2020-01-31 04:16:42,167 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+2020-01-31 04:20:45,530 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+2020-01-31 04:21:21,773 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -47,7 +77,7 @@ Traceback (most recent call last):
     return func(*args, **kwargs)
   File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 137, in search
     current_app.config['POSTS_PER_PAGE'])
-  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 14, in search
+  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 15, in search
     ids, total = query_index(cls.__tablename__, expression, page, per_page)
   File "C:\Users\aiman\PycharmProjects\site02\app\search.py", line 23, in query_index
     'from': (page - 1) * per_page, 'size': per_page})
@@ -62,6 +92,5 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\base.py", line 182, in _raise_error
     status_code, error_message, additional_info
 elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2020-01-31 04:07:56,862 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
-2020-01-31 04:08:09,107 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
-2020-01-31 04:15:12,576 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+2020-01-31 14:10:21,896 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+2020-01-31 14:40:54,650 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
