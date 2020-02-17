@@ -1,5 +1,5 @@
 from app import  db, cli, create_app
-from app.models import User, Post, Notification, Message
+from app.models import User, Post, Notification, Message, Docuser
 
 app = create_app()
 cli.register(app)
@@ -7,4 +7,4 @@ cli.register(app)
 @app.shell_context_processor
 def make_shell_context():
     return {'db': db, 'User': User, 'Post': Post, 'Message': Message,
-            'Notification': Notification}
+            'Notification': Notification, 'Doc' : Docuser}
