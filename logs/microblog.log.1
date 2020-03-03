@@ -1,24 +1,4 @@
-2020-02-17 00:20:59,757 INFO: msite startup [in D:\diplom\site 020203\site02.8.02.20\app\__init__.py:77]
-2020-02-17 00:22:27,932 INFO: msite startup [in D:\diplom\site 020203\site02.8.02.20\app\__init__.py:77]
-2020-02-17 00:22:48,730 INFO: msite startup [in D:\diplom\site 020203\site02.8.02.20\app\__init__.py:77]
-2020-02-17 00:23:16,769 INFO: msite startup [in D:\diplom\site 020203\site02.8.02.20\app\__init__.py:77]
-2020-02-17 21:35:40,716 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-17 21:37:33,764 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-17 21:38:39,562 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-17 21:40:23,196 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-18 01:33:37,657 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-18 01:33:54,514 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-18 01:34:17,726 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-18 01:34:31,225 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-18 01:34:38,228 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-18 01:35:10,192 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 14:24:26,035 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 14:25:27,782 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 14:52:47,095 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 14:54:39,939 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 15:14:13,371 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 15:18:55,252 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 15:19:13,852 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-03-03 20:44:13,500 ERROR: Exception on /auth/index [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,11 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 139, in search
-    if total > page * current_app.config['POSTS_PER_PAGE'] else None
-TypeError: '>' not supported between instances of 'dict' and 'int'
-2020-02-19 15:24:12,456 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 15:24:29,994 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 40, in index
+    page, current_app.config['POST_PER_PAGE'], False)
+KeyError: 'POST_PER_PAGE'
+2020-03-03 20:44:59,245 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:45:15,629 ERROR: Exception on /auth/index [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -54,11 +34,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 139, in search
-    if int(total) > page * current_app.config['POSTS_PER_PAGE'] else None
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'dict'
-2020-02-19 15:25:14,283 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 15:25:24,863 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 40, in index
+    page, current_app.config['POST_PER_PAGE'], False)
+KeyError: 'POST_PER_PAGE'
+2020-03-03 20:46:26,110 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:46:32,324 ERROR: Exception on /auth/index [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -74,11 +54,21 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 139, in search
-    if int(str(total)) > page * current_app.config['POSTS_PER_PAGE'] else None
-ValueError: invalid literal for int() with base 10: "{'value': 1, 'relation': 'eq'}"
-2020-02-19 16:25:41,029 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 16:25:56,061 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 40, in index
+    page, current_app.config['POST_PER_PAGE'], False)
+KeyError: 'POST_PER_PAGE'
+2020-03-03 20:47:58,609 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:50:10,149 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:52:15,570 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:54:48,497 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:55:04,392 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 706, in comparator
+    comparator_factory = self.type.comparator_factory
+AttributeError: 'NoneType' object has no attribute 'comparator_factory'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -94,26 +84,25 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 138, in search
-    totalint=int(total)
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'dict'
-2020-02-19 16:27:22,560 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-02-19 16:27:32,254 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 139, in search
-    totalint=int(totalstr)
-ValueError: invalid literal for int() with base 10: "{'value': 1, 'relation': 'eq'}"
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 141, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "D:\diplom\site02.8.02.20\app\models.py", line 22, in search
+    db.case(when, value=cls.id)), total
+  File "<string>", line 2, in order_by
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
+    fn(self, *args[1:], **kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 1850, in order_by
+    criterion = self._adapt_col_list(criterion)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in _adapt_col_list
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in <listcomp>
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 4533, in _literal_as_label_reference
+    elif hasattr(element, "__clause_element__"):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 717, in __getattr__
+    return getattr(self.comparator, key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 710, in comparator
+    "is not a TypeEngine class or object" % self.type
+TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object

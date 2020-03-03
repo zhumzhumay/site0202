@@ -36,7 +36,10 @@ def index():
         return redirect(url_for('auth.index'))
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_posts().paginate(
-        page, current_app.config['POSTS_PER_PAGE'], False)
+         page, current_app.config['POSTS_PER_PAGE'], False)
+    if current_user.doctor is 0:                                                                                        #new
+        posts = current_user.posts.order_by(Post.timestamp.desc()).paginate(
+            page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('auth.index', page=posts.next_num) \
         if posts.has_next else None
     prev_url = url_for('auth.index', page=posts.prev_num) \
@@ -66,6 +69,7 @@ def explore():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
+
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
@@ -137,6 +141,7 @@ def search():
                                current_app.config['POSTS_PER_PAGE'])
     next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1) # \ #надо бы исправить
        # if total > page * current_app.config['POSTS_PER_PAGE'] else None
+    # TypeError: '>' not supported between instances of 'dict' and 'int'
     prev_url = url_for('auth.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
     return render_template('search.html', title=_('Search'), posts=posts,

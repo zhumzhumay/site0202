@@ -1,4 +1,46 @@
-2020-01-31 04:15:23,765 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-03-03 19:50:45,586 ERROR: Exception on /auth/index [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 242, in perform_request
+    method, url, body, retries=Retry(False), headers=request_headers, **kw
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 672, in urlopen
+    chunked=chunked,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 966, in send
+    self.connect()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 184, in connect
+    conn = self._new_conn()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000018FE92D5488>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,83 +56,67 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 77, in user
-    next_url=next_url, prev_url=prev_url)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\aiman\PycharmProjects\site02\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "C:\Users\aiman\PycharmProjects\site02\app\templates\user.html", line 14, in root
-    {% if user == current_user %}
-  File "C:\Users\aiman\PycharmProjects\site02\app\templates\base.html", line 14, in root
-    <span class="icon-bar"></span>
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
-    {% block body -%}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 94, in block_body
-  File "C:\Users\aiman\PycharmProjects\site02\app\templates\base.html", line 139, in block_scripts
-    if (notifications[i].name == 'unread_message_count')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.notifications'. Did you mean 'auth.notifications' instead?
-2020-01-31 04:16:42,167 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
-2020-01-31 04:20:45,530 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
-2020-01-31 04:21:21,773 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\aiman\PycharmProjects\site02\app\main\routes.py", line 137, in search
-    current_app.config['POSTS_PER_PAGE'])
-  File "C:\Users\aiman\PycharmProjects\site02\app\models.py", line 15, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\aiman\PycharmProjects\site02\app\search.py", line 23, in query_index
-    'from': (page - 1) * per_page, 'size': per_page})
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 34, in index
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 510, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "D:\diplom\site02.8.02.20\app\models.py", line 36, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "D:\diplom\site02.8.02.20\app\search.py", line 11, in add_to_index
+    body=payload)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
     return func(*args, params=params, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 1548, in search
-    "GET", _make_path(index, doc_type, "_search"), params=params, body=body
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 398, in index
+    body=body,
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
     timeout=timeout,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 261, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\base.py", line 182, in _raise_error
-    status_code, error_message, additional_info
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2020-01-31 14:10:21,896 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
-2020-01-31 14:40:54,650 INFO: msite startup [in C:\Users\aiman\PycharmProjects\site02\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 254, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x0000018FE92D5488>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x0000018FE92D5488>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)
+2020-03-03 19:51:32,261 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 19:57:46,416 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:05:21,128 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:06:18,028 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:14:41,578 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:16:58,013 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:18:56,043 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:20:16,651 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:20:30,022 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-03 20:21:46,668 ERROR: Exception on /auth/index [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 34, in index
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 510, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "D:\diplom\site02.8.02.20\app\models.py", line 36, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "D:\diplom\site02.8.02.20\app\search.py", line 8, in add_to_index
+    for field in model.__searchable__:
+AttributeError: 'Post' object has no attribute '__searchable__'
+2020-03-03 20:25:51,537 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

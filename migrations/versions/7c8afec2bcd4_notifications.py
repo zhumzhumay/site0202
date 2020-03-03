@@ -1,16 +1,16 @@
 """notifications
 
-Revision ID: 93e816c5e60f
+Revision ID: 7c8afec2bcd4
 Revises: 314b5674f479
 Create Date: 2020-01-31 04:07:56.913724
 
-"""
+""" #я поменяла номер
 from alembic import op
 import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '93e816c5e60f'
+revision = '7c8afec2bcd4'
 down_revision = '314b5674f479'
 branch_labels = None
 depends_on = None
