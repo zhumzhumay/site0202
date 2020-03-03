@@ -11,13 +11,18 @@
                   <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
                 {% endif %}
                 <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
-                {% if user == current_user %}
-                  <p><a href="{{ url_for('auth.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
-                {% elif not current_user.is_following(user) %}
-                  <p><a href="{{ url_for('auth.follow', username=user.username) }}">{{ _('Follow') }}</a></p>
+                {% if current_user.doctor ==1 or user.doctor == 1 %}
+                     {% if user == current_user %}
+                         <p><a href="{{ url_for('auth.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
+                     {% elif not current_user.is_following(user) %}
+                                   <p><a href="{{ url_for('auth.follow', username=user.username) }}">{{ _('Follow') }}</a></p>
+                     {% else %}
+                          <p><a href="{{ url_for('auth.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
+                     {% endif %}
                 {% else %}
-                  <p><a href="{{ url_for('auth.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
+                      <p>{{_('you can not follow this user')}}</p>
                 {% endif %}
+
                 {% if user != current_user %}
                  <p><a href="{{ url_for('auth.send_message',
                                     recipient=user.username) }}">

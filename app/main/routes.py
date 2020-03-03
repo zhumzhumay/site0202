@@ -55,6 +55,9 @@ def explore():
     page = request.args.get('page', 1, type=int)
     posts = Post.query.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
+    if current_user.doctor is 0:                                                                                        #new
+        posts = current_user.posts.order_by(Post.timestamp.desc()).paginate(
+            page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('auth.explore', page=posts.next_num) \
         if posts.has_next else None
     prev_url = url_for('auth.explore', page=posts.prev_num) \
