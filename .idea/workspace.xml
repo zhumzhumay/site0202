@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648e1333-28da-450a-a9c9-648e52a43a02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/templates/_card.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/_doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/_navigation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/_patient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/_sugar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/for docusers.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.10" afterDir="false" />
@@ -28,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -45,11 +54,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\diplom\site02.8.02.20\app\templates\pattern" />
       <recent name="C:\Users\aiman\PycharmProjects\site02\app\templates\errors" />
       <recent name="C:\Users\aiman\PycharmProjects\site02\app\templates" />
       <recent name="C:\Users\aiman\PycharmProjects\site02\app\templates\main" />
       <recent name="C:\Users\aiman\PycharmProjects\site02\app\templates\auth" />
-      <recent name="C:\Users\aiman\PycharmProjects\site02\app\auth" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -165,7 +174,11 @@
       <workItem from="1582743946115" duration="2802000" />
       <workItem from="1582903162062" duration="3189000" />
       <workItem from="1583072155755" duration="16370000" />
-      <workItem from="1583253291007" duration="8436000" />
+      <workItem from="1583253291007" duration="10228000" />
+      <workItem from="1583359167957" duration="13984000" />
+      <workItem from="1583391700779" duration="7130000" />
+      <workItem from="1583707935851" duration="216000" />
+      <workItem from="1583708776159" duration="1978000" />
     </task>
     <servers />
   </component>

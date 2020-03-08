@@ -102,6 +102,9 @@ def edit_profile():
 
 
 
+
+
+
 @bp.route('/follow/<username>')
 @login_required
 def follow(username):
@@ -142,12 +145,14 @@ def search():
     page = request.args.get('page', 1, type=int)
     posts, total = Post.search(g.search_form.q.data, page,
                                current_app.config['POSTS_PER_PAGE'])
+    # user, total = User.search(g.search_form.q.data, page,
+    #                            current_app.config['POSTS_PER_PAGE'])
     next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1) # \ #надо бы исправить
        # if total > page * current_app.config['POSTS_PER_PAGE'] else None
     # TypeError: '>' not supported between instances of 'dict' and 'int'
     prev_url = url_for('auth.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
-    return render_template('search.html', title=_('Search'), posts=posts,
+    return render_template('search.html', title=_('Search'), posts=posts, user=user,
                            next_url=next_url, prev_url=prev_url)
 
 @bp.route('/send_message/<recipient>', methods=['GET', 'POST'])

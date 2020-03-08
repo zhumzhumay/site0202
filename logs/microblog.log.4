@@ -1,8 +1,43 @@
-2020-03-03 20:55:29,757 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-03-09 02:09:10,165 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 706, in comparator
-    comparator_factory = self.type.comparator_factory
-AttributeError: 'NoneType' object has no attribute 'comparator_factory'
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 242, in perform_request
+    method, url, body, retries=Retry(False), headers=request_headers, **kw
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 672, in urlopen
+    chunked=chunked,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 966, in send
+    self.connect()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 184, in connect
+    conn = self._new_conn()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001AF53C2FC88>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
 
 During handling of the above exception, another exception occurred:
 
@@ -15,77 +50,33 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 141, in search
-    current_app.config['POSTS_PER_PAGE'])
-  File "D:\diplom\site02.8.02.20\app\models.py", line 22, in search
-    db.case(when, value=cls.id)), total
-  File "<string>", line 2, in order_by
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
-    fn(self, *args[1:], **kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 1850, in order_by
-    criterion = self._adapt_col_list(criterion)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in _adapt_col_list
-    for o in cols
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in <listcomp>
-    for o in cols
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 4533, in _literal_as_label_reference
-    elif hasattr(element, "__clause_element__"):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 717, in __getattr__
-    return getattr(self.comparator, key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 710, in comparator
-    "is not a TypeEngine class or object" % self.type
-TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object
-2020-03-03 20:56:01,936 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 706, in comparator
-    comparator_factory = self.type.comparator_factory
-AttributeError: 'NoneType' object has no attribute 'comparator_factory'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 141, in search
-    current_app.config['POSTS_PER_PAGE'])
-  File "D:\diplom\site02.8.02.20\app\models.py", line 22, in search
-    db.case(when, value=cls.id)), total
-  File "<string>", line 2, in order_by
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
-    fn(self, *args[1:], **kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 1850, in order_by
-    criterion = self._adapt_col_list(criterion)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in _adapt_col_list
-    for o in cols
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in <listcomp>
-    for o in cols
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 4533, in _literal_as_label_reference
-    elif hasattr(element, "__clause_element__"):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 717, in __getattr__
-    return getattr(self.comparator, key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 710, in comparator
-    "is not a TypeEngine class or object" % self.type
-TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object
-2020-03-03 21:21:36,886 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2241, in preprocess_request
+    rv = func()
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 21, in before_request
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 510, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "D:\diplom\site02.8.02.20\app\models.py", line 39, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "D:\diplom\site02.8.02.20\app\search.py", line 11, in add_to_index
+    body=payload)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 398, in index
+    body=body,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    timeout=timeout,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 254, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x000001AF53C2FC88>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001AF53C2FC88>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)
+2020-03-09 02:16:24,160 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-09 02:21:24,870 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-03-09 02:25:19,846 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

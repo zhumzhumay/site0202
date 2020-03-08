@@ -1,0 +1,38 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+<table class="table table-hover">
+  <tr>
+    <td width="70px"> <!-- must have для полосы-->
+
+        <p>
+            <button class="btn btn-primary active" type="button" data-toggle="collapse"
+                    data-target="#posts" aria-expanded="false" aria-controls="posts">
+                posts</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                    data-target="#sugar" aria-expanded="false" aria-controls="sugar">
+                sugar
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                    data-target="#insulin" aria-expanded="false" aria-controls="insulin">
+                insulin
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                    data-target="#food" aria-expanded="false" aria-controls="food">
+                food
+            </button>
+        </p>
+
+        <div class="card card-block">
+            <div class="collapse" id="posts">
+                {% for post in posts %}
+                {% include '_post.html' %}
+                {% endfor %}
+                {% include '_navigation.html' %}
+            </div>
+            <div class="collapse " id="sugar">
+                {% include '_sugar.html' %}
+            </div>
+        </div>
+
+    </td>
+  </tr>
+</table>

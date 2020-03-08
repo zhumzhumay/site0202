@@ -1,0 +1,47 @@
+ <table class="table table-hover">
+  <tr>
+    <td width="70px"> <!-- must have для полосы-->
+        <!-- <p>
+        <ul class="nav nav-tabs" id="#product">
+            <li class="nav-item">
+                <a class="navbar-link" data-toggle="tab" href="#posts"> posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-link" data-toggle="tab" href="#sugar"> sugar</a>
+            </li>
+
+        </ul>
+        </p>
+        <div class="tab-content">
+            <div class="tab-pane" id="posts">
+                {% for post in posts %}
+                {% include '_post.html' %}
+                {% endfor %}
+                {% include '_navigation.html' %}
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane" id="sugar">
+                {% include '_sugar.html' %}
+            </div>
+        </div> -->
+        <ul class="nav justify-content-center">
+            <ul class="nav nav-tabs">
+                 <li class="item">
+                     <a class="navbar-link" href="{{ url_for('auth.edit_profile') }}"> edit </a>
+                     <a class="navbar-link" href="{{ url_for('auth.edit_profile') }}"> edit2 </a>
+                 </li>
+            </ul>
+        </ul>
+
+    </td>
+  </tr>
+</table>
+
+<!--<script>
+    $('#product a').click(function (e){
+        e.preventDefault();
+        $(this).tab('show.bs.tab');
+    });
+</script> -->
