@@ -1,46 +1,4 @@
-2020-03-09 02:08:34,579 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 157, in _new_conn
-    (self._dns_host, self.port), self.timeout, **extra_kw
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
-    raise err
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 242, in perform_request
-    method, url, body, retries=Retry(False), headers=request_headers, **kw
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 720, in urlopen
-    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\retry.py", line 376, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 672, in urlopen
-    chunked=chunked,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 387, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1244, in request
-    self._send_request(method, url, body, headers, encode_chunked)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1290, in _send_request
-    self.endheaders(body, encode_chunked=encode_chunked)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1239, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1026, in _send_output
-    self.send(msg)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 966, in send
-    self.connect()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 184, in connect
-    conn = self._new_conn()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
-    self, "Failed to establish a new connection: %s" % e
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001AF533E78C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
-
-During handling of the above exception, another exception occurred:
-
+2020-03-09 23:40:30,763 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -50,30 +8,57 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2241, in preprocess_request
-    rv = func()
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 21, in before_request
-    db.session.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
-    self.transaction.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 510, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
-    fn(*args, **kw)
-  File "D:\diplom\site02.8.02.20\app\models.py", line 39, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "D:\diplom\site02.8.02.20\app\search.py", line 11, in add_to_index
-    body=payload)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
-    return func(*args, params=params, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 398, in index
-    body=body,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
-    timeout=timeout,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 254, in perform_request
-    raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x000001AF533E78C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001AF533E78C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 84, in user
+    next_url=next_url, prev_url=prev_url)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
+    {% if user.last_seen %}
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 29, in root
+    {% include '_navigation.html' %}
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 15, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 25, in block_app_content
+    <div class="row">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 570, in __call__
+    return self._invoke(arguments, autoescape)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 110, in _invoke
+    return original_invoke(self, arguments, autoescape)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 574, in _invoke
+    rv = self._func(*arguments)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 482, in macro
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2020-03-09 23:43:21,859 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

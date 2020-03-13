@@ -83,6 +83,22 @@ def user(username):
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url)
 
+# @bp.route('/user/<username>', methods=['GET', 'POST'])
+# @login_required
+# def sugar():
+#     form = SugarForm()
+#     if form.validate_on_submit():
+#         post = Post(body=form.eat.data, author=current_user)
+#         db.session.add(post)
+#         db.session.commit()
+#         flash(_('Your records have been saved'))
+#     return redirect(url_for('_sugar.html'))
+
+
+
+
+
+
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
@@ -91,6 +107,8 @@ def edit_profile():
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
+        current_user.weight = form.weight.data
+
         db.session.commit()
         flash(_('Your changes have been saved.'))
         return redirect(url_for('auth.edit_profile'))

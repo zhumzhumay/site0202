@@ -1,6 +1,6 @@
 from flask import request
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField
+from wtforms import StringField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Length
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
@@ -19,6 +19,7 @@ class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     about_me = TextAreaField(_l('About me'),
                              validators=[Length(min=0, max=140)])
+    weight = StringField(_l('Weight'), validators=[DataRequired()])                                                        #new
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, *args, **kwargs):
@@ -30,6 +31,15 @@ class EditProfileForm(FlaskForm):
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
                 raise ValidationError(_('Please use a different username.'))
+
+# class SugarForm(FlaskForm):
+#     eat = SelectField(u'Прием пищи', choices=[('0', 'Натощак'), ('1', 'После завтрака'),
+#                                               ('2', 'После обеда'), ('3', 'После ужина'),
+#                                               ('4', 'Дополнительно'), ('5', 'При родах'),])
+#     submit = SubmitField(_l('Submit'))
+
+
+
 
 
 
