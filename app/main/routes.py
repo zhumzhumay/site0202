@@ -7,7 +7,8 @@ from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
 from app.models import User, Post, Message, Notification, SugarTable, InsulinTable
 from flask_babel import _, get_locale
 from app.auth import bp
-
+import pandas as pd
+import sqlite3
 
 
 @bp.before_request
@@ -225,15 +226,27 @@ def instypef(type):
         ih = 'Пролонгированный'
     return ih
 
+def readdb(sql_string, user_id):
+    DB_NAME = 'app.db'
+    conn = sqlite3.connect(DB_NAME)
+    df = pd.read_sql(sql_string, conn)
+    dfl=df.loc[lambda df: df['user_id'] == user_id, :]
+    writer = pd.ExcelWriter('table.xlsx')
+    dfl.to_excel(writer)
+    writer.save()
+    return df
+
 @bp.route('/user/<username>', methods=['GET', 'POST'])
 @login_required
 def sugar(username):
     if request.method == 'POST':
+        user_id=current_user.id
         if request.form['submit'] == 'ins':
             eat = request.form.get('inseat', False)
             time = request.form.get('timeins', False)
             dose = request.form.get('dose', False)
             type = request.form.get('instype', False)
+            sql_string = 'select * from insulin_table '
             food = eatf(eat)
             insulin=instypef(type)
             if time:
@@ -245,6 +258,7 @@ def sugar(username):
             eat = request.form.get('sugeat', False)
             time = request.form.get('timesug', False)
             mol = request.form.get('mol', False)
+            sql_string = 'select * from sugar_table'
             food = eatf(eat)
             if time:
                 timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
@@ -253,6 +267,7 @@ def sugar(username):
                 note = SugarTable(eat=food, mol=mol, author=current_user)
     db.session.add(note)
     db.session.commit()
+    table=readdb(sql_string, user_id)
     flash(_('Your notes have been saved.'))
     return redirect(url_for('auth.user', username=username))
 
