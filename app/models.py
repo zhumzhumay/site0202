@@ -96,7 +96,8 @@ class User(UserMixin, SearchableMixin, db.Model):                               
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-    #sugar = db.relationship('Sugar', backref='author', lazy='dynamic')             #new
+    sugar = db.relationship('SugarTable', backref='author', lazy='dynamic')             #new
+    insulin = db.relationship('InsulinTable', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     doctor = db.Column(db.Integer)                                                 #new
     weight = db.Column(db.Integer)                                                  #new
@@ -183,14 +184,6 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-# class Sugar(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     body = db.Column(db.String(140))
-#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-#
-#     def __repr__(self):
-#         return '<Sugar data {}>'.format(self.body)
 
 
 class Post(SearchableMixin, db.Model):
@@ -203,6 +196,28 @@ class Post(SearchableMixin, db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
+class SugarTable(db.Model):
+    # __searchable__ = ['body']
+    id = db.Column(db.Integer, primary_key=True)
+    eat = db.Column(db.String(140))
+    mol = db.Column(db.Float(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<Sugar {}>'.format(self.body)
+
+class InsulinTable(db.Model):
+    # __searchable__ = ['body']
+    id = db.Column(db.Integer, primary_key=True)
+    eat = db.Column(db.String(140))
+    dose = db.Column(db.Float(140))
+    insulin = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<Sugar {}>'.format(self.body)
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)

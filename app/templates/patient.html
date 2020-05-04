@@ -1,10 +1,10 @@
 {% import 'bootstrap/wtf.html' as wtf %}
+
 <table class="table table-hover">
   <tr>
     <td width="70px"> <!-- must have для полосы-->
-
         <p>
-            <button class="btn btn-primary active" type="button" data-toggle="collapse"
+            <button class="btn btn-primary" type="button" data-toggle="collapse"
                     data-target="#posts" aria-expanded="false" aria-controls="posts">
                 posts</button>
             <button class="btn btn-primary" type="button" data-toggle="collapse"
@@ -30,6 +30,9 @@
             </div>
             <div class="collapse " id="sugar">
                 {% include '_sugar.html' %}
+            </div>
+            <div class="collapse " id="insulin">
+                {% include '_insulin.html' %}
             </div>
         </div>
 

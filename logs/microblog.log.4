@@ -1,4 +1,9 @@
-2020-03-09 23:45:41,486 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-04 02:00:36,521 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:05:33,643 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:06:35,066 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:25:27,878 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:26:45,316 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:27:08,126 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,7 +19,53 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 84, in user
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 222, in sugar
+    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 577, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 362, in _strptime
+    data_string[found.end():])
+ValueError: unconverted data remains: :04
+2020-05-04 02:29:39,674 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:31:10,527 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:32:20,710 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:33:08,691 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:36:31,781 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:38:02,441 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:39:37,407 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:40:24,438 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 02:52:49,147 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:08:04,753 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:14:20,942 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:29:28,494 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:40:49,959 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:42:13,570 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:42:51,638 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:45:23,639 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:46:20,361 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:47:30,952 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:48:37,823 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:50:25,337 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:51:18,633 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:53:38,774 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:58:37,550 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 03:58:40,017 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
     next_url=next_url, prev_url=prev_url)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
@@ -44,21 +95,20 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
   File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
   File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 29, in root
-    {% include '_navigation.html' %}
-  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 15, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 25, in block_app_content
-    <div class="row">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 570, in __call__
-    return self._invoke(arguments, autoescape)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 110, in _invoke
-    return original_invoke(self, arguments, autoescape)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 574, in _invoke
-    rv = self._func(*arguments)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 482, in macro
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2020-03-09 23:47:09,150 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\templates\patient.html", line 28, in root
+    {% include '_post.html' %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sugar.html
+2020-05-04 03:59:11,960 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 04:01:16,216 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 04:03:32,144 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 04:15:36,056 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

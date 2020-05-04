@@ -1,4 +1,4 @@
-2020-03-09 23:40:30,763 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-04 01:38:30,745 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,7 +14,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 84, in user
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
     next_url=next_url, prev_url=prev_url)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
@@ -44,11 +44,19 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
   File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
   File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 29, in root
-    {% include '_navigation.html' %}
-  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 15, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 25, in block_app_content
-    <div class="row">
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 33, in root
+    {% include '_sugar.html' %}
+  File "D:\diplom\site02.8.02.20\app\templates\sug.html", line 17, in root
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\sug.html", line 29, in block_app_content
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
     return __obj(*args, **kwargs)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 570, in __call__
@@ -61,4 +69,4 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 430, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2020-03-09 23:43:21,859 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 01:41:55,873 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

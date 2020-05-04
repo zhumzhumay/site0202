@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify
-from flask_login import login_user, logout_user, current_user, login_required
-from werkzeug.urls import url_parse
+from flask_login import current_user, login_required
 from app import db
-from app.auth.forms import LoginForm, RegistrationForm,  \
-    ResetPasswordRequestForm, ResetPasswordForm
 from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
-
-from app.models import User, Post, Message, Notification
-from app.auth.email import send_password_reset_email
+from app.models import User, Post, Message, Notification, SugarTable, InsulinTable
 from flask_babel import _, get_locale
 from app.auth import bp
+
 
 
 @bp.before_request
@@ -36,12 +32,14 @@ def index():
         return redirect(url_for('auth.index'))
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_posts().paginate(
-         page, current_app.config['POSTS_PER_PAGE'], False)
-    if current_user.doctor is 0:                                                                                        #new
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    if current_user.doctor is 0:  # new
         posts = current_user.posts.order_by(Post.timestamp.desc()).paginate(
             page, current_app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('auth.index', page=posts.next_num) \
-        if posts.has_next else None
+    if posts.has_next:
+        next_url = url_for('auth.index', page=posts.next_num)
+    else:
+        next_url = None
     prev_url = url_for('auth.index', page=posts.prev_num) \
         if posts.has_prev else None
     return render_template('index.html', title='Home', form=form,
@@ -55,7 +53,7 @@ def explore():
     page = request.args.get('page', 1, type=int)
     posts = Post.query.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
-    if current_user.doctor is 0:                                                                                        #new
+    if current_user.doctor is 0:  # new
         posts = current_user.posts.order_by(Post.timestamp.desc()).paginate(
             page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('auth.explore', page=posts.next_num) \
@@ -65,7 +63,6 @@ def explore():
     return render_template('index.html', title=_('Explore'),
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
-
 
 
 @bp.route('/user/<username>')
@@ -82,22 +79,6 @@ def user(username):
                        page=posts.prev_num) if posts.has_prev else None
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url)
-
-# @bp.route('/user/<username>', methods=['GET', 'POST'])
-# @login_required
-# def sugar():
-#     form = SugarForm()
-#     if form.validate_on_submit():
-#         post = Post(body=form.eat.data, author=current_user)
-#         db.session.add(post)
-#         db.session.commit()
-#         flash(_('Your records have been saved'))
-#     return redirect(url_for('_sugar.html'))
-
-
-
-
-
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
@@ -119,10 +100,6 @@ def edit_profile():
                            form=form)
 
 
-
-
-
-
 @bp.route('/follow/<username>')
 @login_required
 def follow(username):
@@ -137,7 +114,6 @@ def follow(username):
     db.session.commit()
     flash(_('You are following %(username)s!', username=username))
     return redirect(url_for('auth.user', username=username))
-
 
 
 @bp.route('/unfollow/<username>')
@@ -155,6 +131,7 @@ def unfollow(username):
     flash(_('You are not following %(username)s.', username=username))
     return redirect(url_for('auth.user', username=username))
 
+
 @bp.route('/search')
 @login_required
 def search():
@@ -165,13 +142,14 @@ def search():
                                current_app.config['POSTS_PER_PAGE'])
     # user, total = User.search(g.search_form.q.data, page,
     #                            current_app.config['POSTS_PER_PAGE'])
-    next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1) # \ #надо бы исправить
-       # if total > page * current_app.config['POSTS_PER_PAGE'] else None
+    next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1)  # \ #надо бы исправить
+    # if total > page * current_app.config['POSTS_PER_PAGE'] else None
     # TypeError: '>' not supported between instances of 'dict' and 'int'
     prev_url = url_for('auth.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
     return render_template('search.html', title=_('Search'), posts=posts, user=user,
                            next_url=next_url, prev_url=prev_url)
+
 
 @bp.route('/send_message/<recipient>', methods=['GET', 'POST'])
 @login_required
@@ -189,6 +167,7 @@ def send_message(recipient):
     return render_template('send_message.html', title=_('Send Message'),
                            form=form, recipient=recipient)
 
+
 @bp.route('/messages')
 @login_required
 def messages():
@@ -198,13 +177,14 @@ def messages():
     page = request.args.get('page', 1, type=int)
     messages = current_user.messages_received.order_by(
         Message.timestamp.desc()).paginate(
-            page, current_app.config['POSTS_PER_PAGE'], False)
+        page, current_app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('auth.messages', page=messages.next_num) \
         if messages.has_next else None
     prev_url = url_for('auth.messages', page=messages.prev_num) \
         if messages.has_prev else None
     return render_template('messages.html', messages=messages.items,
                            next_url=next_url, prev_url=prev_url)
+
 
 @bp.route('/notifications')
 @login_required
@@ -217,3 +197,91 @@ def notifications():
         'data': n.get_data(),
         'timestamp': n.timestamp
     } for n in notifications])
+
+def eatf(eat):
+    ch = 'no data'
+    if eat == '1':
+        ch = 'После завтрака'
+    elif eat == '2': \
+            ch = 'После обеда'
+    elif eat == '3':
+        ch = 'После ужина'
+    elif eat == '4':
+        ch = 'Дополнительно'
+    elif eat == '5':
+        ch = 'При родах'
+    elif eat == '6':
+        ch = 'Натощак'
+    return ch
+
+def instypef(type):
+    if type == '1':
+        ih = 'Ультракороткий'
+    elif type == '2':
+        ih = 'Короткий'
+    elif type == '3':
+        ih = 'Левимир'
+    elif type == '4':
+        ih = 'Пролонгированный'
+    return ih
+
+@bp.route('/user/<username>', methods=['GET', 'POST'])
+@login_required
+def sugar(username):
+    if request.method == 'POST':
+        if request.form['submit'] == 'ins':
+            eat = request.form.get('inseat', False)
+            time = request.form.get('timeins', False)
+            dose = request.form.get('dose', False)
+            type = request.form.get('instype', False)
+            food = eatf(eat)
+            insulin=instypef(type)
+            if time:
+                timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
+                note = InsulinTable(eat=food, dose=dose, insulin=insulin, author=current_user, timestamp=timendate)
+            else:
+                note = InsulinTable(eat=food, dose=dose, insulin=insulin, author=current_user)
+        elif request.form['submit'] == 'sug':
+            eat = request.form.get('sugeat', False)
+            time = request.form.get('timesug', False)
+            mol = request.form.get('mol', False)
+            food = eatf(eat)
+            if time:
+                timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
+                note = SugarTable(eat=food, mol=mol, author=current_user, timestamp=timendate)
+            else:
+                note = SugarTable(eat=food, mol=mol, author=current_user)
+    db.session.add(note)
+    db.session.commit()
+    return render_template('index.html', username=username)
+
+
+# @bp.route('/user/<username>', methods=['GET', 'POST'])
+# @login_required
+# def insulin(username):
+#     if request.method == 'POST':
+#        eat = request.form.get('Selectf1',False)
+#        time = request.form.get('time1',False)
+#        ch = 'no data'
+#        if eat == '1':
+#          ch = 'После завтрака'
+#        elif eat == '2':
+#          ch = 'После обеда'
+#        elif eat == '3':
+#          ch = 'После ужина'
+#        elif eat == '4':
+#          ch = 'Дополнительно'
+#        elif eat == '5':
+#          ch = 'При родах'
+#        elif eat == '6':
+#          ch = 'Натощак'
+#        if time:
+#           timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
+#           note = InsulinTable(eat=ch, author=current_user, timestamp=timendate)
+#        else:
+#           note = InsulinTable(eat=ch, author=current_user)
+#        db.session.add(note)
+#        db.session.commit()
+#     return render_template('index.html', username=username)
+
+

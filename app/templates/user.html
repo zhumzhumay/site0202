@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
 {% block app_content %}
+
     <table class="table table-hover">
         <tr>
             <td width="256px"><img src="{{ user.avatar(256) }}"></td>
@@ -38,15 +38,16 @@
                                     recipient=user.username) }}">
                     {{ _('Send private message') }}</a></p>
                 {% endif %}
-                {% if user.doctor == 0 and (current_user.doctor == 1 or current_user == user) %} {% include '_card.html' %}{% endif %}
+                {% if user.doctor == 0 and (current_user.doctor == 1 or current_user == user) %}
+                {% include '_card.html' %}{% endif %}
             </td>
         </tr>
     </table>
      {% if current_user.doctor==1 %}
              {% if user.doctor == 1 %} {% include '_doc.html' %}
-             {% else %} {% include '_patient.html' %} {% endif %}
+             {% else %} {% include 'patient.html' %} {% endif %}
      {% else %}
-           {% if user == current_user %} {% include '_patient.html' %}
+           {% if user == current_user %} {% include 'patient.html' %}
            {% else %} <h1>{{ _('U can not see this page') }}</h1> {% endif %}{% endif %}
 
 

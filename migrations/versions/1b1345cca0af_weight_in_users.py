@@ -1,6 +1,6 @@
 """weight in users
 
-Revision ID: 77685149c97e
+Revision ID: 1b1345cca0af
 Revises: bdc504d0b30e
 Create Date: 2020-03-09 03:28:32.454226
 
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '77685149c97e'
+revision = '1b1345cca0af'
 down_revision = 'bdc504d0b30e'
 branch_labels = None
 depends_on = None
