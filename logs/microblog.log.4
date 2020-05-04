@@ -1,55 +1,4 @@
-2020-05-04 02:00:36,521 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:05:33,643 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:06:35,066 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:25:27,878 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:26:45,316 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:27:08,126 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 222, in sugar
-    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 577, in _strptime_datetime
-    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 362, in _strptime
-    data_string[found.end():])
-ValueError: unconverted data remains: :04
-2020-05-04 02:29:39,674 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:31:10,527 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:32:20,710 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:33:08,691 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:36:31,781 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:38:02,441 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:39:37,407 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:40:24,438 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 02:52:49,147 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:08:04,753 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:14:20,942 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:29:28,494 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:40:49,959 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:42:13,570 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:42:51,638 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:45:23,639 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:46:20,361 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:47:30,952 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:48:37,823 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:50:25,337 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:51:18,633 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:53:38,774 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:58:37,550 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 03:58:40,017 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-04 04:15:46,615 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -79,8 +28,8 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
+  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 37, in template
+    {{ bootstrap_form(select_form, id='comment_form')) }}
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
     return concat(self.root_render_func(self.new_context(vars)))
   File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
@@ -95,20 +44,62 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
   File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
   File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\patient.html", line 28, in root
-    {% include '_post.html' %}
+  File "D:\diplom\site02.8.02.20\app\templates\patient.html", line 32, in root
+    <div class="collapse " id="sugar">
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
     return self._load_template(name, self.make_globals(globals))
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
     template = self.loader.load(self, name, globals)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 113, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: sugar.html
-2020-05-04 03:59:11,960 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:01:16,216 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:03:32,144 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:15:36,056 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 37, in template
+    {{ bootstrap_form(select_form, id='comment_form')) }}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 875, in subparse
+    add_data(self.parse_tuple(with_condexpr=True))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 620, in parse_tuple
+    args.append(parse())
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 676, in parse_postfix
+    node = self.parse_call(node)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 793, in parse_call
+    self.stream.expect('rparen')
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\lexer.py", line 388, in expect
+    next(self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\lexer.py", line 359, in __next__
+    self.current = next(self._iter)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\lexer.py", line 562, in wrap
+    for lineno, token, value in stream:
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\lexer.py", line 683, in tokeniter
+    filename)
+jinja2.exceptions.TemplateSyntaxError: unexpected ')'

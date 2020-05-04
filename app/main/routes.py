@@ -253,35 +253,9 @@ def sugar(username):
                 note = SugarTable(eat=food, mol=mol, author=current_user)
     db.session.add(note)
     db.session.commit()
-    return render_template('index.html', username=username)
+    flash(_('Your notes have been saved.'))
+    return redirect(url_for('auth.user', username=username))
 
 
-# @bp.route('/user/<username>', methods=['GET', 'POST'])
-# @login_required
-# def insulin(username):
-#     if request.method == 'POST':
-#        eat = request.form.get('Selectf1',False)
-#        time = request.form.get('time1',False)
-#        ch = 'no data'
-#        if eat == '1':
-#          ch = 'После завтрака'
-#        elif eat == '2':
-#          ch = 'После обеда'
-#        elif eat == '3':
-#          ch = 'После ужина'
-#        elif eat == '4':
-#          ch = 'Дополнительно'
-#        elif eat == '5':
-#          ch = 'При родах'
-#        elif eat == '6':
-#          ch = 'Натощак'
-#        if time:
-#           timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-#           note = InsulinTable(eat=ch, author=current_user, timestamp=timendate)
-#        else:
-#           note = InsulinTable(eat=ch, author=current_user)
-#        db.session.add(note)
-#        db.session.commit()
-#     return render_template('index.html', username=username)
 
 
