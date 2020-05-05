@@ -4,11 +4,10 @@ from flask import render_template, flash, redirect, url_for, request, g, current
 from flask_login import current_user, login_required
 from app import db
 from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
+from app.main.func import eatf, instypef, readdb, plotf, writexls
 from app.models import User, Post, Message, Notification, SugarTable, InsulinTable
 from flask_babel import _, get_locale
 from app.auth import bp
-import pandas as pd
-import sqlite3
 
 
 @bp.before_request
@@ -199,42 +198,6 @@ def notifications():
         'timestamp': n.timestamp
     } for n in notifications])
 
-def eatf(eat):
-    ch = 'no data'
-    if eat == '1':
-        ch = 'После завтрака'
-    elif eat == '2': \
-            ch = 'После обеда'
-    elif eat == '3':
-        ch = 'После ужина'
-    elif eat == '4':
-        ch = 'Дополнительно'
-    elif eat == '5':
-        ch = 'При родах'
-    elif eat == '6':
-        ch = 'Натощак'
-    return ch
-
-def instypef(type):
-    if type == '1':
-        ih = 'Ультракороткий'
-    elif type == '2':
-        ih = 'Короткий'
-    elif type == '3':
-        ih = 'Левимир'
-    elif type == '4':
-        ih = 'Пролонгированный'
-    return ih
-
-def readdb(sql_string, user_id):
-    DB_NAME = 'app.db'
-    conn = sqlite3.connect(DB_NAME)
-    df = pd.read_sql(sql_string, conn)
-    dfl=df.loc[lambda df: df['user_id'] == user_id, :]
-    writer = pd.ExcelWriter('table.xlsx')
-    dfl.to_excel(writer)
-    writer.save()
-    return df
 
 @bp.route('/user/<username>', methods=['GET', 'POST'])
 @login_required
@@ -267,7 +230,9 @@ def sugar(username):
                 note = SugarTable(eat=food, mol=mol, author=current_user)
     db.session.add(note)
     db.session.commit()
-    table=readdb(sql_string, user_id)
+    table= readdb(sql_string)
+    writexls(table, user_id)
+    plotf(table,user_id)
     flash(_('Your notes have been saved.'))
     return redirect(url_for('auth.user', username=username))
 

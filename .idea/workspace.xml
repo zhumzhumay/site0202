@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648e1333-28da-450a-a9c9-648e52a43a02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/main/func.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_sugar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_sugar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.10" afterDir="false" />
@@ -16,6 +18,7 @@
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/table.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -36,6 +39,7 @@
   </component>
   <component name="ProjectId" id="1Vw0wXG0EPaVqMLZlufezUWjfNR" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -186,7 +190,8 @@
       <workItem from="1588604055361" duration="3191000" />
       <workItem from="1588609754234" duration="718000" />
       <workItem from="1588610500220" duration="3944000" />
-      <workItem from="1588615311703" duration="2341000" />
+      <workItem from="1588615311703" duration="4893000" />
+      <workItem from="1588631754857" duration="11038000" />
     </task>
     <servers />
   </component>

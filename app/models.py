@@ -219,6 +219,8 @@ class InsulinTable(db.Model):
     def __repr__(self):
         return '<Sugar {}>'.format(self.body)
 
+
+
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))

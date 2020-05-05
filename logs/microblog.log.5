@@ -1,4 +1,55 @@
-2020-05-04 04:32:18,730 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-04 22:34:03,643 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 22:35:13,967 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 22:35:59,791 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 22:36:53,354 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 22:39:10,513 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 22:41:37,529 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 22:44:30,044 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 22:45:16,541 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 02:08:30,573 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 02:08:52,301 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 242, in perform_request
+    method, url, body, retries=Retry(False), headers=request_headers, **kw
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\util\retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 672, in urlopen
+    chunked=chunked,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\http\client.py", line 966, in send
+    self.connect()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 184, in connect
+    conn = self._new_conn()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000022C67C2F5C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,86 +59,30 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 205, in sugar
-    if request.method.get('sug'):
-AttributeError: 'str' object has no attribute 'get'
-2020-05-04 04:32:48,275 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:32:55,811 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 205, in sugar
-    if request.method.__getattribute__('sug'):
-AttributeError: 'str' object has no attribute 'sug'
-2020-05-04 04:36:33,374 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:36:54,397 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-TypeError: sugar() missing 1 required positional argument: 'request'
-2020-05-04 04:50:32,230 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:52:13,795 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 05:12:36,268 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 05:12:49,044 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 243, in sugar
-    note = InsulinTable(eat=food, dose=dose, instype=insulin, author=current_user)
-  File "<string>", line 4, in __init__
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 441, in _initialize_instance
-    manager.dispatch.init_failure(self, args, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 438, in _initialize_instance
-    return manager.original_init(*mixed[1:], **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 840, in _declarative_constructor
-    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
-TypeError: 'instype' is an invalid keyword argument for InsulinTable
-2020-05-04 05:14:08,640 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 05:17:04,227 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 05:27:06,997 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2241, in preprocess_request
+    rv = func()
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 17, in before_request
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 510, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\event\attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "D:\diplom\site02.8.02.20\app\models.py", line 39, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "D:\diplom\site02.8.02.20\app\search.py", line 11, in add_to_index
+    body=payload)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\client\__init__.py", line 398, in index
+    body=body,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    timeout=timeout,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 254, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x0000022C67C2F5C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x0000022C67C2F5C8>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение)

@@ -1,4 +1,15 @@
-2020-05-04 04:16:10,206 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-04 21:27:33,174 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 5
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,47 +25,21 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
-    next_url=next_url, prev_url=prev_url)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
-    {% if user.last_seen %}
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
-    <span class="icon-bar"></span>
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
-    {% block body -%}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\patient.html", line 33, in root
-    {% include '_sugar.html' %}
-  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 13, in root
-    <select class="custom-select custom-select-lg mb-3" name="insulineat" id="insulineat">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 630, in _fail_with_undefined_error
-    raise self._undefined_exception(hint)
-jinja2.exceptions.UndefinedError: 'bootstrap_form' is undefined
-2020-05-04 04:19:41,682 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:19:53,514 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 269, in sugar
+    table=readdb(sql_string)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 233, in readdb
+    dfi=df[current_user.id]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2800, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 5
+2020-05-04 21:34:19,036 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 21:34:30,066 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -70,11 +55,15 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 206, in sugar
-    eat = request.form.fields.get('Selectf1',False)
-AttributeError: 'ImmutableMultiDict' object has no attribute 'fields'
-2020-05-04 04:23:04,841 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:23:16,500 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 269, in sugar
+    table=readdb(sql_string)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 233, in readdb
+    dfl=df(index=pd.user_id('5'))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\__init__.py", line 263, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'user_id'
+2020-05-04 21:40:20,094 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 21:40:30,004 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -90,11 +79,24 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 206, in sugar
-    eat = request.form('insulin').get('Selectf1',False)
-TypeError: 'ImmutableMultiDict' object is not callable
-2020-05-04 04:29:06,650 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:29:22,034 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 269, in sugar
+    table=readdb(sql_string)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 236, in readdb
+    writer.save()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_openpyxl.py", line 43, in save
+    return self.book.save(self.path)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\workbook\workbook.py", line 392, in save
+    save_workbook(self, filename)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\zipfile.py", line 1207, in __init__
+    self.fp = io.open(file, filemode)
+PermissionError: [Errno 13] Permission denied: 'table.xlsx'
+2020-05-04 21:42:14,897 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 21:43:54,851 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 21:45:17,819 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 21:46:28,944 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-04 21:47:16,784 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -110,10 +112,17 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 205, in sugar
-    if request.POST.get('sug'):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\local.py", line 348, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'Request' object has no attribute 'POST'
-2020-05-04 04:30:16,278 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 04:32:11,007 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 270, in sugar
+    table=readdb(sql_string, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 236, in readdb
+    writer.save()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_openpyxl.py", line 43, in save
+    return self.book.save(self.path)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\workbook\workbook.py", line 392, in save
+    save_workbook(self, filename)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\zipfile.py", line 1207, in __init__
+    self.fp = io.open(file, filemode)
+PermissionError: [Errno 13] Permission denied: 'table.xlsx'
+2020-05-04 21:54:30,628 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
