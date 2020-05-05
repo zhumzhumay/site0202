@@ -1,4 +1,4 @@
-2020-05-04 20:26:40,015 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-05 03:00:59,527 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,15 +14,24 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 267, in sugar
-    table=readdb(sql_string)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 233, in readdb
-    writer = pd.ExcelWriter('table.xlsx')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_openpyxl.py", line 18, in __init__
-    from openpyxl.workbook import Workbook
-ModuleNotFoundError: No module named 'openpyxl'
-2020-05-04 20:31:09,592 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 20:31:17,394 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
+    plot(table,user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 20, in plot
+    plt.show()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 272, in show
+    return _show(*args, **kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\cbook\deprecation.py", line 400, in wrapper
+    return func(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 3386, in show
+    cls.mainloop()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 907, in mainloop
+    managers[0].window.mainloop()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1283, in mainloop
+    self.tk.mainloop(n)
+RuntimeError: Calling Tcl from different apartment
+2020-05-05 03:02:45,308 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:10:20,511 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:10:28,497 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -38,16 +47,29 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 267, in sugar
-    table=readdb(sql_string)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 233, in readdb
-    writer = pd.ExcelWriter('table.xlsx')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_openpyxl.py", line 18, in __init__
-    from openpyxl.workbook import Workbook
-ModuleNotFoundError: No module named 'openpyxl'
-2020-05-04 21:02:27,607 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:07:13,600 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:07:18,184 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
+    plot(table,user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
+    plt.plot(df1,df2)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
+    is not None else {}), **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
+    yield from self._plot_args(this, kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
+    self.axes.yaxis.update_units(y)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
+    default = self.converter.default_units(data, self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
+    axis.set_units(UnitData(data))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
+    self.update(data)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
+    for val in OrderedDict.fromkeys(data):
+TypeError: unhashable type: 'numpy.ndarray'
+2020-05-05 03:22:22,599 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:22:37,387 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -63,28 +85,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 269, in sugar
-    table=readdb(sql_string)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in readdb
-    writer.save()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_openpyxl.py", line 43, in save
-    return self.book.save(self.path)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\workbook\workbook.py", line 392, in save
-    save_workbook(self, filename)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
-    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\zipfile.py", line 1207, in __init__
-    self.fp = io.open(file, filemode)
-PermissionError: [Errno 13] Permission denied: 'table.xlsx'
-2020-05-04 21:09:59,693 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:10:09,716 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\sql.py", line 1586, in execute
-    cur.execute(*args, **kwargs)
-sqlite3.OperationalError: no such column: current_user.id
-
-The above exception was the direct cause of the following exception:
-
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
+    plot(table,user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
+    plt.set_ylabel('скорость (м/с)')
+AttributeError: module 'matplotlib.pyplot' has no attribute 'set_ylabel'
+2020-05-05 03:26:10,514 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:28:14,499 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:28:34,105 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -100,15 +108,10 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 268, in sugar
-    table=readdb(sql_string)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 232, in readdb
-    df = pd.read_sql(sql_string, conn)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\sql.py", line 412, in read_sql
-    chunksize=chunksize,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\sql.py", line 1633, in read_query
-    cursor = self.execute(*args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\sql.py", line 1598, in execute
-    raise ex from exc
-pandas.io.sql.DatabaseError: Execution failed on sql 'select * from sugar_table where user_id=current_user.id ': no such column: current_user.id
-2020-05-04 21:27:23,862 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
+    plot(table,user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
+    plt.label('ммоль/л')
+AttributeError: module 'matplotlib.pyplot' has no attribute 'label'
+2020-05-05 03:31:02,039 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:33:40,578 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

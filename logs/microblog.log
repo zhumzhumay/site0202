@@ -1,4 +1,4 @@
-2020-05-05 05:14:37,247 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-05 21:16:20,624 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,72 +14,77 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plotf(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 30, in plotf
-    ar2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 30, in <listcomp>
-    ar2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 577, in _strptime_datetime
-    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 359, in _strptime
-    (data_string, format))
-ValueError: time data '2020-05-04 18:43:20.607767' does not match format '%Y-%m-%dT%H:%M'
-2020-05-05 05:16:22,123 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:16:32,691 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plotf(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 30, in plotf
-    ar2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 30, in <listcomp>
-    ar2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 577, in _strptime_datetime
-    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 351, in _strptime
-    (bad_directive, format)) from None
-ValueError: 's' is a bad directive in format '%Y-%m-%d %H:%M:%s.%f'
-2020-05-05 05:17:01,131 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:17:31,274 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:20:04,760 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:23:26,901 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:24:18,822 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:27:41,097 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:27:50,208 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plotf(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 37, in plotf
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 43, in plotfunc
     plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
-AttributeError: 'list' object has no attribute 'xaxis'
-2020-05-05 05:28:32,156 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:34:00,606 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:35:39,406 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+AttributeError: 'tuple' object has no attribute 'xaxis'
+2020-05-05 21:19:47,086 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:20:32,851 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:21:40,826 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:24:53,666 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:25:02,568 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1573, in convert_units
+    ret = self.converter.convert(x, self.units, self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 1921, in convert
+    return date2num(value)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 437, in date2num
+    return _to_ordinalf_np_vectorized(d)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2091, in __call__
+    return self._vectorize_call(func=func, args=vargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2161, in _vectorize_call
+    ufunc, otypes = self._get_ufunc_and_otypes(func=func, args=args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2121, in _get_ufunc_and_otypes
+    outputs = func(*inputs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 222, in _to_ordinalf
+    base = float(dt.toordinal())
+AttributeError: 'numpy.float64' object has no attribute 'toordinal'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 43, in plotfunc
+    plt.hist(df2_float,df1)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2610, in hist
+    if data is not None else {}), **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\__init__.py", line 1565, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 6581, in hist
+    bins = self.convert_xunits(bins)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\artist.py", line 178, in convert_xunits
+    return ax.xaxis.convert_units(x)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1576, in convert_units
+    f'units: {x!r}') from e
+matplotlib.units.ConversionError: Failed to convert value(s) to axis units:      mol
+0    5.0
+1    5.0
+2    5.0
+3    5.0
+4    5.0
+..   ...
+112  5.0
+113  5.0
+114  5.0
+115  5.2
+116  5.0
+
+[72 rows x 1 columns]
+2020-05-05 21:26:00,606 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:26:33,366 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

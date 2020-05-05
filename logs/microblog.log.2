@@ -1,4 +1,17 @@
-2020-05-05 03:00:59,527 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-05 19:16:15,113 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2785, in _wait_cursor_for_draw_cm
+    self.set_cursor(cursors.WAIT)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 544, in set_cursor
+    window.configure(cursor=cursord[cursor])
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1485, in configure
+    return self._configure('configure', cnf, kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1476, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+RuntimeError: main thread is not in main loop
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,24 +27,34 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plot(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 20, in plot
-    plt.show()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 272, in show
-    return _show(*args, **kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\cbook\deprecation.py", line 400, in wrapper
-    return func(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 3386, in show
-    cls.mainloop()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 907, in mainloop
-    managers[0].window.mainloop()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1283, in mainloop
-    self.tk.mainloop(n)
-RuntimeError: Calling Tcl from different apartment
-2020-05-05 03:02:45,308 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:10:20,511 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:10:28,497 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 36, in plotfunc
+    plt.savefig('D:/diplom/site02.8.02.20/out.png')
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 723, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\figure.py", line 2203, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2105, in print_figure
+    **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\backend_agg.py", line 514, in print_png
+    FigureCanvasAgg.draw(self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\backend_agg.py", line 392, in draw
+    else nullcontext()):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2788, in _wait_cursor_for_draw_cm
+    self.set_cursor(self._lastCursor)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 544, in set_cursor
+    window.configure(cursor=cursord[cursor])
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1485, in configure
+    return self._configure('configure', cnf, kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1476, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+RuntimeError: main thread is not in main loop
+2020-05-05 19:21:42,120 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 19:25:09,984 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 19:25:20,440 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -47,29 +70,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plot(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
-    plt.plot(df1,df2)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
-    is not None else {}), **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
-    lines = [*self._get_lines(*args, data=data, **kwargs)]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
-    yield from self._plot_args(this, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
-    self.axes.yaxis.update_units(y)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
-    default = self.converter.default_units(data, self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
-    axis.set_units(UnitData(data))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
-    self.update(data)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
-    for val in OrderedDict.fromkeys(data):
-TypeError: unhashable type: 'numpy.ndarray'
-2020-05-05 03:22:22,599 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:22:37,387 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 36, in plotfunc
+    plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
+AttributeError: 'list' object has no attribute 'xaxis'
+2020-05-05 19:28:57,112 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 19:42:37,661 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 19:42:50,012 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,14 +93,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plot(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
-    plt.set_ylabel('скорость (м/с)')
-AttributeError: module 'matplotlib.pyplot' has no attribute 'set_ylabel'
-2020-05-05 03:26:10,514 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:28:14,499 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:28:34,105 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 34, in plotfunc
+    xmin = xmax - 2
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2020-05-05 19:54:48,259 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 19:55:02,845 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -108,10 +115,9 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plot(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
-    plt.label('ммоль/л')
-AttributeError: module 'matplotlib.pyplot' has no attribute 'label'
-2020-05-05 03:31:02,039 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:33:40,578 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 35, in plotfunc
+    if i <= df2minsize:
+TypeError: '<=' not supported between instances of 'datetime.datetime' and 'int'
+2020-05-05 19:56:16,824 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

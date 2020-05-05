@@ -6,40 +6,47 @@ import matplotlib
 import matplotlib.dates
 import pylab
 from datetime import datetime
-def plotf(df, user_id):
 
+
+def plotfunc(df, colmn, user_id):
     matplotlib.style.use('ggplot')
+    matplotlib.use('Agg')
 
     # # подставьте ссылку на ваш файл или полный путь к файлу на вашем компьютере...
     # url = 'D:/diplom/site02.8.02.20/table.xlsx'
-    #
     # df = pd.read_excel(url, names=['mol', 'timestamp'], index_col=[1], decimal=',',
     #                  parse_dates=True, dayfirst=True)
+    plt.cla()
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
     # df1 = dfl[['timestamp', 'mol']]
-    df1 = dfl[['mol']]
+    df1 = dfl[[colmn]]
     df2=dfl[['timestamp']]
     # df1.dropna(inplace=True)
     # df2.dropna(inplace=True)
     # gfg1 = pd.DataFrame(df1['mol'])
     # gfg2 = pd.DataFrame(df2['timestamp'])
     # ar1=gfg1.to_numpy()
-
     # df1.plot()
     time_format = '%Y-%m-%d %H:%M:%S.%f'
     df2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
-    # # ar2_float = matplotlib.dates.date2num(ar2)
-    ax = pylab.subplot(1, 1, 1)
+    df2size=len(df2_float)
+    df2step=1
+    df2minsize=df2size-20 #scale
+    xmin=df2_float[df2minsize]
+    xmax=max(df2_float)
 
-
+    ax =plt.subplot(1, 1, 1)
     # pylab.plot_date(df2_float, df1, fmt="b-")
     # # plt.ylabel('ммоль/л')
     # pylab.savefig('D:/diplom/site02.8.02.20/out.png')
+    plt.figure(figsize=(17,8),dpi=500)
     plt.plot(df2_float,df1)
     plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
+    plt.xlim(xmin,xmax)
+
     plt.savefig('D:/diplom/site02.8.02.20/out.png')
     # plt.show()
-    return df1
+    return 0
 
 def readdb(sql_string):
     DB_NAME = 'app.db'

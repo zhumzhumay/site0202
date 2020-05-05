@@ -1,4 +1,4 @@
-2020-05-05 03:33:48,021 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-05 19:56:27,133 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,29 +14,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plot(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
-    plt.plot(df1, label='222')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
-    is not None else {}), **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
-    lines = [*self._get_lines(*args, data=data, **kwargs)]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
-    yield from self._plot_args(this, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
-    self.axes.yaxis.update_units(y)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
-    default = self.converter.default_units(data, self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
-    axis.set_units(UnitData(data))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
-    self.update(data)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
-    for val in OrderedDict.fromkeys(data):
-TypeError: unhashable type: 'numpy.ndarray'
-2020-05-05 03:34:59,190 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:35:12,486 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 35, in plotfunc
+    z=df2_float(i)
+TypeError: 'list' object is not callable
+2020-05-05 19:58:59,255 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 19:59:10,855 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,30 +36,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plotf(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plotf
-    plt.plot(df1, label='222')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
-    is not None else {}), **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
-    lines = [*self._get_lines(*args, data=data, **kwargs)]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
-    yield from self._plot_args(this, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
-    self.axes.yaxis.update_units(y)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
-    default = self.converter.default_units(data, self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
-    axis.set_units(UnitData(data))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
-    self.update(data)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
-    for val in OrderedDict.fromkeys(data):
-TypeError: unhashable type: 'numpy.ndarray'
-2020-05-05 03:36:16,958 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:49:01,498 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:49:19,870 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 35, in plotfunc
+    z=df2_float[i]
+TypeError: list indices must be integers or slices, not datetime.datetime
+2020-05-05 19:59:58,423 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 20:00:05,881 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -91,20 +58,50 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plotf(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 23, in plotf
-    df2_float = matplotlib.dates.date2num(df2)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 437, in date2num
-    return _to_ordinalf_np_vectorized(d)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2091, in __call__
-    return self._vectorize_call(func=func, args=vargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2161, in _vectorize_call
-    ufunc, otypes = self._get_ufunc_and_otypes(func=func, args=args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2121, in _get_ufunc_and_otypes
-    outputs = func(*inputs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 222, in _to_ordinalf
-    base = float(dt.toordinal())
-AttributeError: 'str' object has no attribute 'toordinal'
-2020-05-05 05:06:47,089 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:14:28,737 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 35, in plotfunc
+    if i <= df2minsize:
+TypeError: '<=' not supported between instances of 'datetime.datetime' and 'int'
+2020-05-05 20:01:52,570 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 20:03:49,279 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 20:08:34,299 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 20:59:21,609 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:03:38,752 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:04:38,247 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:04:49,758 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
+    plotfunc(table, colmn, user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 43, in plotfunc
+    plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1276, in get_majorticklabels
+    ticks = self.get_major_ticks()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1431, in get_major_ticks
+    numticks = len(self.get_majorticklocs())
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1348, in get_majorticklocs
+    return self.major.locator()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 1338, in __call__
+    self.refresh()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 1364, in refresh
+    dmin, dmax = self.viewlim_to_dt()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 1098, in viewlim_to_dt
+    .format(vmin))
+ValueError: view limit minimum -36877.53766733318 is less than 1 and is an invalid Matplotlib date value. This often happens if you pass a non-datetime value to an axis that has datetime units
+2020-05-05 21:13:36,657 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:13:55,387 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 21:16:07,570 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

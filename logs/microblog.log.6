@@ -1,15 +1,4 @@
-2020-05-04 21:27:33,174 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
-    return self._engine.get_loc(key)
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 5
-
-During handling of the above exception, another exception occurred:
-
+2020-05-05 03:33:48,021 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,21 +14,29 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 269, in sugar
-    table=readdb(sql_string)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 233, in readdb
-    dfi=df[current_user.id]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2800, in __getitem__
-    indexer = self.columns.get_loc(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 5
-2020-05-04 21:34:19,036 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:34:30,066 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
+    plot(table,user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
+    plt.plot(df1, label='222')
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
+    is not None else {}), **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
+    yield from self._plot_args(this, kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
+    self.axes.yaxis.update_units(y)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
+    default = self.converter.default_units(data, self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
+    axis.set_units(UnitData(data))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
+    self.update(data)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
+    for val in OrderedDict.fromkeys(data):
+TypeError: unhashable type: 'numpy.ndarray'
+2020-05-05 03:34:59,190 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:35:12,486 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -55,15 +52,30 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 269, in sugar
-    table=readdb(sql_string)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 233, in readdb
-    dfl=df(index=pd.user_id('5'))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\__init__.py", line 263, in __getattr__
-    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
-AttributeError: module 'pandas' has no attribute 'user_id'
-2020-05-04 21:40:20,094 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:40:30,004 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
+    plotf(table,user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plotf
+    plt.plot(df1, label='222')
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
+    is not None else {}), **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
+    yield from self._plot_args(this, kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
+    self.axes.yaxis.update_units(y)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
+    default = self.converter.default_units(data, self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
+    axis.set_units(UnitData(data))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
+    self.update(data)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
+    for val in OrderedDict.fromkeys(data):
+TypeError: unhashable type: 'numpy.ndarray'
+2020-05-05 03:36:16,958 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:49:01,498 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 03:49:19,870 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -79,50 +91,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 269, in sugar
-    table=readdb(sql_string)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 236, in readdb
-    writer.save()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_openpyxl.py", line 43, in save
-    return self.book.save(self.path)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\workbook\workbook.py", line 392, in save
-    save_workbook(self, filename)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
-    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\zipfile.py", line 1207, in __init__
-    self.fp = io.open(file, filemode)
-PermissionError: [Errno 13] Permission denied: 'table.xlsx'
-2020-05-04 21:42:14,897 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:43:54,851 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:45:17,819 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:46:28,944 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-04 21:47:16,784 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 270, in sugar
-    table=readdb(sql_string, user_id)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 236, in readdb
-    writer.save()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_openpyxl.py", line 43, in save
-    return self.book.save(self.path)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\workbook\workbook.py", line 392, in save
-    save_workbook(self, filename)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
-    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\zipfile.py", line 1207, in __init__
-    self.fp = io.open(file, filemode)
-PermissionError: [Errno 13] Permission denied: 'table.xlsx'
-2020-05-04 21:54:30,628 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
+    plotf(table,user_id)
+  File "D:\diplom\site02.8.02.20\app\main\func.py", line 23, in plotf
+    df2_float = matplotlib.dates.date2num(df2)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 437, in date2num
+    return _to_ordinalf_np_vectorized(d)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2091, in __call__
+    return self._vectorize_call(func=func, args=vargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2161, in _vectorize_call
+    ufunc, otypes = self._get_ufunc_and_otypes(func=func, args=args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2121, in _get_ufunc_and_otypes
+    outputs = func(*inputs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 222, in _to_ordinalf
+    base = float(dt.toordinal())
+AttributeError: 'str' object has no attribute 'toordinal'
+2020-05-05 05:06:47,089 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-05 05:14:28,737 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

@@ -4,7 +4,7 @@ from flask import render_template, flash, redirect, url_for, request, g, current
 from flask_login import current_user, login_required
 from app import db
 from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
-from app.main.func import eatf, instypef, readdb, plotf, writexls
+from app.main.func import eatf, instypef, readdb, plotfunc, writexls
 from app.models import User, Post, Message, Notification, SugarTable, InsulinTable
 from flask_babel import _, get_locale
 from app.auth import bp
@@ -210,6 +210,7 @@ def sugar(username):
             dose = request.form.get('dose', False)
             type = request.form.get('instype', False)
             sql_string = 'select * from insulin_table '
+            colmn='dose'
             food = eatf(eat)
             insulin=instypef(type)
             if time:
@@ -222,6 +223,7 @@ def sugar(username):
             time = request.form.get('timesug', False)
             mol = request.form.get('mol', False)
             sql_string = 'select * from sugar_table'
+            colmn='mol'
             food = eatf(eat)
             if time:
                 timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
@@ -232,8 +234,9 @@ def sugar(username):
     db.session.commit()
     table= readdb(sql_string)
     writexls(table, user_id)
-    plotf(table,user_id)
+    plotfunc(table, colmn, user_id)
     flash(_('Your notes have been saved.'))
+
     return redirect(url_for('auth.user', username=username))
 
 
