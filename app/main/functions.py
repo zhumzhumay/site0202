@@ -86,3 +86,32 @@ def foodfunc(form):
     db.session.commit()
     return flash(_('Your changes have been saved.'))
 
+def fordoc(user_id):
+    # user_id=current_user.id
+    sql_string = 'select * from followers'
+    bd=readdb(sql_string)
+    dfl = bd.loc[lambda df: df['follower_id'] == user_id, :]
+    # docnote = dfl[['followed_id']]
+    return dfl
+
+def names (docb):
+    docb = docb.followed_id
+    rdb = readdb('select * from user')
+    j=0
+    pcntnote = []
+    for i in docb:
+        j = j+1
+        username = rdb.loc[i, 'username']
+        name = rdb.loc[i, 'full_name']
+        dt = rdb.loc[i, 'diatype']
+        age = rdb.loc[i, 'age']
+        w = rdb.loc[i,'weight']
+        k = (username, j, name, dt, age, w)
+        pcntnote.append(k)
+
+    return pcntnote
+# def docpacnt (user_id):
+#     sql_string = 'select * from user'
+#     bd = readdb(sql_string)
+#     dfl = bd.loc[lambda df: df['user_id'] == user_id, :]
+#     return dfl

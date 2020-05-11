@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 import sqlite3
 from datetime import datetime
-from app.main.functions import sugarfunc, foodfunc, insfunc
+from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify
 from flask_login import current_user, login_required
 from app import db
 from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm, SugarForm, FoodForm, InsulinForm
-#from app.main.func import eatf, instypef, readdb, plotfunc, writexls, fordoc, sescommit, print_food, food_drop
 from app.models import User, Post, Message, Notification, SugarTable, InsulinTable, FoodDatatable
 from flask_babel import _, get_locale
 from app.auth import bp
@@ -71,18 +70,24 @@ def explore():
 @bp.route('/user/<username>', methods=['GET', 'POST']) #### here
 @login_required
 def user(username):
+    user_id = current_user.id
     formsug=SugarForm()
     formfood=FoodForm()
     formins = InsulinForm()
+    #name = 'sus'
+    if current_user.doctor == 0:
+        if request.method == 'POST':
+            if request.form['submit'] == 'sugar':
+                sugarfunc(formsug)
+            elif request.form['submit'] == 'food':
+                foodfunc(formfood)
+            elif request.form['submit'] == 'insulin':
+                insfunc(formins)
+            return redirect(url_for('auth.user', username=username))
+    else:
+        docb = fordoc(user_id)
+        pcntnote = names(docb)
 
-    if request.method == 'POST':
-       if request.form['submit'] == 'sugar':
-           sugarfunc(formsug)
-       elif request.form['submit'] == 'food':
-           foodfunc(formfood)
-       elif request.form['submit'] == 'insulin':
-           insfunc(formins)
-       return redirect(url_for('auth.user', username=username))
 
     user = User.query.filter_by(username=username).first_or_404()
 
@@ -95,7 +100,7 @@ def user(username):
                        page=posts.prev_num) if posts.has_prev else None
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url, formsug=formsug,
-                           formfood=formfood, formins=formins)
+                           formfood=formfood, formins=formins, FIO=pcntnote)
 
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])

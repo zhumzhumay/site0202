@@ -12,18 +12,8 @@ from flask_babel import _
 from app import db
 
 
-def readdb(sql_string):
-    DB_NAME = 'app.db'
-    conn = sqlite3.connect(DB_NAME)
-    df = pd.read_sql(sql_string, conn)
-    return df
 
-def fordoc(user_id):
-    sql_string = 'select * from followers'
-    bd=readdb(sql_string)
-    dfl = bd.loc[lambda df: df['follower_id'] == user_id, :]
-    docnote = dfl[['followed_id']]
-    return docnote
+
 
 
 

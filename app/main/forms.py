@@ -5,7 +5,6 @@ from wtforms.fields.html5 import DateTimeLocalField, DecimalField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Length, Email
 from flask_babel import _, lazy_gettext as _l
 import datetime
-from app.main.func import readdb
 from app.models import User, FoodDatatable
 from decimal import ROUND_HALF_UP, ROUND_FLOOR
 

@@ -2,24 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648e1333-28da-450a-a9c9-648e52a43a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/aiman.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/main/functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/1sugar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/_food.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/exceldb.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/func.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/_doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/_insulin.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_insulin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/_sugar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_sugar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_patient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.10" afterDir="false" />
@@ -31,8 +21,6 @@
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.png" beforeDir="false" afterPath="$PROJECT_DIR$/out.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/table.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -285,7 +273,7 @@
       <workItem from="1589123752104" duration="6399000" />
       <workItem from="1589131145375" duration="22380000" />
       <workItem from="1589159759943" duration="5059000" />
-      <workItem from="1589165035224" duration="8553000" />
+      <workItem from="1589165035224" duration="17405000" />
     </task>
     <servers />
   </component>

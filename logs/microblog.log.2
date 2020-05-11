@@ -1,4 +1,15 @@
-2020-05-11 07:38:51,051 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-11 18:22:58,152 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'user_id'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,13 +25,31 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 80, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 51, in sugarfunc
-    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-TypeError: strptime() argument 1 must be str, not datetime.datetime
-2020-05-11 07:39:47,814 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:39:55,172 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
+    pcntname = rdb.loc[docb,'user_id']
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
+    return self._getitem_tuple(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
+    section = self._getitem_axis(key, axis=i)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
+    return self._get_label(key, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
+    return self.obj._xs(label, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3529, in xs
+    return self[key]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2800, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'user_id'
+2020-05-11 18:25:03,431 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 18:25:12,674 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -36,61 +65,17 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 80, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 51, in sugarfunc
-    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-TypeError: strptime() argument 1 must be str, not datetime.datetime
-2020-05-11 07:40:18,403 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 80, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 51, in sugarfunc
-    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-TypeError: strptime() argument 1 must be str, not datetime.datetime
-2020-05-11 07:40:42,585 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:41:01,009 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 80, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 51, in sugarfunc
-    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-TypeError: strptime() argument 1 must be str, not datetime.datetime
-2020-05-11 07:41:32,890 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:44:51,961 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:45:35,456 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:47:03,012 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:47:35,655 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:49:20,221 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:51:53,019 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:52:40,129 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:54:35,093 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:55:25,094 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
+    pcntname = rdb.loc[docb,'username']
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
+    return self._getitem_tuple(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1421, in _getitem_lowerdim
+    return getattr(section, self.name)[new_key]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1768, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1952, in _getitem_axis
+    raise ValueError("Cannot index with multidimensional key")
+ValueError: Cannot index with multidimensional key
+2020-05-11 18:36:37,595 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

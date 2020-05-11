@@ -101,7 +101,11 @@ class User(UserMixin, SearchableMixin, db.Model):                               
     food = db.relationship('FoodTable', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     doctor = db.Column(db.Integer)                                                 #new
-    weight = db.Column(db.Integer)                                                  #new
+    weight = db.Column(db.Integer)
+    diatype = db.Column(db.String(140))#new
+    age = db.Column(db.Integer)
+    full_name = db.Column(db.String(140))
+    date_of_birth = db.Column(db.Date)
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
         'User', secondary=followers,

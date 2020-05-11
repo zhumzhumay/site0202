@@ -5,18 +5,39 @@
             <button class="btn btn-primary" type="button" data-toggle="collapse"
                     data-target="#patients" aria-expanded="false" aria-controls="patients">
                 patients</button>
-
         </p>
+
+
 
         <div class="card card-block">
             <div class="collapse" id="patients">
-                 <ul class="nav nav-tabs">
-                     {% for i in docnote %}
-                     <li>{{ i }}</li>
-                     {% empty %}
-                     <li>Sorry, no athletes in this list.</li>
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Тип диабета</th>
+      <th scope="col">Возраст</th>
+      <th scope="col">Вес</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for username, j, name, dt, age, w in FIO %}
+            <tr>
+                <td>{{ j }}</td>
+                <th scope="col">  <p><a href="{{ url_for('auth.user', username=username) }}">{{ name }}</a></p></th>
+                <td>{{ dt }}</td>
+                <td>{{ age }}</td>
+                <td>{{ w }}</td>
+            </tr>
                      {% endfor %}
-                 </ul>
+
+
+  </tbody>
+</table>
+
+
             </div>
 
 
