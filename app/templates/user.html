@@ -8,7 +8,6 @@
                 {% if user.doctor==1 %} <h1>{{ _('Doctor') }}: {{ user.username }}</h1>
                 {% else %} <h1>{{ _('Patient') }}: {{ user.username }}</h1>{% endif %}
 
-
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
 
                 {% if user.last_seen %}
@@ -18,7 +17,7 @@
                 <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
 
 
-                {% if user.doctor == 1 %}
+                {% if user.doctor == 1 or current_user.doctor == 1 %}
                       {% if user == current_user %}
                          <p><a href="{{ url_for('auth.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
 
@@ -45,9 +44,9 @@
     </table>
      {% if current_user.doctor==1 %}
              {% if user.doctor == 1 %} {% include '_doc.html' %}
-             {% else %} {% include 'patient.html' %} {% endif %}
+             {% else %} {% include '_patient.html' %} {% endif %}
      {% else %}
-           {% if user == current_user %} {% include 'patient.html' %}
+           {% if user == current_user %} {% include '_patient.html' %}
            {% else %} <h1>{{ _('U can not see this page') }}</h1> {% endif %}{% endif %}
 
 

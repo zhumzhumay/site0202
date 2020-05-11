@@ -1,0 +1,10 @@
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <form action="" method="post">
+        <p>{{ formfood.eat }}</p>
+        <p>   {{ formfood.time }}</p>
+        <button type="submit" class="btn btn-primary" name="submit" value="food">Submit</button>
+</form>
+{% endblock %}

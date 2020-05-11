@@ -1,52 +1,16 @@
-2020-05-05 02:11:56,652 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-11 05:41:37,782 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 234, in sugar
-    plot()
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 15, in plot
-    parse_dates=True, dayfirst=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_base.py", line 334, in read_excel
-    **kwds,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_base.py", line 888, in parse
-    **kwds,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\excel\_base.py", line 512, in parse
-    **kwds,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\parsers.py", line 2201, in TextParser
-    return TextFileReader(*args, **kwds)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\parsers.py", line 880, in __init__
-    self._make_engine(self.engine)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\parsers.py", line 1126, in _make_engine
-    self._engine = klass(self.f, **self.options)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\parsers.py", line 2286, in __init__
-    ) = self._infer_columns()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\parsers.py", line 2641, in _infer_columns
-    "Number of passed names did not match "
-ValueError: Number of passed names did not match number of header fields in the file
-2020-05-05 02:26:46,920 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 02:26:56,723 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
-    return self._engine.get_loc(key)
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'user_id'
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\processors.py", line 109, in to_float
+    return float(value)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\series.py", line 112, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+TypeError: cannot convert the series to <class 'float'>
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
@@ -63,54 +27,59 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    p=writexls(column, user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 28, in writexls
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1756, in __getitem__
-    key = tuple(com.apply_if_callable(x, self.obj) for x in key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1756, in <genexpr>
-    key = tuple(com.apply_if_callable(x, self.obj) for x in key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\common.py", line 343, in apply_if_callable
-    return maybe_callable(obj, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 28, in <lambda>
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2800, in __getitem__
-    indexer = self.columns.get_loc(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'user_id'
-2020-05-05 02:35:15,929 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 02:36:46,601 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 02:44:47,867 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 02:46:25,766 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 02:48:42,080 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 02:53:49,628 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 02:59:11,113 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:00:17,276 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 43, in foodfunc
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
+    self._prepare_impl()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
+    self.session.flush()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2479, in flush
+    self._flush(objects)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2617, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 227, in sugar
-    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 577, in _strptime_datetime
-    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 362, in _strptime
-    data_string[found.end():])
-ValueError: unconverted data remains: :02
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2577, in _flush
+    flush_context.execute()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
+    uow,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 245, in save_obj
+    insert,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1137, in _emit_insert_statements
+    statement, params
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1176, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\processors.py", line 109, in to_float
+    return float(value)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\series.py", line 112, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+sqlalchemy.exc.StatementError: (builtins.TypeError) cannot convert the series to <class 'float'>
+[SQL: INSERT INTO food_table (food, timestamp, user_id, protein, fats, carbohydrates) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: [{'protein': Series([], Name: protein, dtype: float64), 'user_id': 5, 'food': Series([], Name: food, dtype: string), 'carbohydrates': Series([], Name: carbohydrates, dtype: float64), 'fats': Series([], Name: fats, dtype: float64)}]]
+2020-05-11 05:45:13,282 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

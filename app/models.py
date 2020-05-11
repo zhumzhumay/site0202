@@ -98,6 +98,7 @@ class User(UserMixin, SearchableMixin, db.Model):                               
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     sugar = db.relationship('SugarTable', backref='author', lazy='dynamic')             #new
     insulin = db.relationship('InsulinTable', backref='author', lazy='dynamic')
+    food = db.relationship('FoodTable', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     doctor = db.Column(db.Integer)                                                 #new
     weight = db.Column(db.Integer)                                                  #new
@@ -240,3 +241,20 @@ class Notification(db.Model):
 
     def get_data(self):
         return json.loads(str(self.payload_json))
+
+class FoodDatatable(db.Model):
+    index = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(140))
+    food = db.Column(db.String(140))
+    protein = db.Column(db.Float)
+    fats = db.Column(db.Float)
+    carbohydrates = db.Column(db.Float)
+
+class FoodTable (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    food = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    protein = db.Column(db.Float)
+    fats = db.Column(db.Float)
+    carbohydrates = db.Column(db.Float)

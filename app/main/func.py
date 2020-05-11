@@ -1,4 +1,5 @@
-
+from flask import flash
+from flask_login import current_user
 import pandas as pd
 import sqlite3
 import matplotlib.pyplot as plt
@@ -6,6 +7,24 @@ import matplotlib
 import matplotlib.dates
 import pylab
 from datetime import datetime
+import html
+from flask_babel import _
+from app import db
+
+
+def readdb(sql_string):
+    DB_NAME = 'app.db'
+    conn = sqlite3.connect(DB_NAME)
+    df = pd.read_sql(sql_string, conn)
+    return df
+
+def fordoc(user_id):
+    sql_string = 'select * from followers'
+    bd=readdb(sql_string)
+    dfl = bd.loc[lambda df: df['follower_id'] == user_id, :]
+    docnote = dfl[['followed_id']]
+    return docnote
+
 
 
 def plotfunc(df, colmn, user_id):
@@ -21,38 +40,28 @@ def plotfunc(df, colmn, user_id):
     # df1 = dfl[['timestamp', 'mol']]
     df1 = dfl[[colmn]]
     df2=dfl[['timestamp']]
-    # df1.dropna(inplace=True)
-    # df2.dropna(inplace=True)
-    # gfg1 = pd.DataFrame(df1['mol'])
-    # gfg2 = pd.DataFrame(df2['timestamp'])
-    # ar1=gfg1.to_numpy()
-    # df1.plot()
     time_format = '%Y-%m-%d %H:%M:%S.%f'
     df2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
     df2size=len(df2_float)
-    df2step=1
-    df2minsize=df2size-20 #scale
-    xmin=df2_float[df2minsize]
-    xmax=max(df2_float)
+    # df2step=1
+    # df2minsize=df2size-5 #scale
+    # xmin=df2_float[df2minsize]
+    # xmax=max(df2_float)
 
     ax =plt.subplot(1, 1, 1)
     # pylab.plot_date(df2_float, df1, fmt="b-")
     # # plt.ylabel('ммоль/л')
     # pylab.savefig('D:/diplom/site02.8.02.20/out.png')
     plt.figure(figsize=(17,8),dpi=500)
-    plt.plot(df2_float,df1)
+    plt.plot_date(df2_float,df1)
     plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
-    plt.xlim(xmin,xmax)
+    # plt.xlim(xmin,xmax)
+
 
     plt.savefig('D:/diplom/site02.8.02.20/out.png')
     # plt.show()
     return 0
 
-def readdb(sql_string):
-    DB_NAME = 'app.db'
-    conn = sqlite3.connect(DB_NAME)
-    df = pd.read_sql(sql_string, conn)
-    return df
 
 def writexls(df, user_id):
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
@@ -63,30 +72,13 @@ def writexls(df, user_id):
 
 
 
-def eatf(eat):
-    ch = 'no data'
-    if eat == '1':
-        ch = 'После завтрака'
-    elif eat == '2': \
-            ch = 'После обеда'
-    elif eat == '3':
-        ch = 'После ужина'
-    elif eat == '4':
-        ch = 'Дополнительно'
-    elif eat == '5':
-        ch = 'При родах'
-    elif eat == '6':
-        ch = 'Натощак'
-    return ch
 
-def instypef(type):
-    if type == '1':
-        ih = 'Ультракороткий'
-    elif type == '2':
-        ih = 'Короткий'
-    elif type == '3':
-        ih = 'Левимир'
-    elif type == '4':
-        ih = 'Пролонгированный'
-    return ih
+
+def sescommit(note, sql_string, colmn, user_id):
+    db.session.add(note)
+    db.session.commit()
+    table = readdb(sql_string)
+    writexls(table, user_id)
+    plotfunc(table, colmn, user_id)
+    flash(_('Your notes have been saved.'))
 

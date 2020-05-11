@@ -1,4 +1,14 @@
-2020-05-05 03:33:48,021 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-11 06:32:24,861 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: '20'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,29 +24,40 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plot(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plot
-    plt.plot(df1, label='222')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
-    is not None else {}), **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
-    lines = [*self._get_lines(*args, data=data, **kwargs)]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
-    yield from self._plot_args(this, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
-    self.axes.yaxis.update_units(y)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
-    default = self.converter.default_units(data, self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
-    axis.set_units(UnitData(data))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
-    self.update(data)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
-    for val in OrderedDict.fromkeys(data):
-TypeError: unhashable type: 'numpy.ndarray'
-2020-05-05 03:34:59,190 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:35:12,486 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 33, in foodfunc
+    food = dfl[['food']].loc[index,'food']
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
+    return self._getitem_tuple(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
+    section = self._getitem_axis(key, axis=i)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
+    return self._get_label(key, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
+    return self.obj._xs(label, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
+    loc = self.index.get_loc(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: '20'
+2020-05-11 06:33:15,543 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 06:33:36,713 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: '19'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,59 +73,26 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plotf(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 19, in plotf
-    plt.plot(df1, label='222')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 2763, in plot
-    is not None else {}), **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_axes.py", line 1646, in plot
-    lines = [*self._get_lines(*args, data=data, **kwargs)]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 216, in __call__
-    yield from self._plot_args(this, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axes\_base.py", line 339, in _plot_args
-    self.axes.yaxis.update_units(y)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\axis.py", line 1516, in update_units
-    default = self.converter.default_units(data, self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 107, in default_units
-    axis.set_units(UnitData(data))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 175, in __init__
-    self.update(data)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\category.py", line 210, in update
-    for val in OrderedDict.fromkeys(data):
-TypeError: unhashable type: 'numpy.ndarray'
-2020-05-05 03:36:16,958 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:49:01,498 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 03:49:19,870 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 235, in sugar
-    plotf(table,user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 23, in plotf
-    df2_float = matplotlib.dates.date2num(df2)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 437, in date2num
-    return _to_ordinalf_np_vectorized(d)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2091, in __call__
-    return self._vectorize_call(func=func, args=vargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2161, in _vectorize_call
-    ufunc, otypes = self._get_ufunc_and_otypes(func=func, args=args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\numpy\lib\function_base.py", line 2121, in _get_ufunc_and_otypes
-    outputs = func(*inputs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\dates.py", line 222, in _to_ordinalf
-    base = float(dt.toordinal())
-AttributeError: 'str' object has no attribute 'toordinal'
-2020-05-05 05:06:47,089 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 05:14:28,737 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 33, in foodfunc
+    food = dfl[['food']].loc[index,'food']
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
+    return self._getitem_tuple(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
+    section = self._getitem_axis(key, axis=i)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
+    return self._get_label(key, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
+    return self.obj._xs(label, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
+    loc = self.index.get_loc(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: '19'
+2020-05-11 06:35:38,361 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

@@ -7,37 +7,11 @@
 <body>
 
     <form action="" method="post" name="insulin">
-         <div class="form-row align-items-center"><label class="mr-sm-2" for="inseat">Запись об инъекции инсулина</label>
-    <div class="col-auto my-1">
-
-      <select class="custom-select custom-select-lg mb-3" name="inseat" id="inseat">
-        <option  selected>прием пищи</option>
-        <option value="1">После завтрака</option>
-        <option value="2">После обеда</option>
-        <option value="3">После ужина</option>
-        <option value="4">Дополнительно</option>
-        <option value="5">При родах</option>
-        <option value="6">Натощак</option>
-      </select>
-        <input type="datetime-local" size="1" name="timeins"  step="1" >
-    </div>
-             <div class="col-auto my-1">
-                 <select class="custom-select custom-select-lg mb-3" name="instype" id="instype">
-        <option value="1"selected>Ультракороткий</option>
-        <option value="2">Короткий</option>
-        <option value="3">Левимир</option>
-        <option value="4">Пролонгированный</option>
-      </select>
-             </div>
-             <div class="col-auto my-1">
-             <input type="number" size="3" name="dose" min="1" max="40" step="1" value="5" id="dose">
-                 <label class="mr-sm-2" for="dose">ед.</label>
-             </div>
-
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary" name="submit" value="ins">Submit</button>
-    </div>
-  </div>
+        <p> {{ formins.eat }}</p>
+        <p>{{ formins.time }}</p>
+        <p>{{ formins.dose(min="1", max="40", step ='1')}}</p>
+        <p> {{ formins.ins }}</p>
+        <button type="submit" class="btn btn-primary" name="submit" value="insulin">Submit</button>
     </form>
 
 </body>

@@ -1,18 +1,37 @@
- <table class="table table-hover">
+<table class="table table-hover">
   <tr>
-    <td width="70px">
-        <ul class="nav justify-content-center">
-            <ul class="nav nav-tabs">
-                 <li class="item">
-                     <a class="navbar-link" href="{{ url_for('auth.edit_profile') }}"> edit </a>
-                     <a class="navbar-link" href="{{ url_for('auth.edit_profile') }}"> edit2 </a>
-                 </li>
-            </ul>
-        </ul>
+    <td width="70px"> <!-- must have для полосы-->
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                    data-target="#patients" aria-expanded="false" aria-controls="patients">
+                patients</button>
+
+        </p>
+
+        <div class="card card-block">
+            <div class="collapse" id="patients">
+                 <ul class="nav nav-tabs">
+                     {% for i in docnote %}
+                     <li>{{ i }}</li>
+                     {% empty %}
+                     <li>Sorry, no athletes in this list.</li>
+                     {% endfor %}
+                 </ul>
+            </div>
+
+
+        </div>
 
     </td>
   </tr>
 </table>
+
+
+
+
+
+
+
 
 <!--<script>
     $('#product a').click(function (e){

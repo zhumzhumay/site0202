@@ -1,17 +1,4 @@
-2020-05-05 18:11:15,735 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2785, in _wait_cursor_for_draw_cm
-    self.set_cursor(cursors.WAIT)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 544, in set_cursor
-    window.configure(cursor=cursord[cursor])
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1485, in configure
-    return self._configure('configure', cnf, kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1476, in _configure
-    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
-RuntimeError: main thread is not in main loop
-
-During handling of the above exception, another exception occurred:
-
+2020-05-11 07:18:13,432 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -27,46 +14,47 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
-    plotf(table, colmn, user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 36, in plotf
-    plt.savefig('D:/diplom/site02.8.02.20/out.png')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 723, in savefig
-    res = fig.savefig(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\figure.py", line 2203, in savefig
-    self.canvas.print_figure(fname, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2105, in print_figure
-    **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\backend_agg.py", line 514, in print_png
-    FigureCanvasAgg.draw(self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\backend_agg.py", line 392, in draw
-    else nullcontext()):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\contextlib.py", line 112, in __enter__
-    return next(self.gen)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2788, in _wait_cursor_for_draw_cm
-    self.set_cursor(self._lastCursor)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 544, in set_cursor
-    window.configure(cursor=cursord[cursor])
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1485, in configure
-    return self._configure('configure', cnf, kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1476, in _configure
-    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
-RuntimeError: main thread is not in main loop
-2020-05-05 19:12:45,966 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-05 19:13:22,726 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2785, in _wait_cursor_for_draw_cm
-    self.set_cursor(cursors.WAIT)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 544, in set_cursor
-    window.configure(cursor=cursord[cursor])
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1485, in configure
-    return self._configure('configure', cnf, kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1476, in _configure
-    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
-RuntimeError: main thread is not in main loop
-
-During handling of the above exception, another exception occurred:
-
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 99, in user
+    formfood=formfood, formins=formins)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
+    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 29, in root
+    {% include '_navigation.html' %}
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 14, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 26, in block_app_content
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 630, in _fail_with_undefined_error
+    raise self._undefined_exception(hint)
+jinja2.exceptions.UndefinedError: 'app.main.forms.SugarForm object' has no attribute 'submit'
+2020-05-11 07:20:16,503 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 07:20:18,926 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -82,29 +70,45 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 237, in sugar
-    plotf(table, colmn, user_id)
-  File "D:\diplom\site02.8.02.20\app\main\func.py", line 36, in plotf
-    plt.savefig('D:/diplom/site02.8.02.20/out.png')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py", line 723, in savefig
-    res = fig.savefig(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\figure.py", line 2203, in savefig
-    self.canvas.print_figure(fname, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2105, in print_figure
-    **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\backend_agg.py", line 514, in print_png
-    FigureCanvasAgg.draw(self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\backend_agg.py", line 392, in draw
-    else nullcontext()):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\contextlib.py", line 112, in __enter__
-    return next(self.gen)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py", line 2788, in _wait_cursor_for_draw_cm
-    self.set_cursor(self._lastCursor)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\_backend_tk.py", line 544, in set_cursor
-    window.configure(cursor=cursord[cursor])
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1485, in configure
-    return self._configure('configure', cnf, kw)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\tkinter\__init__.py", line 1476, in _configure
-    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
-RuntimeError: main thread is not in main loop
-2020-05-05 19:15:56,534 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 99, in user
+    formfood=formfood, formins=formins)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
+    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 33, in root
+    </div>
+  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 15, in root
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 630, in _fail_with_undefined_error
+    raise self._undefined_exception(hint)
+jinja2.exceptions.UndefinedError: 'app.main.forms.SugarForm object' has no attribute 'dose'
+2020-05-11 07:21:03,126 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 07:22:44,487 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 07:38:11,615 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 07:38:22,810 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

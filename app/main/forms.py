@@ -1,9 +1,14 @@
 from flask import request
 from flask_wtf import FlaskForm, widgets
-from wtforms import StringField, SubmitField, TextAreaField, SelectField, SelectMultipleField
+from wtforms import StringField, SubmitField, TextAreaField, SelectField, SelectMultipleField, FloatField, BooleanField
+from wtforms.fields.html5 import DateTimeLocalField, DecimalField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Length, Email
 from flask_babel import _, lazy_gettext as _l
-from app.models import User
+import datetime
+from app.main.func import readdb
+from app.models import User, FoodDatatable
+from decimal import ROUND_HALF_UP, ROUND_FLOOR
+
 #import cgi               #new
 
 class SearchForm(FlaskForm):
@@ -35,36 +40,37 @@ class EditProfileForm(FlaskForm):
 
 
 
-
-
 class PostForm(FlaskForm):
     post = TextAreaField(_l('Say something'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
-
-
-
-
 
 class MessageForm(FlaskForm):
     message = TextAreaField(_l('Message'), validators=[
         DataRequired(), Length(min=0, max=140)])
     submit = SubmitField(_l('Submit'))
 
+ch =[('0', 'Натощак'), ('1', 'После завтрака'),
+                                              ('2', 'После обеда'), ('3', 'После ужина'),
+                                              ('4', 'Дополнительно'), ('5', 'При родах')]
+class SugarForm(FlaskForm):
+    eat = SelectField(u'Прием пищи', choices=ch, validators=[DataRequired()])
+    time=DateTimeLocalField(label='Время приема пищи',format='%Y-%m-%dT%H:%M')
+    mol = DecimalField(label='ммоль/л', default=5, validators=[DataRequired()])
+    #submit = SubmitField(u'sugar')
 
-# class SugarForm(FlaskForm):
-#     eat = SelectField(u'Прием пищи', choices=[('0', 'Натощак'), ('1', 'После завтрака'),
-#                                               ('2', 'После обеда'), ('3', 'После ужина'),
-#                                               ('4', 'Дополнительно'), ('5', 'При родах')])
-#     submit = SubmitField(_l('Submit'))
-#
-#
-# class RebootForm(FlaskForm):
-#     all_selected = SelectMultipleField('Select All',  choices=[('0', 'Натощак'), ('1', 'После завтрака'),
-#                                               ('2', 'После обеда'), ('3', 'После ужина'),
-#                                               ('4', 'Дополнительно'), ('5', 'При родах')])
-#     available = SelectMultipleField('Available',  choices=[('0', 'Натощак'), ('1', 'После завтрака'),
-#                                               ('2', 'После обеда'), ('3', 'После ужина'),
-#                                               ('4', 'Дополнительно'), ('5', 'При родах')])
-#     availableNR = SelectMultipleField('Available Net Relays',  choices=[('0', 'Натощак'), ('1', 'После завтрака'),
-#                                               ('2', 'После обеда'), ('3', 'После ужина'),
-#                                               ('4', 'Дополнительно'), ('5', 'При родах')])
+class FoodForm(FlaskForm):
+    eat = SelectField()
+    time = DateTimeLocalField(label='Время приема пищи', format='%Y-%m-%dT%H:%M')
+    #submit = SubmitField('Submit')
+    def __init__(self):
+        super(FoodForm, self).__init__()
+        self.eat.choices = [(c.index, c.food) for c in FoodDatatable.query.all()]
+
+class InsulinForm(FlaskForm):
+    eat = SelectField(u'Прием пищи', choices=ch, validators=[DataRequired()])
+    time=DateTimeLocalField(label='Время приема пищи',format='%Y-%m-%dT%H:%M')
+    dose = IntegerField(label='ед.', default=5, validators=[DataRequired()])
+    ins = SelectField(u'Инсулин', choices=[('1', 'Ультракороткий'),
+                                              ('2', 'Короткий'), ('3', 'Левимир'),
+                                              ('4', 'Пролонгированный')], validators=[DataRequired()])
+
