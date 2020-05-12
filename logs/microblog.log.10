@@ -1,14 +1,4 @@
-2020-05-11 06:37:37,173 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
-    return self._engine.get_loc(key)
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: '20'
-
-During handling of the above exception, another exception occurred:
-
+2020-05-11 07:55:27,648 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -24,86 +14,70 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
-    foodfunc(formfood)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 33, in foodfunc
-    food = df.loc[ind,'food']
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
-    return self._getitem_tuple(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
-    return self._getitem_lowerdim(tup)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
-    section = self._getitem_axis(key, axis=i)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
-    return self._get_label(key, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
-    return self.obj._xs(label, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
-    loc = self.index.get_loc(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\range.py", line 353, in get_loc
-    return super().get_loc(key, method=method, tolerance=tolerance)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: '20'
-2020-05-11 06:39:32,461 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 06:44:12,027 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 06:51:11,904 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 06:51:43,893 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
-    return self._engine.get_loc(key)
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: '82'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 98, in user
+    formfood=formfood, formins=formins)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
-    foodfunc(formfood)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 37, in foodfunc
-    food = df.loc[ind,'food']
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
-    return self._getitem_tuple(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
-    return self._getitem_lowerdim(tup)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
-    section = self._getitem_axis(key, axis=i)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
-    return self._get_label(key, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
-    return self.obj._xs(label, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
-    loc = self.index.get_loc(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\range.py", line 353, in get_loc
-    return super().get_loc(key, method=method, tolerance=tolerance)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: '82'
-2020-05-11 06:52:26,752 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 06:55:27,492 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 06:57:16,249 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 06:59:58,065 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:00:49,964 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 07:18:09,936 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 5, in template
+    {{ wtf.quick_form(formsug) <button type="submit" class="btn btn-primary" name="submit" value="sugar">Submit</button>}}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
+    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 28, in root
+    {% endfor %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 5, in template
+    {{ wtf.quick_form(formsug) <button type="submit" class="btn btn-primary" name="submit" value="sugar">Submit</button>}}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 876, in subparse
+    self.stream.expect('variable_end')
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\lexer.py", line 384, in expect
+    self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got 'type'
+2020-05-11 08:02:04,517 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 08:03:37,378 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 08:05:27,246 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 08:06:39,977 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

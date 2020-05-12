@@ -104,6 +104,7 @@ class User(UserMixin, SearchableMixin, db.Model):                               
     weight = db.Column(db.Integer)
     diatype = db.Column(db.String(140))#new
     age = db.Column(db.Integer)
+    kkal = db.Column(db.Float)
     full_name = db.Column(db.String(140))
     date_of_birth = db.Column(db.Date)
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
@@ -156,6 +157,7 @@ class User(UserMixin, SearchableMixin, db.Model):                               
                 followers.c.follower_id == self.id)
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
+
 
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(

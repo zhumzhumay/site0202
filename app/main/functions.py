@@ -7,9 +7,11 @@ from app import db
 from app.main.forms import SugarForm
 from datetime import timedelta,datetime
 import pandas as pd
-from app.models import SugarTable, InsulinTable, FoodTable
+from app.models import SugarTable, InsulinTable, FoodTable, Message, User, followers
+
 
 def priem(eat):
+    ch = 'no data'
     if eat == '1':
         ch = 'Завтрак'
     elif eat == '2':
@@ -37,15 +39,16 @@ def eatf(eat):
     return ch
 
 def instypef(type):
+    ch = 'no data'
     if type == '1':
-        ih = 'Ультракороткий'
+        ch = 'Ультракороткий'
     elif type == '2':
-        ih = 'Короткий'
+        ch = 'Короткий'
     elif type == '3':
-        ih = 'Левимир'
+        ch = 'Левимир'
     elif type == '4':
-        ih = 'Пролонгированный'
-    return ih
+        ch = 'Пролонгированный'
+    return ch
 
 def readdb(sql_string):
     DB_NAME = 'app.db'
@@ -82,9 +85,9 @@ def insfunc(form):
     ins = instypef(form.ins.data)
     if time:
         # timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-        note = InsulinTable(eat=eat, insulin=ins, user_id=current_user.id, dose=form.mol.data, timestamp=time)
+        note = InsulinTable(eat=eat, insulin=ins, user_id=current_user.id, dose=form.dose.data, timestamp=time)
     else:
-        note = InsulinTable(eat=eat,insulin=ins, user_id=current_user.id, dose=form.mol.data)
+        note = InsulinTable(eat=eat,insulin=ins, user_id=current_user.id, dose=form.dose.data)
     db.session.add(note)
     db.session.commit()
     return flash(_('Your changes have been saved.'))
@@ -109,27 +112,41 @@ def foodfunc(form):
     db.session.commit()
     return flash(_('Your changes have been saved.'))
 
-def maxkkal():
-    user_id = current_user.id
+def kkallim(user_id):
+    # user_id = current_user.id
     delta = timedelta(days=1)
     df = readdb('select user_id, kkal, timestamp from food_table')
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
     df1 = dfl.timestamp
-    ind = df1.index
-    dfk = dfl.kkal
     df1 = pd.to_datetime(df1)
+    ind = df1.index
     maxd = df1.max()
     mind = maxd - delta
-    list =[]
-    c = 0
+    list = []
     for i in ind:
         a = df1[i]
-        if a>= mind:
+        if a >= mind:
             list.append(i)
+
+    dfk = dfl.kkal
+    c = 0
     for i in list:
         c = c + dfk[i]
     return c
 
+def send_attention():
+    user_id = current_user.id
+    df = readdb('select * from followers')
+    followed = df.loc[df['follower_id'] == user_id,'followed_id']
+    user = User.query.get(followed)
+    q=kkallim(user_id)
+    qlim = current_user.kkal                            #                          make form
+    if q<=qlim:
+        msg = Message(author=current_user, recipient=user,
+                      body='Значение потребленных ККал ниже базовой потребности')
+        flash(_('Значение потребленных ККал ниже базовой потребности'))
+        db.session.add(msg)
+        db.session.commit()
 
 def fordoc(user_id):
     # user_id=current_user.id

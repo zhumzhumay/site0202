@@ -24,7 +24,8 @@ class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     about_me = TextAreaField(_l('About me'),
                              validators=[Length(min=0, max=140)])
-    weight = StringField(_l('Weight'))                                                        #new
+    weight = StringField(_l('Weight'))
+    kkal = DecimalField(label='Базовая потребность в ККал', default=800, validators=[DataRequired()]) #new
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, *args, **kwargs):

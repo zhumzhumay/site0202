@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sqlite3
 from datetime import datetime
-from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names
+from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify
 from flask_login import current_user, login_required
@@ -78,6 +78,7 @@ def user(username):
     pcntnote = names(docb)
     if current_user.doctor == 0:
         if request.method == 'POST':
+            send_attention()
             if request.form['submit'] == 'sugar':
                 sugarfunc(formsug)
             elif request.form['submit'] == 'food':
@@ -111,7 +112,7 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         current_user.weight = form.weight.data
-
+        current_user.kkal = form.kkal.data
         db.session.commit()
         flash(_('Your changes have been saved.'))
         return redirect(url_for('auth.edit_profile'))
@@ -220,54 +221,6 @@ def notifications():
         'timestamp': n.timestamp
     } for n in notifications])
 
-#
-# @bp.route('/user/<username>', methods=['GET', 'POST'])
-# @login_required
-# def sugar(username):
-#  if current_user.doctor == 0:
-#      user_id = current_user.id
-#      #fooddb = food_drop()
-#      df = readdb("SELECT food FROM food_datatable")
-#      df1=readdb("SELECT category FROM food_datatable")
-#      x = df.values.tolist()
-#      y = df1.values.tolist()
-#      #fooddb = list(zip(x,y))
-#      if request.method == 'POST':
-#         if request.form['submit'] == 'ins':
-#             eat = request.form.get('inseat', False)
-#             time = request.form.get('timeins', False)
-#             dose = request.form.get('dose', False)
-#             type = request.form.get('instype', False)
-#             sql_string = 'select * from insulin_table '
-#             colmn='dose'
-#             food = eatf(eat)
-#             insulin=instypef(type)
-#             if time:
-#                 timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-#                 note = InsulinTable(eat=food, dose=dose, insulin=insulin, author=current_user, timestamp=timendate)
-#             else:
-#                 note = InsulinTable(eat=food, dose=dose, insulin=insulin, author=current_user)
-#             sescommit(note,sql_string,colmn,user_id)
-#             return redirect(url_for('auth.user', username=username))
-#
-#         elif request.form['submit'] == 'sug':
-#             eat = request.form.get('sugeat', False)
-#             time = request.form.get('timesug', False)
-#             mol = request.form.get('mol', False)
-#             sql_string = 'select * from sugar_table'
-#             colmn='mol'
-#             food = eatf(eat)
-#             if time:
-#                 timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-#                 note = SugarTable(eat=food, mol=mol, author=current_user, timestamp=timendate)
-#             else:
-#                 note = SugarTable(eat=food, mol=mol, author=current_user)
-#             sescommit(note, sql_string, colmn, user_id)
-#             return redirect(url_for('auth.user', username=username))
-#
-#  else:
-#      docnote=fordoc()
-#
-#  return render_template('user.html',username=username)
+
 
 
