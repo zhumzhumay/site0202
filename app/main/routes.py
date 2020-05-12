@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sqlite3
 from datetime import datetime
-from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention
+from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify
 from flask_login import current_user, login_required
@@ -78,7 +78,14 @@ def user(username):
     pcntnote = names(docb)
     if current_user.doctor == 0:
         if request.method == 'POST':
-            send_attention()
+            q = kkallim(user_id)
+            c = carblim(user_id)
+            qlim = current_user.kkal
+            clim = current_user.carbohydrates_level
+            if q <= qlim:
+                send_attention('Значение потребленных ККал ниже базовой потребности')
+            elif c <= clim:
+                send_attention('Значение потребленных углеводов ниже базовой потребности')
             if request.form['submit'] == 'sugar':
                 sugarfunc(formsug)
             elif request.form['submit'] == 'food':
@@ -113,12 +120,18 @@ def edit_profile():
         current_user.about_me = form.about_me.data
         current_user.weight = form.weight.data
         current_user.kkal = form.kkal.data
+        current_user.sugarlevel = form.mol.data
+        current_user.carbohydrates_level = form.carb.data
         db.session.commit()
         flash(_('Your changes have been saved.'))
         return redirect(url_for('auth.edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
+        form.weight.data =current_user.weight
+        form.mol.data = current_user.sugarlevel
+        form.kkal.data =current_user.kkal
+        form.carb.data = current_user.carbohydrates_level
     return render_template('edit_profile.html', title=_('Edit Profile'),
                            form=form)
 

@@ -105,6 +105,8 @@ class User(UserMixin, SearchableMixin, db.Model):                               
     diatype = db.Column(db.String(140))#new
     age = db.Column(db.Integer)
     kkal = db.Column(db.Float)
+    sugarlevel = db.Column(db.Float)
+    carbohydrates_level = db.Column(db.Float)
     full_name = db.Column(db.String(140))
     date_of_birth = db.Column(db.Date)
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
@@ -263,3 +265,4 @@ class FoodTable (db.Model):
     timestamp = db.Column(db.DateTime,  index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     kkal = db.Column(db.Float)
+    carbohydrates = db.Column(db.Float)

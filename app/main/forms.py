@@ -1,10 +1,12 @@
 from flask import request
-from flask_wtf import FlaskForm, widgets
+from flask_login import current_user
+from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, SelectField, SelectMultipleField, FloatField, BooleanField
-from wtforms.fields.html5 import DateTimeLocalField, DecimalField, IntegerField
-from wtforms.validators import ValidationError, DataRequired, Length, Email
+from wtforms.fields.html5 import DateTimeLocalField, DecimalField, IntegerField, widgets
+from wtforms.validators import ValidationError, DataRequired, Length, NumberRange,Email
 from flask_babel import _, lazy_gettext as _l
 import datetime
+from app import db
 from app.models import User, FoodDatatable
 from decimal import ROUND_HALF_UP, ROUND_FLOOR
 
@@ -24,8 +26,10 @@ class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     about_me = TextAreaField(_l('About me'),
                              validators=[Length(min=0, max=140)])
-    weight = StringField(_l('Weight'))
-    kkal = DecimalField(label='Базовая потребность в ККал', default=800, validators=[DataRequired()]) #new
+    weight = IntegerField(_l('Вес'))
+    kkal = DecimalField(label='Базовая потребность в ККал',widget=widgets.NumberInput(max=1500, min=50, step=1), validators=[DataRequired()])
+    mol =  DecimalField(label='Целевой уровень гликемии, ммоль/л',widget=widgets.NumberInput(max=20, min=1, step=0.1), validators=[DataRequired()])
+    carb =  DecimalField(label='Критический уровень углеводов, г',widget=widgets.NumberInput(max=500, min=1, step=0.1), validators=[DataRequired()])#new
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, *args, **kwargs):
@@ -54,25 +58,25 @@ ch =[('0', 'Натощак'), ('1', 'После завтрака'),
                                               ('4', 'Дополнительно'), ('5', 'При родах')]
 class SugarForm(FlaskForm):
     eat = SelectField(u'Прием пищи', choices=ch, validators=[DataRequired()])
-    time=DateTimeLocalField(label='Время приема пищи',format='%Y-%m-%dT%H:%M')
-    mol = DecimalField(label='ммоль/л', default=5, validators=[DataRequired()])
-    #submit = SubmitField(u'sugar')
+    time=DateTimeLocalField(label='Время',format='%Y-%m-%dT%H:%M')
+    mol = DecimalField(label='Уровень сахара, ммоль/л', default=5, widget=widgets.NumberInput(max=20, min=1, step=0.1), validators=[DataRequired()])
+    submit = SubmitField(u'sugar')
 
 class FoodForm(FlaskForm):
-    food = SelectField()
+    food = SelectField(u'Продукт')
     eating = SelectField(u'Прием пищи', choices=[('1','Ужин'), ('2','Обед'), ('3','Завтрак'),('4','Перекус')], validators=[DataRequired()])
-    time = DateTimeLocalField(label='Время приема пищи', format='%Y-%m-%dT%H:%M')
-    grams = IntegerField(label='г', default=200, validators=[DataRequired()])
-    #submit = SubmitField('Submit')
+    time = DateTimeLocalField(label='Время', format='%Y-%m-%dT%H:%M')
+    grams = IntegerField(label='вес, г', default=200, widget=widgets.NumberInput(min=1, max=600, step=1), validators=[DataRequired()])
+    submit = SubmitField('food')
     def __init__(self):
         super(FoodForm, self).__init__()
         self.food.choices = [(c.index, c.food) for c in FoodDatatable.query.all()]
 
 class InsulinForm(FlaskForm):
     eat = SelectField(u'Прием пищи', choices=ch, validators=[DataRequired()])
-    time=DateTimeLocalField(label='Время приема пищи',format='%Y-%m-%dT%H:%M')
-    dose = IntegerField(label='ед.', default=5, validators=[DataRequired()])
+    time=DateTimeLocalField(label='Время',format='%Y-%m-%dT%H:%M')
     ins = SelectField(u'Инсулин', choices=[('1', 'Ультракороткий'),
                                               ('2', 'Короткий'), ('3', 'Левимир'),
                                               ('4', 'Пролонгированный')], validators=[DataRequired()])
-
+    dose = IntegerField(label='ед.', default=5,widget=widgets.NumberInput(min=1, max=40, step=1), validators=[DataRequired()])
+    submit = SubmitField('insulin')

@@ -1,4 +1,4 @@
-2020-05-11 19:20:37,716 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-12 04:43:39,608 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,19 +14,16 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 89, in user
-    pcntnote = names(docb)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 102, in names
-    name = rdb.loc[i, 'full_name','age']
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
-    return self._getitem_tuple(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1277, in _getitem_tuple
-    self._has_valid_tuple(tup)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 701, in _has_valid_tuple
-    raise IndexingError("Too many indexers")
-pandas.core.indexing.IndexingError: Too many indexers
-2020-05-11 19:29:15,931 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 19:29:22,119 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 87, in user
+    insfunc(formins)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 87, in insfunc
+    note = InsulinTable(eat=eat,insulin=ins, user_id=current_user.id, dose=form.mol.data)
+AttributeError: 'InsulinForm' object has no attribute 'mol'
+2020-05-12 04:44:33,102 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 04:50:45,972 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 04:51:00,779 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 04:52:32,380 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 04:54:18,914 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -42,20 +39,24 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 89, in user
-    pcntnote = names(docb)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 104, in names
-    pcntnote.append(name, age)
-AttributeError: 'tuple' object has no attribute 'append'
-2020-05-11 19:35:52,878 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 19:43:48,198 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 19:45:24,450 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 19:47:14,875 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 19:57:23,413 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 23:18:45,651 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 23:19:22,461 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 23:24:00,442 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 23:26:10,718 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 87, in user
+    insfunc(formins)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 82, in insfunc
+    ins = instypef(form.ins.data)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 48, in instypef
+    return ih
+UnboundLocalError: local variable 'ih' referenced before assignment
+2020-05-12 04:56:21,760 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 04:57:10,280 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -65,52 +66,59 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 103, in user
-    formfood=formfood, formins=formins, FIO=pcntnote)
-UnboundLocalError: local variable 'pcntnote' referenced before assignment
-2020-05-11 23:29:41,668 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 23:29:47,774 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2241, in preprocess_request
+    rv = func()
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 19, in before_request
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
+    self._prepare_impl()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
+    self.session.flush()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2479, in flush
+    self._flush(objects)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2617, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 102, in user
-    formfood=formfood, formins=formins, FIO=pcntnote)
-UnboundLocalError: local variable 'pcntnote' referenced before assignment
-2020-05-11 23:33:07,971 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 23:33:15,784 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 102, in user
-    formfood=formfood, formins=formins, FIO=pcntnote)
-UnboundLocalError: local variable 'pcntnote' referenced before assignment
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2577, in _flush
+    flush_context.execute()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
+    uow,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 236, in save_obj
+    update,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 996, in _emit_update_statements
+    statement, multiparams
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
+[SQL: UPDATE user SET last_seen=? WHERE user.id = ?]
+[parameters: ('2020-05-12 01:57:05.234303', 1)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2020-05-12 04:58:35,689 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 05:28:46,889 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

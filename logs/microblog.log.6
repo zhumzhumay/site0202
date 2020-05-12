@@ -1,15 +1,4 @@
-2020-05-11 18:22:58,152 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
-    return self._engine.get_loc(key)
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'user_id'
-
-During handling of the above exception, another exception occurred:
-
+2020-05-11 19:20:37,716 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,31 +14,19 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
-    pcntname = rdb.loc[docb,'user_id']
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 89, in user
+    pcntnote = names(docb)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 102, in names
+    name = rdb.loc[i, 'full_name','age']
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
     return self._getitem_tuple(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
-    return self._getitem_lowerdim(tup)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
-    section = self._getitem_axis(key, axis=i)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
-    return self._get_label(key, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
-    return self.obj._xs(label, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3529, in xs
-    return self[key]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2800, in __getitem__
-    indexer = self.columns.get_loc(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'user_id'
-2020-05-11 18:25:03,431 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-11 18:25:12,674 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1277, in _getitem_tuple
+    self._has_valid_tuple(tup)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 701, in _has_valid_tuple
+    raise IndexingError("Too many indexers")
+pandas.core.indexing.IndexingError: Too many indexers
+2020-05-11 19:29:15,931 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 19:29:22,119 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -65,17 +42,75 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
-    pcntname = rdb.loc[docb,'username']
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
-    return self._getitem_tuple(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
-    return self._getitem_lowerdim(tup)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1421, in _getitem_lowerdim
-    return getattr(section, self.name)[new_key]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1768, in __getitem__
-    return self._getitem_axis(maybe_callable, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1952, in _getitem_axis
-    raise ValueError("Cannot index with multidimensional key")
-ValueError: Cannot index with multidimensional key
-2020-05-11 18:36:37,595 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 89, in user
+    pcntnote = names(docb)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 104, in names
+    pcntnote.append(name, age)
+AttributeError: 'tuple' object has no attribute 'append'
+2020-05-11 19:35:52,878 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 19:43:48,198 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 19:45:24,450 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 19:47:14,875 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 19:57:23,413 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 23:18:45,651 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 23:19:22,461 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 23:24:00,442 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 23:26:10,718 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 103, in user
+    formfood=formfood, formins=formins, FIO=pcntnote)
+UnboundLocalError: local variable 'pcntnote' referenced before assignment
+2020-05-11 23:29:41,668 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 23:29:47,774 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 102, in user
+    formfood=formfood, formins=formins, FIO=pcntnote)
+UnboundLocalError: local variable 'pcntnote' referenced before assignment
+2020-05-11 23:33:07,971 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 23:33:15,784 ERROR: Exception on /auth/user/ted [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 102, in user
+    formfood=formfood, formins=formins, FIO=pcntnote)
+UnboundLocalError: local variable 'pcntnote' referenced before assignment

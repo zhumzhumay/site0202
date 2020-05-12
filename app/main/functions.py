@@ -67,16 +67,56 @@ def kkal(g, ft, pt, ct):
     kkal = round(kkal,2)
     return kkal
 
+def send_attention(body):
+    user_id = current_user.id
+    df = readdb('select * from followers')
+    followed = df.loc[df['follower_id'] == user_id,'followed_id']
+    user = User.query.get(followed)
+    msg = Message(author=current_user, recipient=user,
+                  body=body)
+    flash(_(body))
+    db.session.add(msg)
+    db.session.commit()
+
+def sugarlim(user_id):
+    if current_user.sugar != None:
+        sugarlevel = current_user.sugarlevel
+    else:
+        sugarlevel = 9
+    delta = timedelta(days=7)
+    df = readdb('select user_id, mol, timestamp from sugar_table')
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    df1 = dfl.timestamp
+    df1 = pd.to_datetime(df1)
+    ind = df1.index
+    maxd = df1.max()
+    mind = maxd - delta
+    list = []
+    for i in ind:
+        a = df1[i]
+        if a >= mind:
+            list.append(i)
+    dfm = dfl.mol
+    c = 0
+    for i in list:
+        if sugarlevel <= dfm[i]:
+            c=c+1
+    return c
+
 def sugarfunc(form):
     time = form.time.data
     eat = eatf(form.eat.data)
+    mol =form.mol.data
+    mol1 = sugarlim(current_user.id)
     if time:
         #timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-        note = SugarTable(eat=eat, user_id=current_user.id, mol=form.mol.data, timestamp=time)
+        note = SugarTable(eat=eat, user_id=current_user.id, mol=mol, timestamp=time)
     else:
-        note = SugarTable(eat=eat, user_id=current_user.id, mol=form.mol.data)
+        note = SugarTable(eat=eat, user_id=current_user.id, mol=mol)
     db.session.add(note)
     db.session.commit()
+    if (mol >=9) or (mol1 >= 2) :
+      send_attention('Уровень гликемии превышен')
     return flash(_('Your changes have been saved.'))
 
 def insfunc(form):
@@ -104,10 +144,12 @@ def foodfunc(form):
     carb = df.loc[ind, 'carbohydrates']
     pr = df.loc[ind, 'protein']
     Kkal = kkal(grams,fats,pr,carb)
+    cr= (grams / 100)  * carb
+    carbs = round(cr, 2)
     if time:
-        note = FoodTable(food=food, kkal=Kkal, eating=eating, user_id=current_user.id, timestamp=time)
+        note = FoodTable(food=food, kkal=Kkal, eating=eating,carbohydrates=carbs, user_id=current_user.id, timestamp=time)
     else:
-        note = FoodTable(food=food, kkal=Kkal, eating=eating,  user_id=current_user.id)
+        note = FoodTable(food=food, kkal=Kkal, eating=eating, carbohydrates=carbs, user_id=current_user.id)
     db.session.add(note)
     db.session.commit()
     return flash(_('Your changes have been saved.'))
@@ -115,7 +157,7 @@ def foodfunc(form):
 def kkallim(user_id):
     # user_id = current_user.id
     delta = timedelta(days=1)
-    df = readdb('select user_id, kkal, timestamp from food_table')
+    df = readdb('select user_id, kkal, carbohydrates, timestamp from food_table')
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
     df1 = dfl.timestamp
     df1 = pd.to_datetime(df1)
@@ -134,19 +176,27 @@ def kkallim(user_id):
         c = c + dfk[i]
     return c
 
-def send_attention():
-    user_id = current_user.id
-    df = readdb('select * from followers')
-    followed = df.loc[df['follower_id'] == user_id,'followed_id']
-    user = User.query.get(followed)
-    q=kkallim(user_id)
-    qlim = current_user.kkal                            #                          make form
-    if q<=qlim:
-        msg = Message(author=current_user, recipient=user,
-                      body='Значение потребленных ККал ниже базовой потребности')
-        flash(_('Значение потребленных ККал ниже базовой потребности'))
-        db.session.add(msg)
-        db.session.commit()
+def carblim(user_id):
+    # user_id = current_user.id
+    delta = timedelta(days=1)
+    df = readdb('select user_id, kkal, carbohydrates, timestamp from food_table')
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    df1 = dfl.timestamp
+    df1 = pd.to_datetime(df1)
+    ind = df1.index
+    maxd = df1.max()
+    mind = maxd - delta
+    list = []
+    for i in ind:
+        a = df1[i]
+        if a >= mind:
+            list.append(i)
+
+    dfk = dfl.carbohydrates
+    c = 0
+    for i in list:
+        c = c + dfk[i]
+    return c
 
 def fordoc(user_id):
     # user_id=current_user.id

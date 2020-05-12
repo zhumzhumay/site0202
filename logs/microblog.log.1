@@ -1,4 +1,4 @@
-2020-05-12 05:29:15,671 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-12 06:25:05,565 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,32 +14,46 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
-    send_attention()
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 143, in send_attention
-    body='Значение потребленных ККал ниже базовой потребности')
-  File "<string>", line 4, in __init__
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 441, in _initialize_instance
-    manager.dispatch.init_failure(self, args, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 438, in _initialize_instance
-    return manager.original_init(*mixed[1:], **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 842, in _declarative_constructor
-    setattr(self, k, kwargs[k])
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 268, in __set__
-    instance_state(instance), instance_dict(instance), value, None
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 1003, in set
-    value = self.fire_replace_event(state, dict_, value, old, initiator)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 1026, in fire_replace_event
-    state, value, previous, initiator or self._replace_token
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 102, in set_
-    newvalue_state = attributes.instance_state(newvalue)
-AttributeError: 'BaseQuery' object has no attribute '_sa_instance_state'
-2020-05-12 05:31:47,833 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-12 05:31:55,368 ERROR: Exception on /auth/user/sus [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 104, in user
+    formfood=formfood, formins=formins, FIO=pcntnote)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
+    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 121, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 37, in root
+    <div class="collapse " id="food">
+  File "D:\diplom\site02.8.02.20\app\templates\_food.html", line 15, in root
+    {% endblock %}
+  File "D:\diplom\site02.8.02.20\app\templates\_food.html", line 25, in block_app_content
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'jinja2.environment.TemplateModule object' has no attribute 'formfood'
+2020-05-12 06:26:21,595 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 06:26:26,844 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -55,28 +69,53 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 81, in user
-    send_attention()
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 143, in send_attention
-    body='Значение потребленных ККал ниже базовой потребности')
-  File "<string>", line 4, in __init__
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 441, in _initialize_instance
-    manager.dispatch.init_failure(self, args, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 438, in _initialize_instance
-    return manager.original_init(*mixed[1:], **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 842, in _declarative_constructor
-    setattr(self, k, kwargs[k])
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 268, in __set__
-    instance_state(instance), instance_dict(instance), value, None
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 1003, in set
-    value = self.fire_replace_event(state, dict_, value, old, initiator)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 1026, in fire_replace_event
-    state, value, previous, initiator or self._replace_token
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 102, in set_
-    newvalue_state = attributes.instance_state(newvalue)
-AttributeError: 'str' object has no attribute '_sa_instance_state'
-2020-05-12 05:36:27,656 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 104, in user
+    formfood=formfood, formins=formins, FIO=pcntnote)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
+    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 121, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 37, in root
+    <div class="collapse " id="food">
+  File "D:\diplom\site02.8.02.20\app\templates\_food.html", line 15, in root
+    {% endblock %}
+  File "D:\diplom\site02.8.02.20\app\templates\_food.html", line 27, in block_app_content
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 570, in __call__
+    return self._invoke(arguments, autoescape)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 110, in _invoke
+    return original_invoke(self, arguments, autoescape)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 574, in _invoke
+    rv = self._func(*arguments)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 402, in macro
+TypeError: 'DateTimeLocalField' object is not iterable
+2020-05-12 06:27:31,713 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 06:39:32,187 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 06:40:46,448 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 06:42:15,875 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-12 06:42:41,939 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
