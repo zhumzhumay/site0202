@@ -74,7 +74,8 @@ def user(username):
     formsug=SugarForm()
     formfood=FoodForm()
     formins = InsulinForm()
-    #name = 'sus'
+    docb = fordoc(user_id)
+    pcntnote = names(docb)
     if current_user.doctor == 0:
         if request.method == 'POST':
             if request.form['submit'] == 'sugar':
@@ -84,9 +85,8 @@ def user(username):
             elif request.form['submit'] == 'insulin':
                 insfunc(formins)
             return redirect(url_for('auth.user', username=username))
-    else:
-        docb = fordoc(user_id)
-        pcntnote = names(docb)
+
+
 
 
     user = User.query.filter_by(username=username).first_or_404()

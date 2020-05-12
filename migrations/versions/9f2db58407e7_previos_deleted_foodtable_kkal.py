@@ -1,8 +1,8 @@
-"""foodTable note
+"""previos deleted foodtable kkal
 
-Revision ID: 84f1d658a65e
-Revises: 791befa7f5f3
-Create Date: 2020-05-11 04:39:03.259091
+Revision ID: 9f2db58407e7
+Revises: 3494d3d8da83
+Create Date: 2020-05-12 00:20:34.822975
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '84f1d658a65e'
-down_revision = '791befa7f5f3'
+revision = '9f2db58407e7'
+down_revision = '3494d3d8da83'
 branch_labels = None
 depends_on = None
 
@@ -21,8 +21,10 @@ def upgrade():
     op.create_table('food_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('food', sa.String(length=140), nullable=True),
+    sa.Column('eating', sa.String(length=140), nullable=True),
     sa.Column('timestamp', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('kkal', sa.Float(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

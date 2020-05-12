@@ -3,8 +3,10 @@
 
 {% block app_content %}
     <form action="" method="post">
-        <p>{{ formfood.eat }}</p>
+        <p>{{ formfood.eating }}</p>
+        <p>{{ formfood.food }}</p>
         <p>   {{ formfood.time }}</p>
+        <p>{{ formfood.grams(min="50", max="600", step ='1')}}</p>
         <button type="submit" class="btn btn-primary" name="submit" value="food">Submit</button>
 </form>
 {% endblock %}

@@ -13,10 +13,6 @@ from app import db
 
 
 
-
-
-
-
 def plotfunc(df, colmn, user_id):
     matplotlib.style.use('ggplot')
     matplotlib.use('Agg')
@@ -64,11 +60,11 @@ def writexls(df, user_id):
 
 
 
-def sescommit(note, sql_string, colmn, user_id):
-    db.session.add(note)
-    db.session.commit()
-    table = readdb(sql_string)
-    writexls(table, user_id)
-    plotfunc(table, colmn, user_id)
-    flash(_('Your notes have been saved.'))
+# def sescommit(note, sql_string, colmn, user_id):
+#     db.session.add(note)
+#     db.session.commit()
+#     table = readdb(sql_string)
+#     writexls(table, user_id)
+#     plotfunc(table, colmn, user_id)
+#     flash(_('Your notes have been saved.'))
 

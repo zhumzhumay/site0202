@@ -206,7 +206,7 @@ class SugarTable(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     eat = db.Column(db.String(140))
     mol = db.Column(db.Float(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
@@ -218,7 +218,7 @@ class InsulinTable(db.Model):
     eat = db.Column(db.String(140))
     dose = db.Column(db.Float(140))
     insulin = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
@@ -257,8 +257,7 @@ class FoodDatatable(db.Model):
 class FoodTable (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     food = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    eating = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime,  index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    protein = db.Column(db.Float)
-    fats = db.Column(db.Float)
-    carbohydrates = db.Column(db.Float)
+    kkal = db.Column(db.Float)

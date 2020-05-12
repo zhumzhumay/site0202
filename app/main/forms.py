@@ -58,12 +58,14 @@ class SugarForm(FlaskForm):
     #submit = SubmitField(u'sugar')
 
 class FoodForm(FlaskForm):
-    eat = SelectField()
+    food = SelectField()
+    eating = SelectField(u'Прием пищи', choices=[('1','Ужин'), ('2','Обед'), ('3','Завтрак'),('4','Перекус')], validators=[DataRequired()])
     time = DateTimeLocalField(label='Время приема пищи', format='%Y-%m-%dT%H:%M')
+    grams = IntegerField(label='г', default=200, validators=[DataRequired()])
     #submit = SubmitField('Submit')
     def __init__(self):
         super(FoodForm, self).__init__()
-        self.eat.choices = [(c.index, c.food) for c in FoodDatatable.query.all()]
+        self.food.choices = [(c.index, c.food) for c in FoodDatatable.query.all()]
 
 class InsulinForm(FlaskForm):
     eat = SelectField(u'Прием пищи', choices=ch, validators=[DataRequired()])

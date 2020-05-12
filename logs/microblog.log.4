@@ -1,4 +1,4 @@
-2020-05-11 08:23:28,756 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-11 08:27:43,935 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,7 +15,7 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
   File "D:\diplom\site02.8.02.20\app\main\routes.py", line 98, in user
-    formfood=formfood, formins=formins)
+    formfood=formfood, formins=formins, name=name)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
@@ -28,8 +28,8 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\_doc.html", line 14, in template
-    {{ username = 'sus'}}
+  File "D:\diplom\site02.8.02.20\app\templates\_doc.html", line 18, in template
+    {% empty %}
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
     return concat(self.root_render_func(self.new_context(vars)))
   File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
@@ -56,15 +56,32 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\_doc.html", line 14, in template
-    {{ username = 'sus'}}
+  File "D:\diplom\site02.8.02.20\app\templates\_doc.html", line 18, in template
+    {% empty %}
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 497, in _parse
     return Parser(self, source, name, encode_filename(filename)).parse()
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 901, in parse
     result = nodes.Template(self.subparse(), lineno=1)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 876, in subparse
-    self.stream.expect('variable_end')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\lexer.py", line 384, in expect
-    self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
-2020-05-11 08:27:38,561 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'empty'. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2020-05-11 08:28:29,374 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 16:48:18,538 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 18:13:00,883 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-11 18:22:45,661 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
