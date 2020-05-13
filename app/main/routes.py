@@ -2,7 +2,7 @@
 import sqlite3
 from datetime import datetime
 from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim, \
-    plotfunc, makegraph
+    makegraph, folvalid
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify, send_from_directory, \
     send_file
@@ -74,15 +74,16 @@ def explore():
 @bp.route('/user/<username>', methods=['GET', 'POST']) #### here
 @login_required
 def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
     user_id = current_user.id
     formsug=SugarForm()
     formfood=FoodForm()
     formins = InsulinForm()
     docb = fordoc(user_id)
     pcntnote = names(docb)
-    foodt = makegraph('select * from food_table')
-    sugt = makegraph('select * from sugar_table')
-    inst = makegraph('select * from insulin_table')
+    foodt = makegraph('select * from food_table',user.id)
+    sugt = makegraph('select * from sugar_table',user.id)
+    inst = makegraph('select * from insulin_table',user.id)
     f1values = foodt['kkal']
     f2values = foodt['carbohydrates']
     flabels = foodt['timestamp']
@@ -107,7 +108,7 @@ def user(username):
             elif request.form['submit'] == 'insulin':
                 insfunc(formins)
             return redirect(url_for('auth.user', username=username))
-    user = User.query.filter_by(username=username).first_or_404()
+
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
@@ -122,32 +123,32 @@ def user(username):
                            ilabels=ilabels, ivalues=ivalues, imax=40,
                            f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)
 
-@bp.route('/instable', methods=['GET', 'POST'])
+@bp.route('/instable/<username>', methods=['GET', 'POST'])
 @login_required
-def instable():
-    user_id = current_user.id
+def instable(username):
+    user = User.query.filter_by(username=username).first_or_404()
     df = readdb('select * from insulin_table')
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    dfl = df.loc[lambda df: df['user_id'] == user.id, :]
     dfc = dfl[['timestamp','eat','insulin','dose']]
-    return render_template('instable.html', dfl=dfc)
+    return render_template('instable.html', dfl=dfc, user = user)
 
-@bp.route('/sugtable', methods=['GET', 'POST'])
+@bp.route('/sugtable/<username>', methods=['GET', 'POST'])
 @login_required
-def sugtable():
-    user_id = current_user.id
+def sugtable(username):
+    user =  User.query.filter_by(username=username).first_or_404()
     df = readdb('select * from sugar_table')
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    dfl = df.loc[lambda df: df['user_id'] == user.id, :]
     dfc = dfl[['timestamp','eat','mol']]
-    return render_template('sugtable.html', dfl=dfc)
+    return render_template('sugtable.html', dfl=dfc, user = user)
 
-@bp.route('/foodtable', methods=['GET', 'POST'])
+@bp.route('/foodtable/<username>', methods=['GET', 'POST'])
 @login_required
-def foodtable():
-    user_id = current_user.id
+def foodtable(username):
+    user =  User.query.filter_by(username=username).first_or_404()
     df = readdb('select * from food_table')
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    dfl = df.loc[lambda df: df['user_id'] == user.id, :]
     dfc = dfl[['timestamp','eating','food', 'kkal', 'carbohydrates']]
-    return render_template('foodtable.html', dfl=dfc)
+    return render_template('foodtable.html', dfl=dfc, user = user)
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
 @login_required

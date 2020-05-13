@@ -68,8 +68,7 @@ def kkal(g, ft, pt, ct):
     kkal = fk + pk + ck
     kkal = round(kkal,2)
     return kkal
-def makegraph(table1):
-    user_id = current_user.id
+def makegraph(table1, user_id):
     df = readdb(table1)
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
     return dfl
@@ -214,17 +213,19 @@ def fordoc(user_id):
     # user_id=current_user.id
     sql_string = 'select * from followers'
     bd=readdb(sql_string)
-    dfl = bd.loc[lambda df: df['follower_id'] == user_id, :]
+    dfl = bd.loc[lambda bd: bd['follower_id'] == user_id, :]
     # docnote = dfl[['followed_id']]
     return dfl
 
 def names (docb):
-    docb = docb.followed_id
+    docb1 = docb.followed_id
     rdb = readdb('select * from user')
     j=0
     pcntnote = []
-    for i in docb:
+    for i in docb1:
         j = j+1
+        i = i-1
+        # prom = rdb.loc[lambda rdb: rdb['id'] == i, :]
         username = rdb.loc[i, 'username']
         name = rdb.loc[i, 'full_name']
         dt = rdb.loc[i, 'diatype']
@@ -234,36 +235,51 @@ def names (docb):
         pcntnote.append(k)
     return pcntnote
 
-def plotfunc(df, colmn, user_id):
-    matplotlib.style.use('ggplot')
-    matplotlib.use('Agg')
+def folvalid(user):
+    docb = fordoc(current_user.id)
+    docb1 = docb.followed_id
+    user_id =user.id
+    j=0
+    for i in docb1:
+        i=i-1
+        if i == user_id:
+            j=j+1
+    if j!=1:
+        flash('Данный пользователь не является вашим пациентом')
+    return j #must be 1
 
-    # # подставьте ссылку на ваш файл или полный путь к файлу на вашем компьютере...
-    # url = 'D:/diplom/site02.8.02.20/table.xlsx'
-    # df = pd.read_excel(url, names=['mol', 'timestamp'], index_col=[1], decimal=',',
-    #                  parse_dates=True, dayfirst=True)
-    plt.cla()
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
-    # df1 = dfl[['timestamp', 'mol']]
-    df1 = dfl[[colmn]]
-    df2=dfl[['timestamp']]
-    time_format = '%Y-%m-%d %H:%M:%S.%f'
-    df2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
-    df2size=len(df2_float)
-    # df2step=1
-    # df2minsize=df2size-5 #scale
-    # xmin=df2_float[df2minsize]
-    # xmax=max(df2_float)
 
-    ax =plt.subplot(1, 1, 1)
-    # pylab.plot_date(df2_float, df1, fmt="b-")
-    # # plt.ylabel('ммоль/л')
-    # pylab.savefig('D:/diplom/site02.8.02.20/out.png')
-    plt.figure(figsize=(17,8),dpi=500)
-    a = plt.plot_date(df2_float,df1)
-    plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
-    # plt.xlim(xmin,xmax)
-    plt.savefig('app/savedfiles/out.png')
-    # plt.show()
-    return a
+
+# def plotfunc(df, colmn, user_id):
+#     matplotlib.style.use('ggplot')
+#     matplotlib.use('Agg')
+#
+#     # # подставьте ссылку на ваш файл или полный путь к файлу на вашем компьютере...
+#     # url = 'D:/diplom/site02.8.02.20/table.xlsx'
+#     # df = pd.read_excel(url, names=['mol', 'timestamp'], index_col=[1], decimal=',',
+#     #                  parse_dates=True, dayfirst=True)
+#     plt.cla()
+#     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+#     # df1 = dfl[['timestamp', 'mol']]
+#     df1 = dfl[[colmn]]
+#     df2=dfl[['timestamp']]
+#     time_format = '%Y-%m-%d %H:%M:%S.%f'
+#     df2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
+#     df2size=len(df2_float)
+#     # df2step=1
+#     # df2minsize=df2size-5 #scale
+#     # xmin=df2_float[df2minsize]
+#     # xmax=max(df2_float)
+#
+#     ax =plt.subplot(1, 1, 1)
+#     # pylab.plot_date(df2_float, df1, fmt="b-")
+#     # # plt.ylabel('ммоль/л')
+#     # pylab.savefig('D:/diplom/site02.8.02.20/out.png')
+#     plt.figure(figsize=(17,8),dpi=500)
+#     a = plt.plot_date(df2_float,df1)
+#     plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
+#     # plt.xlim(xmin,xmax)
+#     plt.savefig('app/savedfiles/out.png')
+#     # plt.show()
+#     return a
 

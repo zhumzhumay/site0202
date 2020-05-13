@@ -1,4 +1,11 @@
-2020-05-13 06:06:32,652 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-13 22:54:58,942 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 706, in comparator
+    comparator_factory = self.type.comparator_factory
+AttributeError: 'NoneType' object has no attribute 'comparator_factory'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,55 +21,40 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 112, in user
-    formfood=formfood, formins=formins, FIO=pcntnote)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
-    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
-    <span class="icon-bar"></span>
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
-    {% block body -%}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 33, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 14, in root
-    {% endblock %}
-  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 26, in block_app_content
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'tables.instable'. Did you mean 'auth.instable' instead?
-2020-05-13 06:07:03,982 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 06:07:11,010 ERROR: Exception on /auth/instable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 217, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "D:\diplom\site02.8.02.20\app\models.py", line 22, in search
+    db.case(when, value=cls.id)), total
+  File "<string>", line 2, in order_by
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
+    fn(self, *args[1:], **kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 1850, in order_by
+    criterion = self._adapt_col_list(criterion)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in _adapt_col_list
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in <listcomp>
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 4533, in _literal_as_label_reference
+    elif hasattr(element, "__clause_element__"):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 717, in __getattr__
+    return getattr(self.comparator, key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 710, in comparator
+    "is not a TypeEngine class or object" % self.type
+TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object
+2020-05-13 23:06:02,921 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 23:06:07,419 ERROR: Exception on /auth/user/finn [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: False
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -78,21 +70,47 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 121, in instable
-    return render_template('instable.html', dfl=dfcins)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 113, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: instable.html
-2020-05-13 06:07:32,034 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 83, in user
+    pcntnote = names(docb)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 227, in names
+    username = rdb.loc['id'==i, 'username']
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
+    return self._getitem_tuple(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
+    section = self._getitem_axis(key, axis=i)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
+    return self._get_label(key, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
+    return self.obj._xs(label, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
+    loc = self.index.get_loc(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\range.py", line 353, in get_loc
+    return super().get_loc(key, method=method, tolerance=tolerance)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: False
+2020-05-13 23:51:54,503 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 23:54:59,703 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 23:55:08,488 ERROR: Exception on /auth/sugtable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+TypeError: sugtable() missing 1 required positional argument: 'username'
+2020-05-13 23:57:55,524 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

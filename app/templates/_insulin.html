@@ -5,7 +5,7 @@
 
     <form action="" method="post" name="insulin">
          {{ wtf.quick_form(formins) }}
-       <br><a class="btn btn-danger" href="{{ url_for('auth.instable') }}" download="insulin_table.xls" role="button">
+       <br><a class="btn btn-danger" href="{{ url_for('auth.instable', username= user.username) }}" download="insulin_table.xls" role="button">
    Загрузить таблицу записей
 </a>
     </form>
