@@ -5,6 +5,8 @@
     <form action="" method="post">
 
 {{ wtf.quick_form(formfood) }}
-
+<br><a class="btn btn-danger" href="{{ url_for('auth.foodtable') }}" download="eating_table.xls" role="button">
+   Загрузить таблицу записей
+</a>
 </form>
 {% endblock %}

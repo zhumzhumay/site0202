@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>insulin</title>
-</head>
-<body>
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
 
     <form action="" method="post" name="insulin">
          {{ wtf.quick_form(formins) }}
+       <br><a class="btn btn-danger" href="{{ url_for('auth.instable') }}" download="insulin_table.xls" role="button">
+   Загрузить таблицу записей
+</a>
     </form>
 
-</body>
-</html>
+
+{% endblock %}

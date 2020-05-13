@@ -1,5 +1,7 @@
 import sqlite3
-
+import matplotlib.pyplot as plt
+import matplotlib
+import matplotlib.dates
 from flask import flash
 from flask_login import current_user
 from flask_babel import _
@@ -106,7 +108,8 @@ def sugarlim(user_id):
 def sugarfunc(form):
     time = form.time.data
     eat = eatf(form.eat.data)
-    mol =form.mol.data
+    ml =form.mol.data
+    mol = round(ml,3)
     mol1 = sugarlim(current_user.id)
     if time:
         #timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
@@ -123,11 +126,12 @@ def insfunc(form):
     time = form.time.data
     eat = eatf(form.eat.data)
     ins = instypef(form.ins.data)
+    dose = form.dose.data
     if time:
         # timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-        note = InsulinTable(eat=eat, insulin=ins, user_id=current_user.id, dose=form.dose.data, timestamp=time)
+        note = InsulinTable(eat=eat, insulin=ins, user_id=current_user.id, dose=dose, timestamp=time)
     else:
-        note = InsulinTable(eat=eat,insulin=ins, user_id=current_user.id, dose=form.dose.data)
+        note = InsulinTable(eat=eat,insulin=ins, user_id=current_user.id, dose=dose)
     db.session.add(note)
     db.session.commit()
     return flash(_('Your changes have been saved.'))
@@ -143,9 +147,10 @@ def foodfunc(form):
     fats = df.loc[ind, 'fats']
     carb = df.loc[ind, 'carbohydrates']
     pr = df.loc[ind, 'protein']
-    Kkal = kkal(grams,fats,pr,carb)
+    kl = kkal(grams,fats,pr,carb)
+    Kkal = round(kl,3)
     cr= (grams / 100)  * carb
-    carbs = round(cr, 2)
+    carbs = round(cr, 3)
     if time:
         note = FoodTable(food=food, kkal=Kkal, eating=eating,carbohydrates=carbs, user_id=current_user.id, timestamp=time)
     else:
@@ -222,3 +227,44 @@ def names (docb):
         pcntnote.append(k)
     return pcntnote
 
+def plotfunc(df, colmn, user_id):
+    matplotlib.style.use('ggplot')
+    matplotlib.use('Agg')
+
+    # # подставьте ссылку на ваш файл или полный путь к файлу на вашем компьютере...
+    # url = 'D:/diplom/site02.8.02.20/table.xlsx'
+    # df = pd.read_excel(url, names=['mol', 'timestamp'], index_col=[1], decimal=',',
+    #                  parse_dates=True, dayfirst=True)
+    plt.cla()
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    # df1 = dfl[['timestamp', 'mol']]
+    df1 = dfl[[colmn]]
+    df2=dfl[['timestamp']]
+    time_format = '%Y-%m-%d %H:%M:%S.%f'
+    df2_float= [datetime.strptime(i, time_format) for i in df2['timestamp']]
+    df2size=len(df2_float)
+    # df2step=1
+    # df2minsize=df2size-5 #scale
+    # xmin=df2_float[df2minsize]
+    # xmax=max(df2_float)
+
+    ax =plt.subplot(1, 1, 1)
+    # pylab.plot_date(df2_float, df1, fmt="b-")
+    # # plt.ylabel('ммоль/л')
+    # pylab.savefig('D:/diplom/site02.8.02.20/out.png')
+    plt.figure(figsize=(17,8),dpi=500)
+    a = plt.plot_date(df2_float,df1)
+    plt.setp(ax.xaxis.get_majorticklabels(), rotation=25)
+    # plt.xlim(xmin,xmax)
+    plt.savefig('app/savedfiles/out.png')
+    # plt.show()
+    return a
+
+# def writexls(df,  user_id):
+#     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+#     writer = pd.ExcelWriter('app/savedfiles/table.xlsx')
+#     f = dfl.to_excel(writer)
+#     fp=dfl.to_pickle("app/savedfiles/dummy.pkl")
+#     writer.save()
+#     # wb = dfc.to_html('D:/diplom/site02.8.02.20/app/templates/sugtable.html', col_space = 110)
+#     return f

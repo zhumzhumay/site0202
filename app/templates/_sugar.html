@@ -3,6 +3,8 @@
 {% block app_content %}
     <form action="" method="post" >
         {{ wtf.quick_form(formsug) }}
-
+<br><a class="btn btn-danger" href="{{ url_for('auth.sugtable') }}" download="sugar_table.xls" role="button">
+   Загрузить таблицу записей
+</a>
 </form>
 {% endblock %}

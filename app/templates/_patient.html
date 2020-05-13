@@ -4,20 +4,20 @@
   <tr>
     <td width="70px"> <!-- must have для полосы-->
         <p>
-            <button class="btn btn-primary" type="button" data-toggle="collapse"
+            <button class="btn btn-secondary" type="button" data-toggle="collapse"
                     data-target="#posts" aria-expanded="false" aria-controls="posts">
-                posts</button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                <strong> посты</strong></button>
+            <button class="btn btn-secondary" type="button" data-toggle="collapse"
                     data-target="#sugar" aria-expanded="false" aria-controls="sugar">
-                sugar
+                <strong> Уровень сахара</strong>
             </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse"
+            <button class="btn btn-secondary" type="button" data-toggle="collapse"
                     data-target="#insulin" aria-expanded="false" aria-controls="insulin">
-                insulin
+                <strong> Инъекции инсулина</strong>
             </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse"
+            <button class="btn btn-secondary" type="button" data-toggle="collapse"
                     data-target="#food" aria-expanded="false" aria-controls="food">
-                food
+                <strong> Приемы пищи</strong>
             </button>
         </p>
 
@@ -30,16 +30,50 @@
             </div>
             <div class="collapse " id="sugar">
                 {% include '_sugar.html' %}
+
             </div>
             <div class="collapse " id="insulin">
                 {% include '_insulin.html' %}
+
             </div>
             <div class="collapse " id="food">
                 {% include '_food.html' %}
+
             </div>
 
         </div>
 
     </td>
   </tr>
+
+   <script>
+// function download(filename, text) {
+//     var element = document.createElement('a');
+//     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+//     element.setAttribute('download', filename);
+//
+//     element.style.display = 'none';
+//     document.body.appendChild(element);
+//
+//     element.click();
+//
+//     document.body.removeChild(element);
+// }
+//
+// // Start file download.
+// document.getElementById("dwn-btn").addEventListener("click", function(){
+//     // Generate download of hello.txt file with some content
+//     var text = document.getElementById("text-val").value;
+//     var filename = "hello.txt";
+//
+//     download(filename, text);
+// }, false);
+// <textarea id="text-val" rows="4">This is the content of my file</textarea><br/>
+// <input type="button" id="dwn-btn" value="Download dinamically generated text file"/>
+
+//fvghnjmk,mnbvcxzcvbnm,mnbvcxzcvbnm,mnbvcxzcvbnm
+// $(function(){
+//     $('<iframe src="eatdb.xlsx"></iframe>').appendTo('body').hide();
+// });
+ </script >
 </table>
