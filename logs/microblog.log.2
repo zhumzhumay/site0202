@@ -1,4 +1,4 @@
-2020-05-13 06:06:32,652 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-13 08:20:07,640 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 112, in user
-    formfood=formfood, formins=formins, FIO=pcntnote)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 126, in user
+    labels=labels, values=values, max=20)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
@@ -43,26 +43,52 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
   File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 33, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 14, in root
-    {% endblock %}
-  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 26, in block_app_content
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'tables.instable'. Did you mean 'auth.instable' instead?
-2020-05-13 06:07:03,982 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 06:07:11,010 ERROR: Exception on /auth/instable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 104, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_card.html", line 17, in root
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: _sugplot.html
+2020-05-13 08:20:55,168 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 08:22:02,424 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:49:36,191 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:51:10,595 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:53:08,011 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:53:43,741 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:55:54,345 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:58:17,241 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:58:57,863 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 09:59:33,452 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:03:43,632 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:07:35,881 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:09:10,387 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:10:01,550 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:10:44,977 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:11:42,461 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:28:10,491 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:33:52,542 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:48:40,198 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:49:51,443 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:49:53,051 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'carbogydrates'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -78,21 +104,17 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 121, in instable
-    return render_template('instable.html', dfl=dfcins)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 113, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: instable.html
-2020-05-13 06:07:32,034 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 87, in user
+    f2values = foodt['carbogydrates']
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2800, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1619, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 1627, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'carbogydrates'
+2020-05-13 10:50:08,082 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:56:35,191 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 10:59:37,938 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

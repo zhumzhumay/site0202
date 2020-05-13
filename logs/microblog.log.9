@@ -1,4 +1,4 @@
-2020-05-13 03:41:00,082 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-13 05:57:52,457 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 123, in user
-    formfood=formfood, formins=formins, FIO=pcntnote, dfl =dfsug)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 112, in user
+    formfood=formfood, formins=formins, FIO=pcntnote)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
@@ -44,7 +44,10 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
   File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
   File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 41, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 29, in root
+    {% include '_navigation.html' %}
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 14, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_sugar.html", line 26, in block_app_content
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
     return __obj(*args, **kwargs)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
@@ -57,17 +60,43 @@ Traceback (most recent call last):
     endpoint, values, method=method, force_external=external
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'auth.user'. Did you forget to specify values ['username']?
-2020-05-13 03:41:30,159 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:46:05,572 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:46:51,879 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:47:58,152 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:48:42,372 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:49:35,656 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:52:17,028 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:53:29,124 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:54:50,383 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:55:22,568 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:56:44,246 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:58:26,938 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 04:01:22,399 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+werkzeug.routing.BuildError: Could not build url for endpoint 'tables.sugtable'. Did you mean 'auth.sugtable' instead?
+2020-05-13 05:58:31,754 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 05:59:54,502 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:00:46,478 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:01:39,997 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:02:24,955 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:02:47,082 ERROR: Exception on /auth/instable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 121, in instable
+    return render_template('instable.html', dfl=dfcins)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: instable.html
+2020-05-13 06:03:45,410 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

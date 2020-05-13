@@ -1,0 +1,208 @@
+
+{% block app_content %}
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+</head>
+
+<table>
+    <tr><td width="70px"><center><span class="badge badge-pill badge-info"><h5>Изменение уровня сахара</h5></span></center></td></tr>
+<tr><td><center>
+
+    <canvas id="schart" width="600" height="400"></canvas>
+    <script>
+
+      // bar chart data
+      var barData = {
+        labels : [
+          {% for item in slabels %}
+            "{{ item }}",
+          {% endfor %}
+        ],
+
+        datasets : [{
+          fillColor: "rgba(151,187,205,0.2)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(151,187,205,1)",
+          bezierCurve : false,
+          data : [
+                  {% for item in svalues %}
+                  {{ item }},
+                  {% endfor %}]
+          }
+	]
+      }
+
+      Chart.defaults.global.animationSteps = 50;
+      Chart.defaults.global.tooltipYPadding = 16;
+      Chart.defaults.global.tooltipCornerRadius = 0;
+      Chart.defaults.global.tooltipTitleFontStyle = "normal";
+      Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+      Chart.defaults.global.animationEasing = "easeOutBounce";
+      Chart.defaults.global.responsive = false;
+      Chart.defaults.global.scaleLineColor = "black";
+      Chart.defaults.global.scaleFontSize = 16;
+
+      // get bar chart canvas
+      var mychart = document.getElementById("schart").getContext("2d");
+
+      steps = 10
+      max = {{ smax }}
+      // draw bar chart
+      var LineChartDemo = new Chart(mychart).Line(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true,
+        bezierCurve: false,
+      });
+
+    </script></center></td><td><h6><button type="button" class="btn btn-primary"></button> Уровень сахара, ммоль/л</h6><br><br><br><br><br><br><br><br><br></td></tr>
+
+<tr>
+  <td width="70px"><br>
+      <center><span class="badge badge-pill badge-info"><h5>Инъекции инсулина</h5></span></center></td></tr>
+<tr><td> <center>
+    <canvas id="ichart" width="600" height="400"></canvas>
+    <script>
+
+      var barData = {
+        labels : [
+          {% for item in ilabels %}
+            "{{ item }}",
+          {% endfor %}
+        ],
+
+        datasets : [{
+          fillColor: "rgba(240,130,150,0.2)",
+          strokeColor: "rgba(240,130,150,1)",
+          pointColor: "rgba(240,130,150,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(240,130,150,1)",
+          bezierCurve : false,
+          data : [
+	    {% for item in ivalues %}
+              {{ item }},
+            {% endfor %}]
+          }
+	]
+      }
+
+      Chart.defaults.global.animationSteps = 50;
+      Chart.defaults.global.tooltipYPadding = 16;
+      Chart.defaults.global.tooltipCornerRadius = 0;
+      Chart.defaults.global.tooltipTitleFontStyle = "normal";
+      Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+      Chart.defaults.global.animationEasing = "easeOutBounce";
+      Chart.defaults.global.responsive = false;
+      Chart.defaults.global.scaleLineColor = "black";
+      Chart.defaults.global.scaleFontSize = 16;
+
+      // get bar chart canvas
+      var mychart = document.getElementById("ichart").getContext("2d");
+
+      steps = 10
+      max = {{ imax }}
+      // draw bar chart
+      var LineChartDemo = new Chart(mychart).Line(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true,
+        bezierCurve: false,
+      });
+
+    </script></center></td><td><h6><button type="button" class="btn btn-danger"></button>  Дозы инсулина, ед.</h6><br><br><br><br><br><br><br><br><br></td></tr>
+
+    <tr>
+  <td width="70px"><br>
+      <center><span class="badge badge-pill badge-info"><h5>Потребляемые калории и углеводы</h5></span></center></td></tr>
+    <tr><td><center>
+
+    <canvas id="fchart" width="600" height="400"></canvas>
+    <script>
+
+      // bar chart data
+      var barData = {
+        labels : [
+          {% for item in flabels %}
+            "{{ item }}",
+          {% endfor %}
+        ],
+
+        datasets : [{
+          fillColor: "rgba(250,200,50,0.2)",
+          strokeColor: "rgba(250,200,50,1)",
+          pointColor: "rgba(250,200,50,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(250,200,50,1)",
+          bezierCurve : false,
+          data : [
+	    {% for item in f1values %}
+              {{ item }},
+            {% endfor %}]
+          },
+    {
+          fillColor: "rgba(240,10,10,0.2)",
+          strokeColor: "rgba(240,10,10,0.8)",
+          pointColor: "rgba(240,10,10,0.8)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(240,10,10,0.8)",
+          bezierCurve : false,
+          data : [
+	    {% for item in f2values %}
+              {{ item }},
+            {% endfor %}]
+          }
+	]
+      }
+
+      Chart.defaults.global.animationSteps = 50;
+      Chart.defaults.global.tooltipYPadding = 16;
+      Chart.defaults.global.tooltipCornerRadius = 0;
+      Chart.defaults.global.tooltipTitleFontStyle = "normal";
+      Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+      Chart.defaults.global.animationEasing = "easeOutBounce";
+      Chart.defaults.global.responsive = false;
+      Chart.defaults.global.scaleLineColor = "black";
+      Chart.defaults.global.scaleFontSize = 16;
+
+      // get bar chart canvas
+      var mychart = document.getElementById("fchart").getContext("2d");
+
+      steps = 10
+      max = {{ fmax }}
+      // draw bar chart
+      var LineChartDemo = new Chart(mychart).Line(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true,
+        bezierCurve: false,
+      });
+
+    </script></center></td><td><h6><button type="button" class="btn btn-danger"></button>  Углеводы,г</h6>
+<h6><button type="button" class="btn btn-warning"></button>  Калории, ККал</h6><br><br><br><br><br><br><br><br><br></td></tr>
+
+
+  </table>
+{% endblock %}

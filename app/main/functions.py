@@ -68,6 +68,13 @@ def kkal(g, ft, pt, ct):
     kkal = fk + pk + ck
     kkal = round(kkal,2)
     return kkal
+def makegraph(table1):
+    user_id = current_user.id
+    df = readdb(table1)
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    return dfl
+
+
 
 def send_attention(body):
     user_id = current_user.id
@@ -260,11 +267,3 @@ def plotfunc(df, colmn, user_id):
     # plt.show()
     return a
 
-# def writexls(df,  user_id):
-#     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
-#     writer = pd.ExcelWriter('app/savedfiles/table.xlsx')
-#     f = dfl.to_excel(writer)
-#     fp=dfl.to_pickle("app/savedfiles/dummy.pkl")
-#     writer.save()
-#     # wb = dfc.to_html('D:/diplom/site02.8.02.20/app/templates/sugtable.html', col_space = 110)
-#     return f

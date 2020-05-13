@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import sqlite3
 from datetime import datetime
-from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim, plotfunc
+from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim, \
+    plotfunc, makegraph
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify, send_from_directory, \
     send_file
@@ -79,6 +80,16 @@ def user(username):
     formins = InsulinForm()
     docb = fordoc(user_id)
     pcntnote = names(docb)
+    foodt = makegraph('select * from food_table')
+    sugt = makegraph('select * from sugar_table')
+    inst = makegraph('select * from insulin_table')
+    f1values = foodt['kkal']
+    f2values = foodt['carbohydrates']
+    flabels = foodt['timestamp']
+    svalues = sugt['mol']
+    slabels = sugt['timestamp']
+    ivalues = inst['dose']
+    ilabels = inst['timestamp']
     if current_user.doctor == 0:
         if request.method == 'POST':
             q = kkallim(user_id)
@@ -96,9 +107,6 @@ def user(username):
             elif request.form['submit'] == 'insulin':
                 insfunc(formins)
             return redirect(url_for('auth.user', username=username))
-
-
-
     user = User.query.filter_by(username=username).first_or_404()
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
@@ -109,7 +117,10 @@ def user(username):
                        page=posts.prev_num) if posts.has_prev else None
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url, formsug=formsug,
-                           formfood=formfood, formins=formins, FIO=pcntnote)
+                           formfood=formfood, formins=formins, FIO=pcntnote,
+                           slabels=slabels, svalues=svalues, smax=20,
+                           ilabels=ilabels, ivalues=ivalues, imax=40,
+                           f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)
 
 @bp.route('/instable', methods=['GET', 'POST'])
 @login_required

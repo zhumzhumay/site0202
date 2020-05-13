@@ -1,6 +1,6 @@
 <!-- Кнопка запуска модального окна -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  {{_('CARD')}}
+  {{_('КАРТА')}}
 </button>
 
 <!-- Модальное окно -->
@@ -8,7 +8,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">{{ _('Card of') }}: {{ user.username }}</h4>
+        <h4 class="modal-title" id="myModalLabel">{{ _('Ф.И.О') }}: {{ user.full_name }}</h4>
       </div>
       <div class="modal-body">
         {% include '_cardbody.html' %}

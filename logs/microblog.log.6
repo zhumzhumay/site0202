@@ -1,4 +1,4 @@
-2020-05-13 05:13:50,545 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-13 06:08:03,557 ERROR: Exception on /auth/sugtable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,44 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 119, in user
-    formfood=formfood, formins=formins, FIO=pcntnote)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 130, in sugtable
+    return render_template('sugtable.html', dfl=dfcins)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sugtable.html
+2020-05-13 06:13:24,817 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:17:41,011 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:20:42,737 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:20:51,608 ERROR: Exception on /auth/sugtable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 130, in sugtable
+    return render_template('sugtable.html', dfl=dfc)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
@@ -28,51 +64,54 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
+  File "D:\diplom\site02.8.02.20\app\templates\sugtable.html", line 1, in top-level template code
+    {% block app_content %}
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
     return concat(self.root_render_func(self.new_context(vars)))
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
-    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
-    <span class="icon-bar"></span>
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
-    {% block body -%}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 33, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 14, in root
-    </a></tr></td>
-  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 26, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\sugtable.html", line 10, in root
+  File "D:\diplom\site02.8.02.20\app\templates\sugtable.html", line 20, in block_app_content
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
     return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2219, in to_html
+    encoding=encoding,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\formats\format.py", line 983, in to_html
+    buf=buf, encoding=encoding
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\formats\format.py", line 520, in get_result
+    with self.get_buffer(buf, encoding=encoding) as f:
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\formats\format.py", line 492, in get_buffer
+    raise ValueError("buf is not a file name and encoding is specified.")
+ValueError: buf is not a file name and encoding is specified.
+2020-05-13 06:21:50,973 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:34:42,989 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-13 06:34:49,834 ERROR: Exception on /auth/sugtable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'auth.sugar'. Did you mean 'auth.search' instead?
-2020-05-13 05:14:14,968 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:16:47,020 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:18:20,239 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:20:15,628 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:20:30,303 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:26:32,300 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:30:11,904 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:31:04,053 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:33:58,440 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:38:26,321 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:39:13,988 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:39:53,641 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:41:13,599 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:44:43,227 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 05:57:04,074 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 130, in sugtable
+    dft = dfc.to_html(decimal='.', encoding='utf-8', classes="table table-striped" )
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\frame.py", line 2219, in to_html
+    encoding=encoding,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\formats\format.py", line 983, in to_html
+    buf=buf, encoding=encoding
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\formats\format.py", line 520, in get_result
+    with self.get_buffer(buf, encoding=encoding) as f:
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\io\formats\format.py", line 492, in get_buffer
+    raise ValueError("buf is not a file name and encoding is specified.")
+ValueError: buf is not a file name and encoding is specified.
+2020-05-13 06:37:13,508 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

@@ -1,4 +1,4 @@
-2020-05-13 03:32:38,559 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-13 05:57:11,813 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 123, in user
-    formfood=formfood, formins=formins, FIO=pcntnote, dfl =dfsug)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 112, in user
+    formfood=formfood, formins=formins, FIO=pcntnote)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
@@ -44,7 +44,9 @@ Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
   File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
   File "D:\diplom\site02.8.02.20\app\templates\user.html", line 132, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 41, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 33, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 14, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_insulin.html", line 26, in block_app_content
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
     return __obj(*args, **kwargs)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
@@ -57,8 +59,5 @@ Traceback (most recent call last):
     endpoint, values, method=method, force_external=external
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'eatdb1.csv'. Did you mean 'auth.user' instead?
-2020-05-13 03:35:18,547 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:36:06,375 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:36:24,164 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-13 03:40:56,373 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+werkzeug.routing.BuildError: Could not build url for endpoint 'tables.instable'. Did you mean 'auth.instable' instead?
+2020-05-13 05:57:44,032 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
