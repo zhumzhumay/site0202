@@ -2,7 +2,7 @@
 import sqlite3
 from datetime import datetime
 from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim, \
-    makegraph, folvalid
+    makegraph, folvalid, dtype, curdtype, foodsame
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify, send_from_directory, \
     send_file
@@ -105,6 +105,7 @@ def user(username):
                 sugarfunc(formsug)
             elif request.form['submit'] == 'food':
                 foodfunc(formfood)
+
             elif request.form['submit'] == 'insulin':
                 insfunc(formins)
             return redirect(url_for('auth.user', username=username))
@@ -155,6 +156,8 @@ def foodtable(username):
 def edit_profile():
     form = EditProfileForm(current_user.username)
     if form.validate_on_submit():
+        dt = form.dtype.data
+        current_user.diatype = dtype(dt)
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         current_user.weight = form.weight.data
@@ -165,6 +168,8 @@ def edit_profile():
         flash(_('Your changes have been saved.'))
         return redirect(url_for('auth.edit_profile'))
     elif request.method == 'GET':
+        dt = curdtype()
+        form.dtype.data = dt
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
         form.weight.data =current_user.weight
@@ -211,18 +216,16 @@ def unfollow(username):
 @login_required
 def search():
     if not g.search_form.validate():
-        return redirect(url_for('auth.explore'))
+        return redirect(url_for('main.explore'))
     page = request.args.get('page', 1, type=int)
     posts, total = Post.search(g.search_form.q.data, page,
                                current_app.config['POSTS_PER_PAGE'])
-    # user, total = User.search(g.search_form.q.data, page,
-    #                            current_app.config['POSTS_PER_PAGE'])
-    next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1)  # \ #надо бы исправить
-    # if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    # TypeError: '>' not supported between instances of 'dict' and 'int'
+    tot = total["value"]
+    next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1) \
+        if tot> page * current_app.config['POSTS_PER_PAGE'] else None
     prev_url = url_for('auth.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
-    return render_template('search.html', title=_('Search'), posts=posts, user=user,
+    return render_template('search.html', title=_('Search'), posts=posts,
                            next_url=next_url, prev_url=prev_url)
 
 
@@ -274,5 +277,13 @@ def notifications():
     } for n in notifications])
 
 
+@bp.route('/recommendations', methods=['GET', 'POST']) #### here
+@login_required
+def recommendations():
+    return render_template('gen_recom.html')
 
-
+@bp.route('/recommend_food', methods=['GET', 'POST']) #### here
+@login_required
+def recommend_food():
+    list1 = foodsame(current_user.id)
+    return render_template('recommend_food.html', list1=list1)

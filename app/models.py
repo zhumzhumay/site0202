@@ -18,8 +18,8 @@ class SearchableMixin(object):
         when = []
         for i in range(len(ids)):
             when.append((ids[i], i))
-        return cls.query.filter(cls.id.in_(ids)).order_by(
-            db.case(when, value=cls.id)), total
+        return [cls.query.filter(cls.id.in_(ids)).order_by(
+            db.case(when, value=cls.id)), total]
 
     @classmethod
     def before_commit(cls, session):
@@ -89,8 +89,8 @@ followers = db.Table(
     #     return n
 
 
-class User(UserMixin, SearchableMixin, db.Model):                                                 #new попытка ввести поиск по имени
-    __searchable__ = ['username']                                                              #new  попытка ввести поиск по имени
+class User(UserMixin, db.Model):                                                 #new попытка ввести поиск по имени
+    # __searchable__ = ['username']                                                              #new  попытка ввести поиск по имени
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)

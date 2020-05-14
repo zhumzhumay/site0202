@@ -11,6 +11,25 @@ from datetime import timedelta,datetime
 import pandas as pd
 from app.models import SugarTable, InsulinTable, FoodTable, Message, User, followers
 
+def dtype(diat):
+    ch = current_user.diatype
+    if diat == '1':
+        ch = 'I типа'
+    elif diat == '2':
+        ch = 'II типа'
+    elif diat == '3':
+        ch = 'гестационный'
+    return ch
+
+def curdtype():
+    diat= current_user.diatype
+    if diat =='I типа':
+        ch =  '1'
+    elif diat =='II типа' :
+        ch = '2'
+    elif diat =='гестационный' :
+        ch = '3'
+    return ch
 
 def priem(eat):
     ch = 'no data'
@@ -142,6 +161,38 @@ def insfunc(form):
     db.session.commit()
     return flash(_('Your changes have been saved.'))
 
+def foodsame(user_id):
+    dfe = readdb('select * from food_table')
+    dft = dfe.loc[lambda df: df['user_id'] == user_id, :]
+    dft1 =dft.tail(1)
+    indf = dft1.food
+    for i in indf:
+        fname=i
+    df = readdb('select * from food_datatable')
+    dfname = df.loc[lambda df: df['food'] == fname, :]
+    for i in dfname.index:
+        ind=i
+    fats = df.loc[ind, 'fats']
+    carb = df.loc[ind, 'carbohydrates']
+    valcat = df.loc[ind,'category']
+    dfl = df.loc[lambda df: df['category'] == valcat, :]
+    for i in dfl:
+        indx = dfl.index
+    list=[]
+    j=0
+    for i in indx:
+        morcarb = df.loc[i, 'carbohydrates']
+        morfats = df.loc[i, 'fats']
+        pr = df.loc[i, 'protein']
+        if (morcarb < carb) and (morfats < fats):
+            j=j+1
+            eat = df.loc[i, 'food']
+            k=(j,eat,pr, morfats, morcarb )
+            list.append(k)
+    return list
+
+
+
 def foodfunc(form):
     grams = form.grams.data
     time = form.time.data
@@ -163,7 +214,8 @@ def foodfunc(form):
         note = FoodTable(food=food, kkal=Kkal, eating=eating, carbohydrates=carbs, user_id=current_user.id)
     db.session.add(note)
     db.session.commit()
-    return flash(_('Your changes have been saved.'))
+    flash(_('Your changes have been saved.'))
+    return ind
 
 def kkallim(user_id):
     # user_id = current_user.id
@@ -215,6 +267,7 @@ def fordoc(user_id):
     bd=readdb(sql_string)
     dfl = bd.loc[lambda bd: bd['follower_id'] == user_id, :]
     # docnote = dfl[['followed_id']]
+    #dfl2=dfl.loc[:,['index','food']]
     return dfl
 
 def names (docb):

@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648e1333-28da-450a-a9c9-648e52a43a02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/savedfiles/ppp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/gen_recom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/recommend_food.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/_food.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_food.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/_insulin.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_insulin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/_sugar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_sugar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/foodtable.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/foodtable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/errors/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/errors/500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/instable.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/instable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/sugtable.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/sugtable.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.10" afterDir="false" />
@@ -51,8 +56,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -78,11 +83,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\diplom\site02.8.02.20\app\savedfiles" />
       <recent name="D:\diplom\site02.8.02.20\app\templates" />
       <recent name="D:\diplom\site02.8.02.20\app\templates\tables" />
       <recent name="D:\diplom\site02.8.02.20\app" />
       <recent name="D:\diplom\site02.8.02.20\app\main" />
-      <recent name="D:\diplom\site02.8.02.20\app\templates\shablony" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -275,7 +280,7 @@
       <workItem from="1589123752104" duration="6399000" />
       <workItem from="1589131145375" duration="22380000" />
       <workItem from="1589159759943" duration="5059000" />
-      <workItem from="1589165035224" duration="118620000" />
+      <workItem from="1589165035224" duration="156785000" />
     </task>
     <servers />
   </component>

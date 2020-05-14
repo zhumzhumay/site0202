@@ -20,6 +20,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('auth.index') }}">{{ _('Home') }}</a></li>
                     <li><a href="{{ url_for('auth.explore') }}">{{ _('Explore') }}</a></li>
+                    <li><a href="{{ url_for('auth.recommendations') }}">{{ _('Общие рекомендации') }}</a></li>
                 </ul>
                 {% if g.search_form %}
                   <form class="navbar-form navbar-left" method="get"

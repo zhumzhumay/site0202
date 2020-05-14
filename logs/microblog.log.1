@@ -1,4 +1,4 @@
-2020-05-14 01:13:58,950 ERROR: Exception on /auth/user/sus [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-14 13:19:40,663 ERROR: Exception on /auth/recommend_food [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,65 +14,75 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 124, in user
-    f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 591, in compile
-    self.handle_exception(exc_info, source_hint=source_hint)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 289, in recommend_food
+    list1 = foodsame()
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 174, in foodsame
+    dfl = df.loc[lambda df: df['category'] == valcat, :]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1756, in __getitem__
+    key = tuple(com.apply_if_callable(x, self.obj) for x in key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1756, in <genexpr>
+    key = tuple(com.apply_if_callable(x, self.obj) for x in key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\common.py", line 343, in apply_if_callable
+    return maybe_callable(obj, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 174, in <lambda>
+    dfl = df.loc[lambda df: df['category'] == valcat, :]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\ops\common.py", line 64, in new_method
+    return method(self, other)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\ops\__init__.py", line 524, in wrapper
+    raise ValueError("Can only compare identically-labeled Series objects")
+ValueError: Can only compare identically-labeled Series objects
+2020-05-14 13:26:07,806 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-14 13:28:05,174 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-14 13:29:46,479 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-14 13:46:55,117 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-14 13:47:02,804 ERROR: Exception on /auth/recommend_food [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'è'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 50, in template
-    {% endblock %}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 497, in _parse
-    return Parser(self, source, name, encode_filename(filename)).parse()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 901, in parse
-    result = nodes.Template(self.subparse(), lineno=1)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 268, in parse_block
-    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
-    result = self.subparse(end_tokens)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 223, in parse_if
-    drop_needle=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
-    result = self.subparse(end_tokens)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 223, in parse_if
-    drop_needle=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
-    result = self.subparse(end_tokens)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
-    self.fail_unknown_tag(token.value, token.lineno)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
-    return self._fail_ut_eof(name, self._end_token_stack, lineno)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
-    self.fail(' '.join(message), lineno)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\parser.py", line 59, in fail
-    raise exc(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'endif'. The innermost block that needs to be closed is 'if'.
-2020-05-14 01:16:05,744 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 01:20:56,448 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 01:28:30,643 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 288, in recommend_food
+    list1 = foodsame(current_user.id)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 175, in foodsame
+    fats = df.loc[ind, 'fats']
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
+    return self._getitem_tuple(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
+    section = self._getitem_axis(key, axis=i)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
+    return self._get_label(key, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
+    return self.obj._xs(label, axis=axis)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
+    loc = self.index.get_loc(key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\range.py", line 353, in get_loc
+    return super().get_loc(key, method=method, tolerance=tolerance)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'è'
+2020-05-14 13:50:12,354 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

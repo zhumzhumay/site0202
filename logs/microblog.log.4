@@ -1,4 +1,11 @@
-2020-05-14 00:15:44,044 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-14 07:00:58,136 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 706, in comparator
+    comparator_factory = self.type.comparator_factory
+AttributeError: 'NoneType' object has no attribute 'comparator_factory'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,57 +21,37 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 124, in user
-    f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
-    <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
-    <span class="icon-bar"></span>
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
-    {% block body -%}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 109, in block_content
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 121, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 37, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_food.html", line 15, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_food.html", line 28, in block_app_content
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'auth.foodtable' with values ['user']. Did you forget to specify values ['username']?
-2020-05-14 00:19:18,917 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 00:21:24,754 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 00:21:52,981 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 00:22:47,450 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 00:23:16,438 ERROR: Exception on /auth/user/cat/foodtable [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 221, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "D:\diplom\site02.8.02.20\app\models.py", line 22, in search
+    db.case(when, value=cls.id)), total]
+  File "<string>", line 2, in order_by
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
+    fn(self, *args[1:], **kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 1850, in order_by
+    criterion = self._adapt_col_list(criterion)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in _adapt_col_list
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in <listcomp>
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 4533, in _literal_as_label_reference
+    elif hasattr(element, "__clause_element__"):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 717, in __getattr__
+    return getattr(self.comparator, key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 710, in comparator
+    "is not a TypeEngine class or object" % self.type
+TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object
+2020-05-14 07:01:28,597 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-14 07:01:33,513 ERROR: Exception on /auth/search [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 706, in comparator
+    comparator_factory = self.type.comparator_factory
+AttributeError: 'NoneType' object has no attribute 'comparator_factory'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -80,10 +67,26 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 151, in foodtable
-    return render_template('foodtable.html', dfl=dfc, user = user, username=user.username)
-AttributeError: 'function' object has no attribute 'username'
-2020-05-14 00:25:16,800 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 00:26:40,520 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 00:27:45,452 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 01:10:01,841 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 221, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "D:\diplom\site02.8.02.20\app\models.py", line 22, in search
+    db.case(when, value=cls.id)), total]
+  File "<string>", line 2, in order_by
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\base.py", line 220, in generate
+    fn(self, *args[1:], **kw)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 1850, in order_by
+    criterion = self._adapt_col_list(criterion)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in _adapt_col_list
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 312, in <listcomp>
+    for o in cols
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 4533, in _literal_as_label_reference
+    elif hasattr(element, "__clause_element__"):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 717, in __getattr__
+    return getattr(self.comparator, key)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 710, in comparator
+    "is not a TypeEngine class or object" % self.type
+TypeError: Object None associated with '.type' attribute is not a TypeEngine class or object
+2020-05-14 07:04:18,729 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

@@ -1,5 +1,6 @@
 
 {% block app_content %}
+<tr>{{ user.full_name }}</tr>
 <tr>{{ dfl.to_html(classes="table table-striped", decimal=',') | safe }}</tr>
 
 {% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Продукт</th>
+      <th scope="col">Белки</th>
+      <th scope="col">Жиры</th>
+      <th scope="col">Углеводы</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for j,eat,pr, morfats, morcarb in list1 %}
+            <tr>
+                <td>{{ j }}</td>
+                <td>{{ eat }}</td>
+                <td>{{ pr }}</td>
+                <td>{{ morfats }}</td>
+                <td>{{ morcarb }}</td>
+
+            </tr>
+                     {% endfor %}
+
+
+  </tbody></table>
+{% endblock %}
