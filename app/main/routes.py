@@ -84,23 +84,15 @@ def user(username):
     foodt = makegraph('select * from food_table',user.id)
     sugt = makegraph('select * from sugar_table',user.id)
     inst = makegraph('select * from insulin_table',user.id)
-    f1values = foodt['kkal']
-    f2values = foodt['carbohydrates']
-    flabels = foodt['timestamp']
-    svalues = sugt['mol']
-    slabels = sugt['timestamp']
-    ivalues = inst['dose']
-    ilabels = inst['timestamp']
+    f1values = foodt['kkal'].tail(10)
+    f2values = foodt['carbohydrates'].tail(10)
+    flabels = foodt['timestamp'].tail(10)
+    svalues = sugt['mol'].tail(10)
+    slabels = sugt['timestamp'].tail(10)
+    ivalues = inst['dose'].tail(10)
+    ilabels = inst['timestamp'].tail(10)
     if current_user.doctor == 0:
         if request.method == 'POST':
-            q = kkallim(user_id)
-            c = carblim(user_id)
-            qlim = current_user.kkal
-            clim = current_user.carbohydrates_level
-            if q <= qlim:
-                send_attention('Значение потребленных ККал ниже базовой потребности')
-            elif c <= clim:
-                send_attention('Значение потребленных углеводов ниже базовой потребности')
             if request.form['submit'] == 'sugar':
                 sugarfunc(formsug)
             elif request.form['submit'] == 'food':

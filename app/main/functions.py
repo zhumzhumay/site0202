@@ -77,6 +77,84 @@ def readdb(sql_string):
     df = pd.read_sql(sql_string, conn)
     return df
 
+def howtime(days, table, maxt):
+    user_id =current_user.id
+    delta = timedelta(days=days)
+    df = readdb(table)
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    df1 = dfl.timestamp
+    df1 = pd.to_datetime(df1)
+    ind = df1.index
+    if maxt!=0:
+        maxd = maxt
+    else:
+        maxd = df1.max()
+
+    mind = maxd - delta
+    list = []
+    for i in ind:
+        a = df1[i]
+        if maxd>= a >= mind:
+            list.append(i)
+    return list, dfl
+
+
+def junkfood():
+    user_id = current_user.id
+    df = readdb('select * from sugar_table')
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    dfs = dfl.mol
+    ind = dfs.index
+    timelist = []
+    for i in ind:
+        a = dfs[i]
+        if a >= current_user.sugarlevel:
+            time = df.loc[i, 'timestamp']
+            timelist.append(time)
+    timedf = pd.DataFrame(timelist)
+    timedf = pd.to_datetime(timedf[0])#0-column
+    m = []
+    ni = 0
+    delta=timedelta(days=1)
+    n = len(timedf) - 1
+    mx = timedf[n]
+    m.append(mx)
+    while n > 0:
+        n = n - 1
+        dlt = m[ni] - delta
+        t = timedf[n]
+        if t <= dlt:
+            ni = ni + 1
+            m.append(t)
+    timedf = pd.DataFrame(m)
+    timedf = pd.to_datetime(timedf[0]) # 0-column
+    junklist=[]
+    for i in timedf:
+        tilist, dfus = howtime(1, 'select * from food_table', i)
+        dfm = dfus.food
+        dfc = dfus.carbohydrates
+        for j in tilist:
+            f = dfm[j]
+            c = dfc[j]
+            k=(f,c)
+            junklist.append(k)
+    maxc= max(junklist)[1]#0-f, 1-c
+    mc =maxc*0.9
+    jn=0
+    jfood=[]
+    for i in junklist:
+        if i[1] >=mc:
+            jn=jn+1
+            jfood.append(i[0])
+
+    return jfood, jn
+
+
+
+
+
+
+
 def kkal(g, ft, pt, ct):
     fi = 9.29
     pi = 4.1
@@ -87,12 +165,11 @@ def kkal(g, ft, pt, ct):
     kkal = fk + pk + ck
     kkal = round(kkal,2)
     return kkal
+
 def makegraph(table1, user_id):
     df = readdb(table1)
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
     return dfl
-
-
 
 def send_attention(body):
     user_id = current_user.id
@@ -105,24 +182,12 @@ def send_attention(body):
     db.session.add(msg)
     db.session.commit()
 
-def sugarlim(user_id):
+def sugarlim():
     if current_user.sugar != None:
         sugarlevel = current_user.sugarlevel
     else:
         sugarlevel = 9
-    delta = timedelta(days=7)
-    df = readdb('select user_id, mol, timestamp from sugar_table')
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
-    df1 = dfl.timestamp
-    df1 = pd.to_datetime(df1)
-    ind = df1.index
-    maxd = df1.max()
-    mind = maxd - delta
-    list = []
-    for i in ind:
-        a = df1[i]
-        if a >= mind:
-            list.append(i)
+    list, dfl = howtime(7, 'select user_id, mol, timestamp from sugar_table',0)
     dfm = dfl.mol
     c = 0
     for i in list:
@@ -135,7 +200,7 @@ def sugarfunc(form):
     eat = eatf(form.eat.data)
     ml =form.mol.data
     mol = round(ml,3)
-    mol1 = sugarlim(current_user.id)
+
     if time:
         #timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
         note = SugarTable(eat=eat, user_id=current_user.id, mol=mol, timestamp=time)
@@ -143,9 +208,11 @@ def sugarfunc(form):
         note = SugarTable(eat=eat, user_id=current_user.id, mol=mol)
     db.session.add(note)
     db.session.commit()
+    mol1 = sugarlim()
     if (mol >=9) or (mol1 >= 2) :
       send_attention('Уровень гликемии превышен')
-    return flash(_('Your changes have been saved.'))
+    else:
+        flash(_('Your changes have been saved.'))
 
 def insfunc(form):
     time = form.time.data
@@ -192,7 +259,6 @@ def foodsame(user_id):
     return list
 
 
-
 def foodfunc(form):
     grams = form.grams.data
     time = form.time.data
@@ -214,47 +280,40 @@ def foodfunc(form):
         note = FoodTable(food=food, kkal=Kkal, eating=eating, carbohydrates=carbs, user_id=current_user.id)
     db.session.add(note)
     db.session.commit()
-    flash(_('Your changes have been saved.'))
+    jfood,jnum  = junkfood()
+    f=False
+    for i in jfood:
+        if jnum >= 3 and i == food:
+          f=True
+    if f==True:flash(_('Выбранный продукт приводит к повышению уровня глюкозы, постарайтесь уменьшить его потребление'))
+    else: flash(_('Your changes have been saved.'))
+
+    q = kkallim()
+    c = carblim()
+    qlim = current_user.kkal
+    clim = current_user.carbohydrates_level
+    if q <= qlim or c <= clim:
+        if q <= qlim and c <= clim:
+            send_attention('Значение потребленных калорий и углеводов ниже базовой потребности')
+        else:
+            if q <= qlim:
+                send_attention('Значение потребленных калорий ниже базовой потребности')
+            if c <= clim:
+                send_attention('Значение потребленных углеводов ниже базовой потребности')
     return ind
 
-def kkallim(user_id):
-    # user_id = current_user.id
-    delta = timedelta(days=1)
-    df = readdb('select user_id, kkal, carbohydrates, timestamp from food_table')
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
-    df1 = dfl.timestamp
-    df1 = pd.to_datetime(df1)
-    ind = df1.index
-    maxd = df1.max()
-    mind = maxd - delta
-    list = []
-    for i in ind:
-        a = df1[i]
-        if a >= mind:
-            list.append(i)
 
+
+def kkallim():
+    list, dfl = howtime(1,'select * from food_table',0)
     dfk = dfl.kkal
     c = 0
     for i in list:
         c = c + dfk[i]
     return c
 
-def carblim(user_id):
-    # user_id = current_user.id
-    delta = timedelta(days=1)
-    df = readdb('select user_id, kkal, carbohydrates, timestamp from food_table')
-    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
-    df1 = dfl.timestamp
-    df1 = pd.to_datetime(df1)
-    ind = df1.index
-    maxd = df1.max()
-    mind = maxd - delta
-    list = []
-    for i in ind:
-        a = df1[i]
-        if a >= mind:
-            list.append(i)
-
+def carblim():
+    list, dfl = howtime(1, 'select * from food_table',0)
     dfk = dfl.carbohydrates
     c = 0
     for i in list:
@@ -300,6 +359,7 @@ def folvalid(user):
     if j!=1:
         flash('Данный пользователь не является вашим пациентом')
     return j #must be 1
+
 
 
 

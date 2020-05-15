@@ -1,14 +1,4 @@
-2020-05-14 13:50:51,081 ERROR: Exception on /auth/recommend_food [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
-    return self._engine.get_loc(key)
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: 'è'
-
-During handling of the above exception, another exception occurred:
-
+2020-05-15 05:22:23,610 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -24,42 +14,18 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 288, in recommend_food
-    list1 = foodsame(current_user.id)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 175, in foodsame
-    fats = df.loc[ind, 'fats']
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
-    return self._getitem_tuple(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
-    return self._getitem_lowerdim(tup)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
-    section = self._getitem_axis(key, axis=i)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
-    return self._get_label(key, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
-    return self.obj._xs(label, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
-    loc = self.index.get_loc(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\range.py", line 353, in get_loc
-    return super().get_loc(key, method=method, tolerance=tolerance)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: 'è'
-2020-05-14 13:52:22,996 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-14 13:52:30,133 ERROR: Exception on /auth/recommend_food [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2646, in get_loc
-    return self._engine.get_loc(key)
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: 'carbohydrates'
-
-During handling of the above exception, another exception occurred:
-
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 99, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 281, in foodfunc
+    jnum, jfood = junkfood()
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 131, in junkfood
+    ind = timedf.index
+AttributeError: 'Timestamp' object has no attribute 'index'
+2020-05-15 05:27:52,492 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-15 05:30:06,044 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-15 06:06:01,392 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-15 06:40:15,698 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-15 06:41:25,636 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -75,27 +41,10 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 288, in recommend_food
-    list1 = foodsame(current_user.id)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 175, in foodsame
-    fats = df.loc[ind, 'fats']
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1762, in __getitem__
-    return self._getitem_tuple(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_tuple
-    return self._getitem_lowerdim(tup)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1389, in _getitem_lowerdim
-    section = self._getitem_axis(key, axis=i)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 1965, in _getitem_axis
-    return self._get_label(key, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexing.py", line 625, in _get_label
-    return self.obj._xs(label, axis=axis)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\generic.py", line 3537, in xs
-    loc = self.index.get_loc(key)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\range.py", line 353, in get_loc
-    return super().get_loc(key, method=method, tolerance=tolerance)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\indexes\base.py", line 2648, in get_loc
-    return self._engine.get_loc(self._maybe_cast_indexer(key))
-  File "pandas\_libs\index.pyx", line 111, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index.pyx", line 135, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\index_class_helper.pxi", line 109, in pandas._libs.index.Int64Engine._check_type
-KeyError: 'carbohydrates'
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 99, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 285, in foodfunc
+    for i in jfood:
+TypeError: 'int' object is not iterable
+2020-05-15 06:44:21,741 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-15 06:46:30,425 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
