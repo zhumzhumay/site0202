@@ -2,7 +2,7 @@
 import sqlite3
 from datetime import datetime
 from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim, \
-    makegraph, folvalid, dtype, curdtype, foodsame
+    makegraph, folvalid, dtype, curdtype, foodsame, normdates
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify, send_from_directory, \
     send_file
@@ -84,13 +84,13 @@ def user(username):
     foodt = makegraph('select * from food_table',user.id)
     sugt = makegraph('select * from sugar_table',user.id)
     inst = makegraph('select * from insulin_table',user.id)
-    f1values = foodt['kkal'].tail(10)
-    f2values = foodt['carbohydrates'].tail(10)
-    flabels = foodt['timestamp'].tail(10)
-    svalues = sugt['mol'].tail(10)
-    slabels = sugt['timestamp'].tail(10)
-    ivalues = inst['dose'].tail(10)
-    ilabels = inst['timestamp'].tail(10)
+    f1values = foodt['kkal'].tail(30)
+    f2values = foodt['carbohydrates'].tail(30)
+    flabels =normdates(foodt['timestamp'].tail(30))
+    svalues = sugt['mol'].tail(30)
+    slabels= normdates(sugt['timestamp'].tail(30))
+    ivalues = inst['dose'].tail(30)
+    ilabels = normdates(inst['timestamp'].tail(30))
     if current_user.doctor == 0:
         if request.method == 'POST':
             if request.form['submit'] == 'sugar':

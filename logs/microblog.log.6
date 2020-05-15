@@ -1,4 +1,4 @@
-2020-05-15 05:13:47,356 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-15 05:14:37,286 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
     cursor, statement, parameters, context
@@ -69,5 +69,55 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
 [SQL: UPDATE user SET last_seen=? WHERE user.id = ?]
-[parameters: ('2020-05-15 02:13:42.082101', 5)]
+[parameters: ('2020-05-15 02:14:32.082085', 5)]
 (Background on this error at: http://sqlalche.me/e/e3q8)
+2020-05-15 05:17:33,268 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 99, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 280, in foodfunc
+    jnum, jfood = junkfood()
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 129, in junkfood
+    timedf = pd.m(timelist)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\__init__.py", line 263, in __getattr__
+    raise AttributeError(f"module 'pandas' has no attribute '{name}'")
+AttributeError: module 'pandas' has no attribute 'm'
+2020-05-15 05:18:36,300 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-15 05:18:45,858 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 99, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 280, in foodfunc
+    jnum, jfood = junkfood()
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 132, in junkfood
+    for i in timedf:
+TypeError: 'Timestamp' object is not iterable
+2020-05-15 05:22:12,757 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

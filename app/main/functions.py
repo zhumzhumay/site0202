@@ -77,9 +77,9 @@ def readdb(sql_string):
     df = pd.read_sql(sql_string, conn)
     return df
 
-def howtime(days, table, maxt):
+def howtime(days, minutes, table, maxt):
     user_id =current_user.id
-    delta = timedelta(days=days)
+    delta = timedelta(days=days,minutes=minutes)
     df = readdb(table)
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
     df1 = dfl.timestamp
@@ -113,46 +113,64 @@ def junkfood():
             timelist.append(time)
     timedf = pd.DataFrame(timelist)
     timedf = pd.to_datetime(timedf[0])#0-column
-    m = []
-    ni = 0
-    delta=timedelta(days=1)
-    n = len(timedf) - 1
-    mx = timedf[n]
-    m.append(mx)
-    while n > 0:
-        n = n - 1
-        dlt = m[ni] - delta
-        t = timedf[n]
-        if t <= dlt:
-            ni = ni + 1
-            m.append(t)
-    timedf = pd.DataFrame(m)
-    timedf = pd.to_datetime(timedf[0]) # 0-column
-    junklist=[]
+    # m = []
+    # ni = 0
+    #delta=timedelta(days=5)
+    delta2 = timedelta(minutes=30)
+########
+    ind = timedf.index
+    list1 = []
+    for i in ind:
+        a = timedf[i]+delta2
+        list1.append(a)
+    timedf = pd.DataFrame(list1)
+    timedf = pd.to_datetime(timedf[0])  # 0-column
+    junklist = []
     for i in timedf:
-        tilist, dfus = howtime(1, 'select * from food_table', i)
-        dfm = dfus.food
-        dfc = dfus.carbohydrates
-        for j in tilist:
-            f = dfm[j]
-            c = dfc[j]
-            k=(f,c)
-            junklist.append(k)
-    maxc= max(junklist)[1]#0-f, 1-c
-    mc =maxc*0.9
-    jn=0
-    jfood=[]
-    for i in junklist:
-        if i[1] >=mc:
-            jn=jn+1
-            jfood.append(i[0])
-
-    return jfood, jn
-
-
-
-
-
+        list2, dfus = howtime(0, 60, 'select * from food_table', i)
+        dffood = dfus.food
+        for j in list2:
+            f = dffood[j]
+            junklist.append(f)
+    list3 = []
+    for food in junklist:
+        c = junklist.count(food)
+        k = (food, c)
+        list3.append(k)
+    junklist=list(set(list3))
+    return junklist
+    # n = len(timedf) - 1
+    # mx = timedf[n]
+    # m.append(mx)
+    # while n > 0:
+    #     n = n - 1
+    #     dlt = m[ni] - delta
+    #     t = timedf[n]
+    #     if t <= dlt:
+    #         ni = ni + 1
+    #         m.append(t)
+    # timedf = pd.DataFrame(m)
+    # timedf = pd.to_datetime(timedf[0]) # 0-column
+    # junklist=[]
+    # for i in timedf:
+    #     tilist, dfus = howtime(1, 'select * from food_table', i)
+    #     dfm = dfus.food
+    #     dfc = dfus.carbohydrates
+    #     for j in tilist:
+    #         f = dfm[j]
+    #         c = dfc[j]
+    #         k=(f,c)
+    #         junklist.append(k)
+    # maxc= max(junklist)[1]#0-f, 1-c
+    # mc =maxc*0.9
+    # jn=0
+    # jfood=[]
+    # for i in junklist:
+    #     if i[1] >=mc:
+    #         jn=jn+1
+    #         jfood.append(i[0])
+    #
+    # return jfood, jn
 
 
 def kkal(g, ft, pt, ct):
@@ -187,7 +205,7 @@ def sugarlim():
         sugarlevel = current_user.sugarlevel
     else:
         sugarlevel = 9
-    list, dfl = howtime(7, 'select user_id, mol, timestamp from sugar_table',0)
+    list, dfl = howtime(7,0,'select user_id, mol, timestamp from sugar_table',0)
     dfm = dfl.mol
     c = 0
     for i in list:
@@ -280,11 +298,10 @@ def foodfunc(form):
         note = FoodTable(food=food, kkal=Kkal, eating=eating, carbohydrates=carbs, user_id=current_user.id)
     db.session.add(note)
     db.session.commit()
-    jfood,jnum  = junkfood()
+    junklist  = junkfood()
     f=False
-    for i in jfood:
-        if jnum >= 3 and i == food:
-          f=True
+    for jfood,j in junklist:
+        if j >= 3 and jfood == food:f=True
     if f==True:flash(_('Выбранный продукт приводит к повышению уровня глюкозы, постарайтесь уменьшить его потребление'))
     else: flash(_('Your changes have been saved.'))
 
@@ -305,7 +322,7 @@ def foodfunc(form):
 
 
 def kkallim():
-    list, dfl = howtime(1,'select * from food_table',0)
+    list, dfl = howtime(21,0,'select * from food_table',0)
     dfk = dfl.kkal
     c = 0
     for i in list:
@@ -313,7 +330,7 @@ def kkallim():
     return c
 
 def carblim():
-    list, dfl = howtime(1, 'select * from food_table',0)
+    list, dfl = howtime(1,0, 'select * from food_table',0)
     dfk = dfl.carbohydrates
     c = 0
     for i in list:
@@ -361,8 +378,12 @@ def folvalid(user):
     return j #must be 1
 
 
-
-
+def normdates(df):
+    b = []
+    for i in df:
+        p = str(i)[2:-10]
+        b.append(p)
+    return b
 # def plotfunc(df, colmn, user_id):
 #     matplotlib.style.use('ggplot')
 #     matplotlib.use('Agg')
