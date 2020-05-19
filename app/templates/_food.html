@@ -3,12 +3,12 @@
 
 {% block app_content %}
     <form action="" method="post">
-
-{{ wtf.quick_form(formfood) }}
+         {% if current_user.doctor == 0 %}
+         {{ wtf.quick_form(formfood) }}
         <div class="alert alert-success" role="alert">
-  Желаете ознакомиться со списком продуктов последней выбранной категории с меньшим содержанием жиров и углеводов?
+          Желаете ознакомиться со списком продуктов последней выбранной категории с меньшим содержанием жиров и углеводов?
             <a href="{{url_for('auth.recommend_food')}}" class="alert-link">перейти к таблице</a>.
-</div>
+</div> {% endif %}
 <br><a class="btn btn-danger" href="{{ url_for('auth.foodtable', username= user.username) }}" download="eating_table.xls" role="button">
    Загрузить таблицу записей
 </a>

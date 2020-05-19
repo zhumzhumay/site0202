@@ -99,6 +99,7 @@ class User(UserMixin, db.Model):                                                
     sugar = db.relationship('SugarTable', backref='author', lazy='dynamic')             #new
     insulin = db.relationship('InsulinTable', backref='author', lazy='dynamic')
     food = db.relationship('FoodTable', backref='author', lazy='dynamic')
+    sport = db.relationship('Sport', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     doctor = db.Column(db.Integer)                                                 #new
     weight = db.Column(db.Integer)
@@ -227,6 +228,13 @@ class InsulinTable(db.Model):
 
     def __repr__(self):
         return '<Sugar {}>'.format(self.body)
+
+class Sport(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sport = db.Column(db.String(140))
+    time = db.Column(db.Integer)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
 

@@ -2,13 +2,13 @@
 import sqlite3
 from datetime import datetime
 from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim, \
-    makegraph, folvalid, dtype, curdtype, foodsame, normdates
+    makegraph, folvalid, dtype, curdtype, foodsame, normdates, sportfunc
 import pandas as pd
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify, send_from_directory, \
     send_file
 from flask_login import current_user, login_required
 from app import db
-from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm, SugarForm, FoodForm, InsulinForm
+from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm, SugarForm, FoodForm, InsulinForm, SportForm
 from app.models import User, Post, Message, Notification, SugarTable, InsulinTable, FoodDatatable
 from flask_babel import _, get_locale
 from app.auth import bp
@@ -79,6 +79,7 @@ def user(username):
     formsug=SugarForm()
     formfood=FoodForm()
     formins = InsulinForm()
+    formsport = SportForm()
     docb = fordoc(user_id)
     pcntnote = names(docb)
     foodt = makegraph('select * from food_table',user.id)
@@ -97,7 +98,8 @@ def user(username):
                 sugarfunc(formsug)
             elif request.form['submit'] == 'food':
                 foodfunc(formfood)
-
+            elif request.form['submit'] == 'sport':
+                sportfunc(formsport)
             elif request.form['submit'] == 'insulin':
                 insfunc(formins)
             return redirect(url_for('auth.user', username=username))
@@ -111,8 +113,8 @@ def user(username):
                        page=posts.prev_num) if posts.has_prev else None
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url, formsug=formsug,
-                           formfood=formfood, formins=formins, FIO=pcntnote,
-                           slabels=slabels, svalues=svalues, smax=20,
+                           formfood=formfood, formins=formins, formsport=formsport,
+                           FIO=pcntnote, slabels=slabels, svalues=svalues, smax=20,
                            ilabels=ilabels, ivalues=ivalues, imax=40,
                            f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)
 
@@ -124,6 +126,15 @@ def instable(username):
     dfl = df.loc[lambda df: df['user_id'] == user.id, :]
     dfc = dfl[['timestamp','eat','insulin','dose']]
     return render_template('instable.html', dfl=dfc, user = user)
+
+@bp.route('/sporttable/<username>', methods=['GET', 'POST'])
+@login_required
+def sporttable(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    df = readdb('select * from sport')
+    dfl = df.loc[lambda df: df['user_id'] == user.id, :]
+    dfc = dfl[['timestamp','sport','time']]
+    return render_template('sporttable.html', dfl=dfc, user = user)
 
 @bp.route('/sugtable/<username>', methods=['GET', 'POST'])
 @login_required

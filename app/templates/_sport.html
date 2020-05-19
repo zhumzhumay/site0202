@@ -3,9 +3,9 @@
 {% block app_content %}
     <form action="" method="post" >
         {% if current_user.doctor == 0 %}
-        {{ wtf.quick_form(formsug) }}{% endif %}
+        {{ wtf.quick_form(formsport) }}{% endif %}
         <br>
-<br><a class="btn btn-danger" href="{{ url_for('auth.sugtable', username= user.username) }}" download="sugar_table.xls" role="button">
+<br><a class="btn btn-danger" href="{{ url_for('auth.sporttable', username= user.username) }}" download="sport_table.xls" role="button">
    Загрузить таблицу записей
 </a>
 

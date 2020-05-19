@@ -61,7 +61,7 @@ ch =[('0', 'Натощак'), ('1', 'После завтрака'),
                                               ('2', 'После обеда'), ('3', 'После ужина'),
                                               ('4', 'Дополнительно'), ('5', 'При родах')]
 class SugarForm(FlaskForm):
-    eat = SelectField(u'Прием пищи', choices=ch, validators=[DataRequired()])
+    eat = SelectField(u'Обстоятельства', choices=ch, validators=[DataRequired()])
     time=DateTimeLocalField(label='Время',format='%Y-%m-%dT%H:%M')
     mol = DecimalField(label='Уровень сахара, ммоль/л', default=5, widget=widgets.NumberInput(max=20, min=1, step=0.1), validators=[DataRequired()])
     submit = SubmitField(u'sugar')
@@ -82,7 +82,7 @@ class FoodForm(FlaskForm):
 
 
 class InsulinForm(FlaskForm):
-    eat = SelectField(u'Прием пищи', choices=ch, validators=[DataRequired()])
+    eat = SelectField(u'Обстоятельства', choices=ch, validators=[DataRequired()])
     time=DateTimeLocalField(label='Время',format='%Y-%m-%dT%H:%M')
     ins = SelectField(u'Инсулин', choices=[('1', 'Ультракороткий'),
                                               ('2', 'Короткий'), ('3', 'Левимир'),
@@ -90,7 +90,15 @@ class InsulinForm(FlaskForm):
     dose = IntegerField(label='ед.', default=5,widget=widgets.NumberInput(min=1, max=40, step=1), validators=[DataRequired()])
     submit = SubmitField('insulin')
 
-
+class SportForm(FlaskForm):
+        time = DateTimeLocalField(label='Время', format='%Y-%m-%dT%H:%M')
+        sport = SelectField(u'Занятие', choices=[('1', 'Сон'),
+                                               ('2', 'Ходьба'), ('3', 'Зарядка'),
+                                               ('4', 'Спорт'),('5', 'Уборка в квартире'),
+                                               ('6', 'Работа в огороде')], validators=[DataRequired()])
+        sporttime = IntegerField(label='Длительность, мин.', default=15, widget=widgets.NumberInput(min=0, max=300, step=5),
+                            validators=[DataRequired()])
+        submit = SubmitField('sport')
 
     #SELECT * FROM table WHERE field LIKE '%whatever%'
     #\u0025а\u0025

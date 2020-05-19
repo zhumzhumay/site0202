@@ -9,7 +9,23 @@ from app import db
 from app.main.forms import SugarForm
 from datetime import timedelta,datetime
 import pandas as pd
-from app.models import SugarTable, InsulinTable, FoodTable, Message, User, followers
+from app.models import SugarTable, InsulinTable, FoodTable, Message, User, followers, Sport
+
+def sprtf(sport):
+    ch = 'no data'
+    if sport == '1':
+        ch = 'Сон'
+    elif sport == '2':
+        ch = 'Ходьба'
+    elif sport == '3':
+        ch = 'Зарядка'
+    elif sport == '4':
+        ch = 'Спорт'
+    elif sport == '5':
+        ch = 'Уборка в квартире'
+    elif sport == '6':
+        ch = 'Работа в огороде'
+    return ch
 
 def dtype(diat):
     ch = current_user.diatype
@@ -230,7 +246,7 @@ def sugarfunc(form):
     if (mol >=9) or (mol1 >= 2) :
       send_attention('Уровень гликемии превышен')
     else:
-        flash(_('Your changes have been saved.'))
+        flash(_('Ваша запись сохранена'))
 
 def insfunc(form):
     time = form.time.data
@@ -244,7 +260,7 @@ def insfunc(form):
         note = InsulinTable(eat=eat,insulin=ins, user_id=current_user.id, dose=dose)
     db.session.add(note)
     db.session.commit()
-    return flash(_('Your changes have been saved.'))
+    return flash(_('Ваша запись сохранена'))
 
 def foodsame(user_id):
     dfe = readdb('select * from food_table')
@@ -303,7 +319,7 @@ def foodfunc(form):
     for jfood,j in junklist:
         if j >= 3 and jfood == food:f=True
     if f==True:flash(_('Выбранный продукт приводит к повышению уровня глюкозы, постарайтесь уменьшить его потребление'))
-    else: flash(_('Your changes have been saved.'))
+    else: flash(_('Ваша запись сохранена'))
 
     q = kkallim()
     c = carblim()
@@ -319,7 +335,18 @@ def foodfunc(form):
                 send_attention('Значение потребленных углеводов ниже базовой потребности')
     return ind
 
-
+def sportfunc(form):
+    time = form.time.data
+    sport = sprtf(form.sport.data)
+    sporttime = form.sporttime.data
+    if time:
+        # timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
+        note = Sport(sport=sport, time = sporttime, user_id=current_user.id, timestamp=time)
+    else:
+        note =Sport(sport=sport, time = sporttime, user_id=current_user.id)
+    db.session.add(note)
+    db.session.commit()
+    return flash(_('Ваша запись сохранена'))
 
 def kkallim():
     list, dfl = howtime(21,0,'select * from food_table',0)

@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648e1333-28da-450a-a9c9-648e52a43a02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/templates/_sport.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/sporttable.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_food.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_food.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_insulin.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_insulin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_patient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_sugar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_sugar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.10" afterDir="false" />
@@ -271,7 +279,10 @@
       <workItem from="1589131145375" duration="22380000" />
       <workItem from="1589159759943" duration="5059000" />
       <workItem from="1589165035224" duration="156993000" />
-      <workItem from="1589492514979" duration="32143000" />
+      <workItem from="1589492514979" duration="34828000" />
+      <workItem from="1589725812659" duration="12000" />
+      <workItem from="1589804220450" duration="4788000" />
+      <workItem from="1589893760756" duration="5320000" />
     </task>
     <servers />
   </component>

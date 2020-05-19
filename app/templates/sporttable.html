@@ -1,0 +1,6 @@
+{% block app_content %}
+<meta charset="utf-8" />
+<tr>{{ user.full_name }}</tr>
+<tr>{{ dfl.to_html(classes="table table-striped") | safe }}</tr>
+
+{% endblock %}

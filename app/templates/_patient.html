@@ -19,6 +19,10 @@
                     data-target="#food" aria-expanded="false" aria-controls="food">
                 <strong> Приемы пищи</strong>
             </button>
+            <button class="btn btn-secondary" type="button" data-toggle="collapse"
+                    data-target="#sport" aria-expanded="false" aria-controls="sport">
+                <strong> Физические нагрузки </strong>
+            </button>
         </p>
 
         <div class="card card-block">
@@ -38,6 +42,10 @@
             </div>
             <div class="collapse " id="food">
                 {% include '_food.html' %}
+
+            </div>
+            <div class="collapse " id="sport">
+                {% include '_sport.html' %}
 
             </div>
 
