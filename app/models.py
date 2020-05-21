@@ -9,6 +9,7 @@ from flask import current_app
 from app.search import add_to_index, remove_from_index, query_index
 import json
 
+
 class SearchableMixin(object):
     @classmethod
     def search(cls, expression, page, per_page):
@@ -47,63 +48,67 @@ class SearchableMixin(object):
         for obj in cls.query:
             add_to_index(cls.__tablename__, obj)
 
+
 db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
 db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
-
 
 followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
+
+
 #
-    # def follow(self, user):
-    #     if not self.is_following(user):
-    #         self.followed.append(user)
-    #
-    # def unfollow(self, user):
-    #     if self.is_following(user):
-    #         self.followed.remove(user)
-    #
-    # def is_following(self, user):
-    #     return self.followed.filter(
-    #         followers.c.followed_id == user.id).count() > 0
-    #
-    # def followed_posts(self):
-    #     followed = Post.query.join(
-    #         followers, (followers.c.followed_id == Post.user_id)).filter(
-    #         followers.c.follower_id == self.id)
-    #     own = Post.query.filter_by(user_id=self.id)
-    #     return followed.union(own).order_by(Post.timestamp.desc())
-    #
-    # @staticmethod
-    # def new_messages(self):
-    #     last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
-    #     return Message.query.filter_by(recipient=self).filter(
-    #         Message.timestamp > last_read_time).count()
-    #
-    # def add_notification(self, name, data):
-    #     self.notifications.filter_by(name=name).delete()
-    #     n = Notification(name=name, payload_json=json.dumps(data), user=self)
-    #     db.session.add(n)
-    #     return n
+# def follow(self, user):
+#     if not self.is_following(user):
+#         self.followed.append(user)
+#
+# def unfollow(self, user):
+#     if self.is_following(user):
+#         self.followed.remove(user)
+#
+# def is_following(self, user):
+#     return self.followed.filter(
+#         followers.c.followed_id == user.id).count() > 0
+#
+# def followed_posts(self):
+#     followed = Post.query.join(
+#         followers, (followers.c.followed_id == Post.user_id)).filter(
+#         followers.c.follower_id == self.id)
+#     own = Post.query.filter_by(user_id=self.id)
+#     return followed.union(own).order_by(Post.timestamp.desc())
+#
+# @staticmethod
+# def new_messages(self):
+#     last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
+#     return Message.query.filter_by(recipient=self).filter(
+#         Message.timestamp > last_read_time).count()
+#
+# def add_notification(self, name, data):
+#     self.notifications.filter_by(name=name).delete()
+#     n = Notification(name=name, payload_json=json.dumps(data), user=self)
+#     db.session.add(n)
+#     return n
 
 
-class User(UserMixin, db.Model):                                                 #new попытка ввести поиск по имени
+class User(UserMixin, db.Model):  # new попытка ввести поиск по имени
     # __searchable__ = ['username']                                                              #new  попытка ввести поиск по имени
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-    sugar = db.relationship('SugarTable', backref='author', lazy='dynamic')             #new
+    sugar = db.relationship('SugarTable', backref='author', lazy='dynamic')  # new
     insulin = db.relationship('InsulinTable', backref='author', lazy='dynamic')
     food = db.relationship('FoodTable', backref='author', lazy='dynamic')
     sport = db.relationship('Sport', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
-    doctor = db.Column(db.Integer)                                                 #new
-    weight = db.Column(db.Integer)
-    diatype = db.Column(db.String(140))#new
+    doctor = db.Column(db.Integer)
+    height = db.Column(db.Integer)
+    weight = db.Column(db.Float)
+    BMI = db.Column(db.Float)
+    diatype = db.Column(db.String(140))  # new
     age = db.Column(db.Integer)
     kkal = db.Column(db.Float)
     sugarlevel = db.Column(db.Float)
@@ -157,10 +162,9 @@ class User(UserMixin, db.Model):                                                
     def followed_posts(self):
         followed = Post.query.join(
             followers, (followers.c.followed_id == Post.user_id)).filter(
-                followers.c.follower_id == self.id)
+            followers.c.follower_id == self.id)
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
-
 
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
@@ -188,12 +192,9 @@ class User(UserMixin, db.Model):                                                
         return n
 
 
-
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
-
 
 
 class Post(SearchableMixin, db.Model):
@@ -206,16 +207,18 @@ class Post(SearchableMixin, db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
+
 class SugarTable(db.Model):
     # __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
     eat = db.Column(db.String(140))
-    mol = db.Column(db.Float(140))
+    BG = db.Column(db.Float(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return '<Sugar {}>'.format(self.body)
+
 
 class InsulinTable(db.Model):
     # __searchable__ = ['body']
@@ -229,13 +232,13 @@ class InsulinTable(db.Model):
     def __repr__(self):
         return '<Sugar {}>'.format(self.body)
 
+
 class Sport(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sport = db.Column(db.String(140))
     time = db.Column(db.Integer)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
 
 
 class Message(db.Model):
@@ -248,6 +251,7 @@ class Message(db.Model):
     def __repr__(self):
         return '<Message {}>'.format(self.body)
 
+
 class Notification(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), index=True)
@@ -258,6 +262,7 @@ class Notification(db.Model):
     def get_data(self):
         return json.loads(str(self.payload_json))
 
+
 class FoodDatatable(db.Model):
     index = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(140))
@@ -266,11 +271,12 @@ class FoodDatatable(db.Model):
     fats = db.Column(db.Float)
     carbohydrates = db.Column(db.Float)
 
-class FoodTable (db.Model):
+
+class FoodTable(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     food = db.Column(db.String(140))
     eating = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime,  index=True, default=datetime.now)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     kkal = db.Column(db.Float)
     carbohydrates = db.Column(db.Float)

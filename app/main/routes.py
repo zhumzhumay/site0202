@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
-import sqlite3
+# import sqlite3
 from datetime import datetime
-from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, send_attention, kkallim, carblim, \
-    makegraph, folvalid, dtype, curdtype, foodsame, normdates, sportfunc
-import pandas as pd
-from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify, send_from_directory, \
-    send_file
+from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, \
+    makegraph, dtype, curdtype, foodsame, normdates, sportfunc, BMI
+from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify
 from flask_login import current_user, login_required
 from app import db
-from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm, SugarForm, FoodForm, InsulinForm, SportForm
-from app.models import User, Post, Message, Notification, SugarTable, InsulinTable, FoodDatatable
+from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm, SugarForm, FoodForm, InsulinForm, \
+    SportForm
+from app.models import User, Post, Message, Notification
 from flask_babel import _, get_locale
 from app.auth import bp
-import flask_excel as excel
-
+# import flask_excel as excel
 
 
 @bp.before_request
@@ -71,25 +69,25 @@ def explore():
                            prev_url=prev_url)
 
 
-@bp.route('/user/<username>', methods=['GET', 'POST']) #### here
+@bp.route('/user/<username>', methods=['GET', 'POST'])  #### here
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     user_id = current_user.id
-    formsug=SugarForm()
-    formfood=FoodForm()
+    formsug = SugarForm()
+    formfood = FoodForm()
     formins = InsulinForm()
     formsport = SportForm()
     docb = fordoc(user_id)
     pcntnote = names(docb)
-    foodt = makegraph('select * from food_table',user.id)
-    sugt = makegraph('select * from sugar_table',user.id)
-    inst = makegraph('select * from insulin_table',user.id)
+    foodt = makegraph('select * from food_table', user.id)
+    sugt = makegraph('select * from sugar_table', user.id)
+    inst = makegraph('select * from insulin_table', user.id)
     f1values = foodt['kkal'].tail(30)
     f2values = foodt['carbohydrates'].tail(30)
-    flabels =normdates(foodt['timestamp'].tail(30))
-    svalues = sugt['mol'].tail(30)
-    slabels= normdates(sugt['timestamp'].tail(30))
+    flabels = normdates(foodt['timestamp'].tail(30))
+    svalues = sugt['BG'].tail(30)
+    slabels = normdates(sugt['timestamp'].tail(30))
     ivalues = inst['dose'].tail(30)
     ilabels = normdates(inst['timestamp'].tail(30))
     if current_user.doctor == 0:
@@ -118,14 +116,16 @@ def user(username):
                            ilabels=ilabels, ivalues=ivalues, imax=40,
                            f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)
 
+
 @bp.route('/instable/<username>', methods=['GET', 'POST'])
 @login_required
 def instable(username):
     user = User.query.filter_by(username=username).first_or_404()
     df = readdb('select * from insulin_table')
     dfl = df.loc[lambda df: df['user_id'] == user.id, :]
-    dfc = dfl[['timestamp','eat','insulin','dose']]
-    return render_template('instable.html', dfl=dfc, user = user)
+    dfc = dfl[['timestamp', 'eat', 'insulin', 'dose']]
+    return render_template('instable.html', dfl=dfc, user=user)
+
 
 @bp.route('/sporttable/<username>', methods=['GET', 'POST'])
 @login_required
@@ -133,26 +133,29 @@ def sporttable(username):
     user = User.query.filter_by(username=username).first_or_404()
     df = readdb('select * from sport')
     dfl = df.loc[lambda df: df['user_id'] == user.id, :]
-    dfc = dfl[['timestamp','sport','time']]
-    return render_template('sporttable.html', dfl=dfc, user = user)
+    dfc = dfl[['timestamp', 'sport', 'time']]
+    return render_template('sporttable.html', dfl=dfc, user=user)
+
 
 @bp.route('/sugtable/<username>', methods=['GET', 'POST'])
 @login_required
 def sugtable(username):
-    user =  User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter_by(username=username).first_or_404()
     df = readdb('select * from sugar_table')
     dfl = df.loc[lambda df: df['user_id'] == user.id, :]
-    dfc = dfl[['timestamp','eat','mol']]
-    return render_template('sugtable.html', dfl=dfc, user = user)
+    dfc = dfl[['timestamp', 'eat', 'BG']]
+    return render_template('sugtable.html', dfl=dfc, user=user)
+
 
 @bp.route('/foodtable/<username>', methods=['GET', 'POST'])
 @login_required
 def foodtable(username):
-    user =  User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter_by(username=username).first_or_404()
     df = readdb('select * from food_table')
     dfl = df.loc[lambda df: df['user_id'] == user.id, :]
-    dfc = dfl[['timestamp','eating','food', 'kkal', 'carbohydrates']]
-    return render_template('foodtable.html', dfl=dfc, user = user)
+    dfc = dfl[['timestamp', 'eating', 'food', 'kkal', 'carbohydrates']]
+    return render_template('foodtable.html', dfl=dfc, user=user)
+
 
 @bp.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
@@ -163,21 +166,24 @@ def edit_profile():
         current_user.diatype = dtype(dt)
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
+        current_user.height = form.height.data
         current_user.weight = form.weight.data
         current_user.kkal = form.kkal.data
-        current_user.sugarlevel = form.mol.data
+        current_user.sugarlevel = form.BG.data
         current_user.carbohydrates_level = form.carb.data
+        current_user.BMI = BMI(form)
         db.session.commit()
-        flash(_('Your changes have been saved.'))
+        flash(_('Изменения сохранены'))
         return redirect(url_for('auth.edit_profile'))
     elif request.method == 'GET':
         dt = curdtype()
         form.dtype.data = dt
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-        form.weight.data =current_user.weight
-        form.mol.data = current_user.sugarlevel
-        form.kkal.data =current_user.kkal
+        form.height.data = current_user.height
+        form.weight.data = current_user.weight
+        form.BG.data = current_user.sugarlevel
+        form.kkal.data = current_user.kkal
         form.carb.data = current_user.carbohydrates_level
     return render_template('edit_profile.html', title=_('Edit Profile'),
                            form=form)
@@ -225,7 +231,7 @@ def search():
                                current_app.config['POSTS_PER_PAGE'])
     tot = total["value"]
     next_url = url_for('auth.search', q=g.search_form.q.data, page=page + 1) \
-        if tot> page * current_app.config['POSTS_PER_PAGE'] else None
+        if tot > page * current_app.config['POSTS_PER_PAGE'] else None
     prev_url = url_for('auth.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
     return render_template('search.html', title=_('Search'), posts=posts,
@@ -280,12 +286,13 @@ def notifications():
     } for n in notifications])
 
 
-@bp.route('/recommendations', methods=['GET', 'POST']) #### here
+@bp.route('/recommendations', methods=['GET', 'POST'])
 @login_required
 def recommendations():
     return render_template('gen_recom.html')
 
-@bp.route('/recommend_food', methods=['GET', 'POST']) #### here
+
+@bp.route('/recommend_food', methods=['GET', 'POST'])
 @login_required
 def recommend_food():
     list1 = foodsame(current_user.id)
