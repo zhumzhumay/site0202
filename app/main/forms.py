@@ -115,13 +115,8 @@ class SportForm(FlaskForm):
                              validators=[DataRequired()])
     submit = SubmitField('sport')
 
-# SELECT * FROM table WHERE field LIKE '%whatever%'
-# \u0025а\u0025
-# cur = db.query("table", "column", "column like ?", new String[] {"%а%"}, null, null, null);
-# "select string from stringtable where string like ? and type = ?",('%'+searchstr+'%', type))
-# df = readdb('SELECT food FROM food_datatable WHERE food LIKE ? and type=?', ('%'KFC'%', type))
-##df = readdb('SELECT food FROM food_datatable WHERE food LIKE ?', ('%'+KFC+'%'))
+# class ScaleForm(FlaskForm):
+#     scale = IntegerField(label='Количество измерений', default=30, widget=widgets.NumberInput(min=10, step=30),
+#                              validators=[DataRequired()])
+#     submit = SubmitField(_l('изменить масштаб'))
 
-# cur.execute('SELECT * FROM user WHERE username LIKE '%sus%'')
-# cur.execute('SELECT * FROM user WHERE username LIKE ?', ('%' + sus + '%'))
-# {%goal%}".format(kappa=column, goal=kword)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# import sqlite3
+import sqlite3
 from datetime import datetime
 from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, \
     makegraph, dtype, curdtype, foodsame, normdates, sportfunc, BMI
@@ -7,11 +7,10 @@ from flask import render_template, flash, redirect, url_for, request, g, current
 from flask_login import current_user, login_required
 from app import db
 from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm, SugarForm, FoodForm, InsulinForm, \
-    SportForm
+    SportForm#, ScaleForm
 from app.models import User, Post, Message, Notification
 from flask_babel import _, get_locale
 from app.auth import bp
-# import flask_excel as excel
 
 
 @bp.before_request
@@ -74,22 +73,18 @@ def explore():
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     user_id = current_user.id
+    # formscale = ScaleForm() #for _sugplot form
     formsug = SugarForm()
     formfood = FoodForm()
     formins = InsulinForm()
     formsport = SportForm()
     docb = fordoc(user_id)
     pcntnote = names(docb)
+
     foodt = makegraph('select * from food_table', user.id)
     sugt = makegraph('select * from sugar_table', user.id)
     inst = makegraph('select * from insulin_table', user.id)
-    f1values = foodt['kkal'].tail(30)
-    f2values = foodt['carbohydrates'].tail(30)
-    flabels = normdates(foodt['timestamp'].tail(30))
-    svalues = sugt['BG'].tail(30)
-    slabels = normdates(sugt['timestamp'].tail(30))
-    ivalues = inst['dose'].tail(30)
-    ilabels = normdates(inst['timestamp'].tail(30))
+    scale = 90
     if current_user.doctor == 0:
         if request.method == 'POST':
             if request.form['submit'] == 'sugar':
@@ -100,8 +95,18 @@ def user(username):
                 sportfunc(formsport)
             elif request.form['submit'] == 'insulin':
                 insfunc(formins)
+            # elif request.form['submit'] == 'изменить масштаб':
+            #     scale = formscale.scale.data
             return redirect(url_for('auth.user', username=username))
 
+
+    f1values = foodt['kkal'].tail(scale)
+    f2values = foodt['carbohydrates'].tail(scale)
+    flabels = normdates(foodt['timestamp'].tail(scale))
+    svalues = sugt['BG'].tail(scale)
+    slabels = normdates(sugt['timestamp'].tail(scale))
+    ivalues = inst['dose'].tail(scale)
+    ilabels = normdates(inst['timestamp'].tail(scale))
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
@@ -112,9 +117,9 @@ def user(username):
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url, formsug=formsug,
                            formfood=formfood, formins=formins, formsport=formsport,
-                           FIO=pcntnote, slabels=slabels, svalues=svalues, smax=20,
-                           ilabels=ilabels, ivalues=ivalues, imax=40,
-                           f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)
+                            FIO=pcntnote, slabels=slabels,
+                           svalues=svalues, smax=20, ilabels=ilabels, ivalues=ivalues, imax=40,
+                           f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)#,formscale=formscale)
 
 
 @bp.route('/instable/<username>', methods=['GET', 'POST'])

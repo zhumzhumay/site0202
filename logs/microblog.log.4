@@ -1,4 +1,15 @@
-2020-05-15 07:41:38,536 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-22 00:04:22,405 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 759, in process
+    "SQLite DateTime type only accepts Python "
+TypeError: SQLite DateTime type only accepts Python datetime and date objects as input.
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,11 +25,62 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
-    slabels=slabels.values.apply(lambda t: t.replace(second=0))
-AttributeError: 'numpy.ndarray' object has no attribute 'apply'
-2020-05-15 07:43:36,294 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:43:39,010 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
+    sugarfunc(formsug)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 238, in sugarfunc
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
+    self._prepare_impl()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
+    self.session.flush()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2479, in flush
+    self._flush(objects)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2617, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2577, in _flush
+    flush_context.execute()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
+    uow,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 245, in save_obj
+    insert,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1137, in _emit_insert_statements
+    statement, params
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1176, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 759, in process
+    "SQLite DateTime type only accepts Python "
+sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite DateTime type only accepts Python datetime and date objects as input.
+[SQL: INSERT INTO sugar_table (eat, "BG", timestamp, time_after_eating, user_id) VALUES (?, ?, ?, ?, ?)]
+[parameters: [{'BG': Decimal('5.000'), 'eat': 'Натощак', 'time_after_eating': Timedelta('1 days 01:37:33.334919'), 'user_id': 5, 'timestamp': datetime.datetime(2020, 5, 22, 21, 20)}]]
+2020-05-22 00:09:57,336 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-22 00:18:13,034 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-22 00:18:33,639 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,78 +96,12 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
-    slabels=slabels.apply(lambda t: t.replace(second=0))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\series.py", line 3848, in apply
-    mapped = lib.map_infer(values, f, convert=convert_dtype)
-  File "pandas\_libs\lib.pyx", line 2329, in pandas._libs.lib.map_infer
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in <lambda>
-    slabels=slabels.apply(lambda t: t.replace(second=0))
-TypeError: replace() takes no keyword arguments
-2020-05-15 07:44:14,214 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:44:17,136 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
-    slabels=slabels.apply(lambda t: t.strftime('%Y-%m-%d %H:%M'))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\series.py", line 3848, in apply
-    mapped = lib.map_infer(values, f, convert=convert_dtype)
-  File "pandas\_libs\lib.pyx", line 2329, in pandas._libs.lib.map_infer
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in <lambda>
-    slabels=slabels.apply(lambda t: t.strftime('%Y-%m-%d %H:%M'))
-AttributeError: 'str' object has no attribute 'strftime'
-2020-05-15 07:46:49,628 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:46:54,931 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 92, in user
-    slabels=slabels.values.astype('<M9[m]')
-TypeError: data type "<M9[m]" not understood
-2020-05-15 07:47:16,996 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:49:31,080 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:49:34,550 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 94, in user
-    i = datetime.strptime(i, '%Y-%m-%dT%H:%M')
-TypeError: strptime() argument 1 must be str, not numpy.datetime64
-2020-05-15 07:51:09,871 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
+    sugarfunc(formsug)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 232, in sugarfunc
+    taeating = sugarfoodtime(time)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 223, in sugarfoodtime
+    deltat.to_hours()
+AttributeError: 'Timedelta' object has no attribute 'to_hours'
+2020-05-22 01:25:30,388 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-22 01:28:17,398 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

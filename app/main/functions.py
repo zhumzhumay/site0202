@@ -6,8 +6,8 @@ from flask import flash
 from flask_login import current_user
 from flask_babel import _
 from app import db
-# from app.main.forms import SugarForm
-from datetime import timedelta
+#from app.main.forms import SugarForm
+from datetime import timedelta, datetime
 import pandas as pd
 from app.models import SugarTable, InsulinTable, FoodTable, Message, User, Sport
 
@@ -109,7 +109,7 @@ def readdb(sql_string):
 
 
 def howtime(days, minutes, table, maxt):
-    user_id = 5 #current_user.id
+    user_id = current_user.id
     delta = timedelta(days=days, minutes=minutes)
     df = readdb(table)
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
@@ -131,7 +131,7 @@ def howtime(days, minutes, table, maxt):
 
 
 def junkfood():
-    user_id = 5 #current_user.id
+    user_id = current_user.id
     df = readdb('select * from sugar_table')
     dfl = df.loc[lambda df: df['user_id'] == user_id, :]
     dfs = dfl.BG
@@ -139,7 +139,7 @@ def junkfood():
     timelist = []
     for i in ind:
         a = dfs[i]
-        if a >= 8: #current_user.sugarlevel:
+        if a >= current_user.sugarlevel:
             time = df.loc[i, 'timestamp']
             timelist.append(time)
     timedf = pd.DataFrame(timelist)
@@ -165,8 +165,6 @@ def junkfood():
         list3.append(k)
     junklist = list(set(list3))
     return junklist
-
-
 
 
 def kkal(g, ft, pt, ct):
@@ -213,6 +211,19 @@ def sugarlim():
     return c
 
 
+def sugarfoodtime(time):
+    user_id = current_user.id
+    df = readdb('select timestamp, user_id from food_table')
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    df1 = dfl.timestamp
+    df1 = pd.to_datetime(df1)
+    stime = pd.to_datetime(time)
+    ftime = df1.max()
+    deltat = stime - ftime
+    deltat = str(deltat)[7:-7]
+    return deltat
+
+
 def sugarfunc(form):
     time = form.time.data
     eat = eatf(form.eat.data)
@@ -220,10 +231,12 @@ def sugarfunc(form):
     mol = round(ml, 3)
 
     if time:
+        taeating = sugarfoodtime(time)
         # timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-        note = SugarTable(eat=eat, user_id=current_user.id, BG=mol, timestamp=time)
+        note = SugarTable(eat=eat, user_id=current_user.id, BG=mol, time_after_eating=taeating, timestamp=time)
     else:
-        note = SugarTable(eat=eat, user_id=current_user.id, BG=mol)
+        taeating = sugarfoodtime(datetime.now())
+        note = SugarTable(eat=eat, user_id=current_user.id, BG=mol, time_after_eating=taeating)
     db.session.add(note)
     db.session.commit()
     mol1 = sugarlim()

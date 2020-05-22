@@ -1,12 +1,36 @@
-2020-05-15 07:30:52,150 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-22 00:01:12,664 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
+    sugarfunc(formsug)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 232, in sugarfunc
+    taeating = sugarfoodtime(time)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 220, in sugarfoodtime
+    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
+TypeError: strptime() argument 1 must be str, not datetime.datetime
+2020-05-22 00:01:49,870 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-22 00:01:54,391 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
     context = constructor(dialect, self, conn, *args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
     param.append(processors[key](compiled_params[key]))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 759, in process
-    "SQLite DateTime type only accepts Python "
-TypeError: SQLite DateTime type only accepts Python datetime and date objects as input.
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 903, in process
+    "SQLite Time type only accepts Python "
+TypeError: SQLite Time type only accepts Python time objects as input.
 
 The above exception was the direct cause of the following exception:
 
@@ -25,9 +49,9 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 97, in user
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
     sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 210, in sugarfunc
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 238, in sugarfunc
     db.session.commit()
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -73,35 +97,9 @@ Traceback (most recent call last):
     context = constructor(dialect, self, conn, *args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
     param.append(processors[key](compiled_params[key]))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 759, in process
-    "SQLite DateTime type only accepts Python "
-sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite DateTime type only accepts Python datetime and date objects as input.
-[SQL: INSERT INTO sugar_table (eat, mol, timestamp, user_id) VALUES (?, ?, ?, ?)]
-[parameters: [{'mol': Decimal('7.000'), 'user_id': 5, 'eat': 'Натощак'}]]
-2020-05-15 07:31:17,433 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:36:10,324 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:36:16,205 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
-    i = datetime.strptime(i, '%Y-%m-%dT%H:%M')
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 577, in _strptime_datetime
-    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\_strptime.py", line 359, in _strptime
-    (data_string, format))
-ValueError: time data '2020-05-06 01:03:41.632439' does not match format '%Y-%m-%dT%H:%M'
-2020-05-15 07:39:36,159 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-15 07:41:30,690 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 903, in process
+    "SQLite Time type only accepts Python "
+sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite Time type only accepts Python time objects as input.
+[SQL: INSERT INTO sugar_table (eat, "BG", timestamp, time_after_eating, user_id) VALUES (?, ?, ?, ?, ?)]
+[parameters: [{'user_id': 5, 'eat': 'Натощак', 'time_after_eating': Timedelta('1 days 01:37:33.334919'), 'timestamp': datetime.datetime(2020, 5, 22, 21, 20), 'BG': Decimal('5.000')}]]
+2020-05-22 00:04:16,359 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

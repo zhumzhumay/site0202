@@ -214,6 +214,7 @@ class SugarTable(db.Model):
     eat = db.Column(db.String(140))
     BG = db.Column(db.Float(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
+    time_after_eating = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
