@@ -1,15 +1,4 @@
-2020-05-22 01:34:40,658 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
-    context = constructor(dialect, self, conn, *args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
-    param.append(processors[key](compiled_params[key]))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 903, in process
-    "SQLite Time type only accepts Python "
-TypeError: SQLite Time type only accepts Python time objects as input.
-
-The above exception was the direct cause of the following exception:
-
+2020-05-22 02:39:26,575 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,62 +14,59 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 239, in sugarfunc
-    db.session.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
-    self.transaction.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
-    self._prepare_impl()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
-    self.session.flush()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2479, in flush
-    self._flush(objects)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2617, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2577, in _flush
-    flush_context.execute()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
-    uow,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 245, in save_obj
-    insert,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1137, in _emit_insert_statements
-    statement, params
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
-    distilled_params,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1176, in _execute_context
-    e, util.text_type(statement), parameters, None, None
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 122, in user
+    f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)#,formscale=formscale)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
-    context = constructor(dialect, self, conn, *args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
-    param.append(processors[key](compiled_params[key]))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 903, in process
-    "SQLite Time type only accepts Python "
-sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite Time type only accepts Python time objects as input.
-[SQL: INSERT INTO sugar_table (eat, "BG", timestamp, time_after_eating, user_id) VALUES (?, ?, ?, ?, ?)]
-[parameters: [{'user_id': 5, 'eat': 'Натощак', 'BG': Decimal('5.000'), 'timestamp': datetime.datetime(2020, 5, 22, 21, 40), 'time_after_eating': '01:57:33'}]]
-2020-05-22 01:36:03,531 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-22 01:38:48,053 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-22 01:39:16,213 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
+    {% endif %}{% endif %}
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
+    {% block body -%}
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
+  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 111, in block_content
+  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 139, in block_app_content
+  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 45, in root
+  File "D:\diplom\site02.8.02.20\app\templates\_sugplot.html", line 14, in root
+    <canvas id="schart" width="1000" height="400"></canvas>
+  File "D:\diplom\site02.8.02.20\app\templates\_sugplot.html", line 36, in block_app_content
+    {% endfor %}]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 570, in __call__
+    return self._invoke(arguments, autoescape)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 110, in _invoke
+    return original_invoke(self, arguments, autoescape)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 574, in _invoke
+    rv = self._func(*arguments)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 482, in macro
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'formscale' is undefined
+2020-05-22 02:39:49,095 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:37:25,775 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:37:44,295 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:46:03,020 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:50:40,051 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:51:12,542 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -96,21 +82,39 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 238, in sugarfunc
-    taeating = sugarfoodtime(datetime.now)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 220, in sugarfoodtime
-    stime = pd.to_datetime(time)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\tools\datetimes.py", line 756, in to_datetime
-    result = convert_listlike(np.array([arg]), format)[0]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\tools\datetimes.py", line 447, in _convert_listlike_datetimes
-    allow_object=True,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\arrays\datetimes.py", line 1854, in objects_to_datetime64ns
-    require_iso8601=require_iso8601,
-  File "pandas\_libs\tslib.pyx", line 481, in pandas._libs.tslib.array_to_datetime
-  File "pandas\_libs\tslib.pyx", line 703, in pandas._libs.tslib.array_to_datetime
-  File "pandas\_libs\tslib.pyx", line 841, in pandas._libs.tslib.array_to_datetime_object
-  File "pandas\_libs\tslib.pyx", line 676, in pandas._libs.tslib.array_to_datetime
-TypeError: <class 'builtin_function_or_method'> is not convertible to datetime
-2020-05-22 01:46:00,175 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 324, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 302, in sug_predict
+    best_model = joblib.load("model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.pkl'
+2020-05-23 04:53:05,294 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:53:10,105 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 324, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 302, in sug_predict
+    best_model = joblib.load("model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.pkl'
+2020-05-23 04:53:39,493 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

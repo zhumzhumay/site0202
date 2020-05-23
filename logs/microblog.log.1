@@ -1,4 +1,4 @@
-2020-05-22 02:39:01,646 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-23 04:59:14,580 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,51 +14,80 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 122, in user
-    f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)#,formscale=formscale)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 18, in sug_predict
+    best_model = joblib.load("site02.8.02.20/app/main/model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'site02.8.02.20/app/main/model.pkl'
+2020-05-23 04:59:24,710 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
-    {% endif %}{% endif %}
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
-    <span class="icon-bar"></span>
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
-    {% block body -%}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 111, in block_content
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 139, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 45, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_sugplot.html", line 14, in root
-    <canvas id="schart" width="1000" height="400"></canvas>
-  File "D:\diplom\site02.8.02.20\app\templates\_sugplot.html", line 36, in block_app_content
-    {% endfor %}]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 570, in __call__
-    return self._invoke(arguments, autoescape)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 110, in _invoke
-    return original_invoke(self, arguments, autoescape)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 574, in _invoke
-    rv = self._func(*arguments)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 482, in macro
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'formscale' is undefined
-2020-05-22 02:39:23,914 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 18, in sug_predict
+    best_model = joblib.load("site02.8.02.20/app/main/model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'site02.8.02.20/app/main/model.pkl'
+2020-05-23 05:00:43,529 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:00:48,623 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 19, in sug_predict
+    best_model = joblib.load("model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.pkl'
+2020-05-23 05:01:20,214 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:24:45,441 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:25:11,883 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:25:41,495 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:28:02,107 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:42:16,563 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:43:25,334 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:45:43,042 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:47:14,551 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:54:23,731 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:57:37,075 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:58:43,099 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:59:31,888 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:01:48,939 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:04:14,316 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:09:18,428 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:16:05,897 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

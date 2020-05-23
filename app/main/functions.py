@@ -6,10 +6,12 @@ from flask import flash
 from flask_login import current_user
 from flask_babel import _
 from app import db
+import joblib
+import numpy as np
 #from app.main.forms import SugarForm
 from datetime import timedelta, datetime
 import pandas as pd
-from app.models import SugarTable, InsulinTable, FoodTable, Message, User, Sport
+from app.models import SugarTable, InsulinTable, FoodTable, Message, User, Sport, SugarPrediction
 
 
 def BMI(form):
@@ -128,6 +130,17 @@ def howtime(days, minutes, table, maxt):
         if maxd >= a >= mind:
             list.append(i)
     return list, dfl
+
+def lastpredict():
+    user_id = current_user.id
+    df = readdb('select id, prediction, user_id from sugar_prediction')
+    dfl = df.loc[lambda df: df['user_id'] == user_id, :]
+    dfid = dfl.id
+    p_id = dfid.max()
+    sug = df.loc[df['id'] == p_id,'prediction']
+    sug = float(sug)
+    sugg = round(sug, 3)
+    return sugg
 
 
 def junkfood():
@@ -291,6 +304,16 @@ def foodsame(user_id):
             list.append(k)
     return list
 
+def sug_predict(carbo, kkal,eating, grams):
+    age = current_user.age
+    bmi = current_user.BMI
+    #"carbo", "kkal", "возраст", "вес", "types_food_n", "ИМТ"
+    X_test = ([0, 0, 0, 0, 0, 0], [carbo, kkal, age, grams, eating, bmi])
+    X_test = np.array(X_test)
+    best_model = joblib.load("D:/diplom/site02.8.02.20/app/main/model.pkl")
+    predicted = best_model.predict(X_test)
+    return predicted
+
 
 def foodfunc(form):
     grams = form.grams.data
@@ -298,7 +321,8 @@ def foodfunc(form):
     df = readdb('select * from food_datatable')
     index = form.food.data
     ind = int(index)
-    eating = priem(form.eating.data)
+    priemeat = form.eating.data
+    eating = priem(priemeat)
     food = df.loc[ind, 'food']
     fats = df.loc[ind, 'fats']
     carb = df.loc[ind, 'carbohydrates']
@@ -307,12 +331,18 @@ def foodfunc(form):
     Kkal = round(kl, 3)
     cr = (grams / 100) * carb
     carbs = round(cr, 3)
+    eatpr = int(priemeat)
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+    sugpred = round(sugarpr[1], 2)
     if time:
+        snote = SugarPrediction(prediction=sugpred, user_id=current_user.id, timestamp=time)
         note = FoodTable(food=food, kkal=Kkal, eating=eating, carbohydrates=carbs, user_id=current_user.id,
                          timestamp=time)
     else:
         note = FoodTable(food=food, kkal=Kkal, eating=eating, carbohydrates=carbs, user_id=current_user.id)
+        snote = SugarPrediction(prediction=sugpred, user_id=current_user.id)
     db.session.add(note)
+    db.session.add(snote)
     db.session.commit()
     junklist = junkfood()
     f = False
@@ -335,7 +365,7 @@ def foodfunc(form):
                 send_attention('Значение потребленных калорий ниже базовой потребности')
             if c <= clim:
                 send_attention('Значение потребленных углеводов ниже базовой потребности')
-    return ind
+    return sugpred
 
 
 def sportfunc(form):
@@ -419,6 +449,12 @@ def normdates(df):
         p = str(i)[2:-10]
         b.append(p)
     return b
+
+
+
+
+
+
 # def plotfunc(df, colmn, user_id):
 #     matplotlib.style.use('ggplot')
 #     matplotlib.use('Agg')

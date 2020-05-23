@@ -103,6 +103,7 @@ class User(UserMixin, db.Model):  # new попытка ввести поиск �
     insulin = db.relationship('InsulinTable', backref='author', lazy='dynamic')
     food = db.relationship('FoodTable', backref='author', lazy='dynamic')
     sport = db.relationship('Sport', backref='author', lazy='dynamic')
+    sugar_prediction = db.relationship('SugarPrediction', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     doctor = db.Column(db.Integer)
     height = db.Column(db.Integer)
@@ -220,6 +221,13 @@ class SugarTable(db.Model):
     def __repr__(self):
         return '<Sugar {}>'.format(self.body)
 
+class SugarPrediction(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    prediction = db.Column(db.Float(140))
 
 class InsulinTable(db.Model):
     # __searchable__ = ['body']

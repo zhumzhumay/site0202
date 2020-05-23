@@ -1,4 +1,4 @@
-2020-05-19 23:57:53,404 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-22 00:01:12,664 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,92 +14,92 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 102, in user
-    sportfunc(formsport)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 330, in sportfunc
-    note =Sport(sport=sport, sporttime = sporttime, user_id=current_user.id)
-  File "<string>", line 4, in __init__
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 441, in _initialize_instance
-    manager.dispatch.init_failure(self, args, kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
+    sugarfunc(formsug)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 232, in sugarfunc
+    taeating = sugarfoodtime(time)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 220, in sugarfoodtime
+    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
+TypeError: strptime() argument 1 must be str, not datetime.datetime
+2020-05-22 00:01:49,870 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-22 00:01:54,391 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 903, in process
+    "SQLite Time type only accepts Python "
+TypeError: SQLite Time type only accepts Python time objects as input.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
+    sugarfunc(formsug)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 238, in sugarfunc
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
+    self._prepare_impl()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
+    self.session.flush()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2479, in flush
+    self._flush(objects)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2617, in _flush
+    transaction.rollback(_capture_exception=True)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
     compat.reraise(exc_type, exc_value, exc_tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 438, in _initialize_instance
-    return manager.original_init(*mixed[1:], **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 840, in _declarative_constructor
-    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
-TypeError: 'sporttime' is an invalid keyword argument for Sport
-2020-05-20 00:02:26,538 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-20 00:02:32,803 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 102, in user
-    sportfunc(formsport)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 346, in sportfunc
-    note =Sport(sport=sport, sporttime = sporttime, user_id=current_user.id)
-  File "<string>", line 4, in __init__
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 441, in _initialize_instance
-    manager.dispatch.init_failure(self, args, kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 438, in _initialize_instance
-    return manager.original_init(*mixed[1:], **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 840, in _declarative_constructor
-    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
-TypeError: 'sporttime' is an invalid keyword argument for Sport
-2020-05-20 00:04:44,999 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-20 00:09:06,760 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-20 00:19:57,178 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:00:52,437 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:01:17,382 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:01:43,259 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:01:55,198 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:05:02,822 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:05:17,306 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:07:26,245 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:14:28,558 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:16:18,966 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:17:33,698 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:19:50,968 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:20:01,108 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:21:00,828 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:26:21,562 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:28:37,976 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:29:22,443 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:30:02,909 ERROR: Exception on /auth/edit_profile [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 171, in edit_profile
-    current_user.BMI = BMI(form)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 17, in BMI
-    bmi = m/(h*h)
-TypeError: unsupported operand type(s) for /: 'decimal.Decimal' and 'float'
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2577, in _flush
+    flush_context.execute()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
+    uow,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 245, in save_obj
+    insert,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1137, in _emit_insert_statements
+    statement, params
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1176, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 903, in process
+    "SQLite Time type only accepts Python "
+sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite Time type only accepts Python time objects as input.
+[SQL: INSERT INTO sugar_table (eat, "BG", timestamp, time_after_eating, user_id) VALUES (?, ?, ?, ?, ?)]
+[parameters: [{'user_id': 5, 'eat': 'Натощак', 'time_after_eating': Timedelta('1 days 01:37:33.334919'), 'timestamp': datetime.datetime(2020, 5, 22, 21, 20), 'BG': Decimal('5.000')}]]
+2020-05-22 00:04:16,359 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

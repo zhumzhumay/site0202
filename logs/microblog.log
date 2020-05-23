@@ -1,4 +1,13 @@
-2020-05-22 02:39:26,575 ERROR: Exception on /auth/user/cat [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-23 06:17:14,664 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,57 +17,81 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 122, in user
-    f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)#,formscale=formscale)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2241, in preprocess_request
+    rv = func()
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 20, in before_request
+    db.session.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
+    self._prepare_impl()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
+    self.session.flush()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2479, in flush
+    self._flush(objects)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2617, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2577, in _flush
+    flush_context.execute()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
+    uow,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 236, in save_obj
+    update,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 996, in _emit_update_statements
+    statement, multiparams
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
     raise value.with_traceback(tb)
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 14, in root
-    {% endif %}{% endif %}
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 14, in root
-    <span class="icon-bar"></span>
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block_doc
-    {% block body -%}
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 39, in block_html
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 92, in block_body
-  File "D:\diplom\site02.8.02.20\app\templates\base.html", line 111, in block_content
-  File "D:\diplom\site02.8.02.20\app\templates\user.html", line 139, in block_app_content
-  File "D:\diplom\site02.8.02.20\app\templates\_patient.html", line 45, in root
-  File "D:\diplom\site02.8.02.20\app\templates\_sugplot.html", line 14, in root
-    <canvas id="schart" width="1000" height="400"></canvas>
-  File "D:\diplom\site02.8.02.20\app\templates\_sugplot.html", line 36, in block_app_content
-    {% endfor %}]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 570, in __call__
-    return self._invoke(arguments, autoescape)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\asyncsupport.py", line 110, in _invoke
-    return original_invoke(self, arguments, autoescape)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\runtime.py", line 574, in _invoke
-    rv = self._func(*arguments)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 482, in macro
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'formscale' is undefined
-2020-05-22 02:39:49,095 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
+[SQL: UPDATE user SET last_seen=? WHERE user.id = ?]
+[parameters: ('2020-05-23 03:17:09.114659', 5)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2020-05-23 06:17:39,553 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:18:23,071 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:22:10,393 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:23:20,938 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:27:38,013 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:28:26,370 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:31:52,628 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:33:33,332 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:35:03,973 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:35:28,415 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:36:58,142 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:39:36,030 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:50:03,065 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:59:59,281 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:05:40,021 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:08:58,945 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:10:17,670 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:12:54,503 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:15:37,494 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:16:05,123 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:16:40,763 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:18:08,772 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:18:32,524 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 07:19:19,286 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

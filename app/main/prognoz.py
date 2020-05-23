@@ -1,6 +1,9 @@
 import joblib
-X_test = [300, 100, 30, 67]
+import numpy as np
 
-best_model = joblib.load("D:/diplom/site02.8.02.20/app/model.pkl", mmap_mode=None)
+X_test =([0,0,0,0,0,0], [9.8, 66.64, 45, 200, 1, 21.31])
+X_test = np.array(X_test)
+best_model = joblib.load("model.pkl")
 predicted = best_model.predict(X_test)
-print(predicted)
+print(predicted[1])
+

@@ -43,6 +43,8 @@
                 {% endif %}{% endif %}
                 {% if user.doctor == 0 and ((current_user.doctor == 1 and current_user.is_following(user)) or current_user == user) %}
                 {% include '_card.html' %}{% endif %}
+                <br><br><div class="alert alert-success" role="alert">Ожидаемый уровень сахара в крови: <strong>{{ prsug }} ммоль/л</strong> </div>
+
             </td>
         </tr>
     </table>

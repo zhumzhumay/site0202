@@ -2,6 +2,23 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<tr></tr>
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <p align="left"><strong> Диагностические критерии сахарного диабета и других нарушений гликемии</strong></p>
+        </button>
+      </h2>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+          {% include 'recom_page/diagn_table.html'%}
+
+      </div>
+    </div>
+  </div>
+
+</div>
 
 {% endblock %}

@@ -2,7 +2,7 @@
 import sqlite3
 from datetime import datetime
 from app.main.functions import sugarfunc, foodfunc, insfunc, fordoc, readdb, names, \
-    makegraph, dtype, curdtype, foodsame, normdates, sportfunc, BMI
+    makegraph, dtype, curdtype, foodsame, normdates, sportfunc, BMI, lastpredict
 from flask import render_template, flash, redirect, url_for, request, g, current_app, jsonify
 from flask_login import current_user, login_required
 from app import db
@@ -98,8 +98,7 @@ def user(username):
             # elif request.form['submit'] == 'изменить масштаб':
             #     scale = formscale.scale.data
             return redirect(url_for('auth.user', username=username))
-
-
+    predict_sug = lastpredict()
     f1values = foodt['kkal'].tail(scale)
     f2values = foodt['carbohydrates'].tail(scale)
     flabels = normdates(foodt['timestamp'].tail(scale))
@@ -117,8 +116,8 @@ def user(username):
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url, formsug=formsug,
                            formfood=formfood, formins=formins, formsport=formsport,
-                            FIO=pcntnote, slabels=slabels,
-                           svalues=svalues, smax=20, ilabels=ilabels, ivalues=ivalues, imax=40,
+                            FIO=pcntnote, slabels=slabels, svalues=svalues, smax=20,
+                           ilabels=ilabels, ivalues=ivalues, imax=40, prsug = predict_sug,
                            f1values=f1values, f2values=f2values, flabels=flabels, fmax=1500)#,formscale=formscale)
 
 
