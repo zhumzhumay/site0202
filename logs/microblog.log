@@ -45,3 +45,4 @@ werkzeug.routing.BuildError: Could not build url for endpoint 'reset_password' w
 2020-05-30 16:53:24,810 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
 2020-05-30 16:56:21,383 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
 2020-05-30 16:56:53,099 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-06-03 05:10:51,726 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:82]
