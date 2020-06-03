@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648e1333-28da-450a-a9c9-648e52a43a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/main/model.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/recom_page/diagn_table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/prognoz.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/prognoz.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model.pkl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/gen_recom.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/gen_recom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_card.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_cardbody.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_cardbody.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_patient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/reset_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/reset_password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/reset_password_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/reset_password_request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/edit_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/edit_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/email/reset_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/email/reset_password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
@@ -284,7 +292,10 @@
       <workItem from="1589893760756" duration="5885000" />
       <workItem from="1589923820671" duration="26710000" />
       <workItem from="1590101433253" duration="14217000" />
-      <workItem from="1590194982177" duration="12331000" />
+      <workItem from="1590194982177" duration="12724000" />
+      <workItem from="1590290544370" duration="353000" />
+      <workItem from="1590322035397" duration="31501000" />
+      <workItem from="1590639207680" duration="11033000" />
     </task>
     <servers />
   </component>

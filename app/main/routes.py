@@ -98,7 +98,8 @@ def user(username):
             # elif request.form['submit'] == 'изменить масштаб':
             #     scale = formscale.scale.data
             return redirect(url_for('auth.user', username=username))
-    predict_sug = lastpredict()
+    if current_user.doctor == 0: predict_sug = lastpredict()
+    else: predict_sug = 0
     f1values = foodt['kkal'].tail(scale)
     f2values = foodt['carbohydrates'].tail(scale)
     flabels = normdates(foodt['timestamp'].tail(scale))
@@ -180,8 +181,9 @@ def edit_profile():
         flash(_('Изменения сохранены'))
         return redirect(url_for('auth.edit_profile'))
     elif request.method == 'GET':
-        dt = curdtype()
-        form.dtype.data = dt
+        if current_user.doctor == 0:
+            dt = curdtype()
+            form.dtype.data = dt
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
         form.height.data = current_user.height

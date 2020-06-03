@@ -122,7 +122,6 @@ def howtime(days, minutes, table, maxt):
         maxd = maxt
     else:
         maxd = df1.max()
-
     mind = maxd - delta
     list = []
     for i in ind:
@@ -424,6 +423,7 @@ def names(docb):
         dt = rdb.loc[i, 'diatype']
         age = rdb.loc[i, 'age']
         w = rdb.loc[i, 'BMI']
+        w = round(w, 2)
         k = (username, j, name, dt, age, w)
         pcntnote.append(k)
     return pcntnote

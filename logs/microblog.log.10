@@ -1,4 +1,4 @@
-2020-05-21 16:30:30,961 ERROR: Exception on /auth/edit_profile [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-23 04:53:45,749 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,13 +14,17 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 171, in edit_profile
-    current_user.BMI = BMI(form)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 17, in BMI
-    bmi = m/(h*h)
-TypeError: unsupported operand type(s) for /: 'decimal.Decimal' and 'float'
-2020-05-21 16:32:18,798 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:32:27,837 ERROR: Exception on /auth/edit_profile [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 324, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 302, in sug_predict
+    best_model = joblib.load("model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.pkl'
+2020-05-23 04:54:05,753 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:54:11,003 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -36,23 +40,18 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 171, in edit_profile
-    current_user.BMI = BMI(form)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 18, in BMI
-    bmi = m/(h*h)
-TypeError: unsupported operand type(s) for /: 'decimal.Decimal' and 'float'
-2020-05-21 16:33:35,728 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:36:29,140 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:37:20,160 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: database is locked
-
-The above exception was the direct cause of the following exception:
-
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 324, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 302, in sug_predict
+    best_model = joblib.load("/main/model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/main/model.pkl'
+2020-05-23 04:57:02,488 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:57:16,810 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:57:25,700 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -62,65 +61,45 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2241, in preprocess_request
-    rv = func()
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 23, in before_request
-    db.session.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
-    self.transaction.commit()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
-    self._prepare_impl()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
-    self.session.flush()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2479, in flush
-    self._flush(objects)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2617, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 18, in sug_predict
+    best_model = joblib.load("model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.pkl'
+2020-05-23 04:57:59,830 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 04:58:03,863 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 2577, in _flush
-    flush_context.execute()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
-    uow,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 236, in save_obj
-    update,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 996, in _emit_update_statements
-    statement, multiparams
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
-    distilled_params,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1250, in _execute_context
-    e, statement, parameters, cursor, context
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
-    raise value.with_traceback(tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
-[SQL: UPDATE user SET last_seen=? WHERE user.id = ?]
-[parameters: ('2020-05-21 13:37:15.117596', 5)]
-(Background on this error at: http://sqlalche.me/e/e3q8)
-2020-05-21 16:37:51,079 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:38:39,918 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:45:25,440 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 16:45:37,065 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 19:42:15,491 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 23:47:23,787 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 23:47:40,159 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 23:49:50,013 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 18, in sug_predict
+    best_model = joblib.load("/app/main/model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/app/main/model.pkl'
+2020-05-23 04:59:06,931 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

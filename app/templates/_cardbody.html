@@ -2,13 +2,28 @@
 
   <tbody>
     <tr>
-      <th scope="row">Name</th>
-      <td>{{user.username}}</td>
+      <th scope="row">Ф.И.О</th>
+      <td>{{user.full_name}}</td>
     </tr>
     <tr>
-      <th scope="row">Weight</th>
+      <th scope="row">Возраст</th>
+      <td>{{user.age}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Вес</th>
       <td>{{user.weight}}</td>
-
+      <tr>
+      <th scope="row">Тип диабета</th>
+      <td>{{user.diatype}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Базовая потребность в калориях</th>
+      <td>{{user.kkal}} ККал</td>
+    </tr>
+    <tr>
+      <th scope="row">Целевой уровень гликемии</th>
+      <td>{{user.sugarlevel}} ммоль/л</td>
+    </tr>
     </tr>
   </tbody>
 </table>

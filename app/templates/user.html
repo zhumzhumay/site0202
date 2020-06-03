@@ -17,22 +17,22 @@
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
 
                 {% if user.last_seen %}
-                <p>{{_('Last seen on:')}} {{ moment(user.last_seen).format('LLL') }}</p>
+                <p>{{_('Последнее посещение сайта:')}} {{ moment(user.last_seen).format('LLL') }}</p>
                 {% endif %}
-
-                <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+                {% if current_user.doctor == 1%}
+                <p> {{ user.followed.count() }} пациента.</p> {% endif %}
 
 
                 {% if current_user.doctor == 1 %}
                 {% if user == current_user %}
-                <p><a href="{{ url_for('auth.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
+                <p><a href="{{ url_for('auth.edit_profile') }}">{{ _('Редактировать профиль') }}</a></p>
 
                 {% elif not current_user.is_following(user) %}
                 <p><a href="{{ url_for('auth.follow', username=user.username) }}">{{ _('Follow') }}</a></p>
                 {% elif current_user.is_following(user) %}
                 <p><a href="{{ url_for('auth.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
                 <p><a href="{{ url_for('auth.send_message',recipient=user.username) }}">
-                    {{ _('Send private message') }}</a></p>
+                    {{ _('Отправить личное сообщение') }}</a></p>
                 {% endif %}
                 {% else %}
                 {% if user == current_user %}
@@ -43,7 +43,9 @@
                 {% endif %}{% endif %}
                 {% if user.doctor == 0 and ((current_user.doctor == 1 and current_user.is_following(user)) or current_user == user) %}
                 {% include '_card.html' %}{% endif %}
+                {% if current_user.doctor == 0 %}
                 <br><br><div class="alert alert-success" role="alert">Ожидаемый уровень сахара в крови: <strong>{{ prsug }} ммоль/л</strong> </div>
+                {% endif %}
 
             </td>
         </tr>

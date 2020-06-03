@@ -1,4 +1,4 @@
-2020-05-21 23:50:12,438 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+2020-05-23 04:59:14,580 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,15 +14,16 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 238, in sugarfunc
-    taeating = sugarfoodtime(time)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 144, in sugarfoodtime
-    deltat = stime-ftime
-TypeError: unsupported operand type(s) for -: 'NoneType' and 'Timestamp'
-2020-05-21 23:53:36,943 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 23:53:41,069 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 18, in sug_predict
+    best_model = joblib.load("site02.8.02.20/app/main/model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'site02.8.02.20/app/main/model.pkl'
+2020-05-23 04:59:24,710 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -38,23 +39,17 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 231, in sugarfunc
-    taeating = sugarfoodtime(time)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 222, in sugarfoodtime
-    deltat = stime - ftime
-TypeError: unsupported operand type(s) for -: 'NoneType' and 'Timestamp'
-2020-05-21 23:55:08,843 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 23:55:44,319 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\arrays\datetimes.py", line 1858, in objects_to_datetime64ns
-    values, tz_parsed = conversion.datetime_to_datetime64(data)
-  File "pandas\_libs\tslibs\conversion.pyx", line 200, in pandas._libs.tslibs.conversion.datetime_to_datetime64
-TypeError: Unrecognized value type: <class 'str'>
-
-During handling of the above exception, another exception occurred:
-
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 18, in sug_predict
+    best_model = joblib.load("site02.8.02.20/app/main/model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'site02.8.02.20/app/main/model.pkl'
+2020-05-23 05:00:43,529 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:00:48,623 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -70,52 +65,29 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 231, in sugarfunc
-    taeating = sugarfoodtime(time)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 220, in sugarfoodtime
-    stime = pd.to_datetime(str(time))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\tools\datetimes.py", line 756, in to_datetime
-    result = convert_listlike(np.array([arg]), format)[0]
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\tools\datetimes.py", line 447, in _convert_listlike_datetimes
-    allow_object=True,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\arrays\datetimes.py", line 1863, in objects_to_datetime64ns
-    raise e
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\arrays\datetimes.py", line 1854, in objects_to_datetime64ns
-    require_iso8601=require_iso8601,
-  File "pandas\_libs\tslib.pyx", line 481, in pandas._libs.tslib.array_to_datetime
-  File "pandas\_libs\tslib.pyx", line 703, in pandas._libs.tslib.array_to_datetime
-  File "pandas\_libs\tslib.pyx", line 837, in pandas._libs.tslib.array_to_datetime_object
-  File "pandas\_libs\tslib.pyx", line 828, in pandas._libs.tslib.array_to_datetime_object
-  File "pandas\_libs\tslibs\parsing.pyx", line 228, in pandas._libs.tslibs.parsing.parse_datetime_string
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\dateutil\parser\_parser.py", line 1374, in parse
-    return DEFAULTPARSER.parse(timestr, **kwargs)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\dateutil\parser\_parser.py", line 649, in parse
-    raise ParserError("Unknown string format: %s", timestr)
-dateutil.parser._parser.ParserError: Unknown string format: None
-2020-05-21 23:57:56,747 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-21 23:58:14,422 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 232, in sugarfunc
-    taeating = sugarfoodtime(time)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 220, in sugarfoodtime
-    timendate = datetime.strptime(time, '%Y-%m-%dT%H:%M')
-TypeError: strptime() argument 1 must be str, not None
-2020-05-22 00:00:25,845 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 93, in user
+    foodfunc(formfood)
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 317, in foodfunc
+    sugarpr = sug_predict(carbs, Kkal, eatpr, grams)
+  File "D:\diplom\site02.8.02.20\app\main\prognoz.py", line 19, in sug_predict
+    best_model = joblib.load("model.pkl")
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\joblib\numpy_pickle.py", line 577, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'model.pkl'
+2020-05-23 05:01:20,214 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:24:45,441 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:25:11,883 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:25:41,495 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:28:02,107 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:42:16,563 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:43:25,334 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:45:43,042 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:47:14,551 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:54:23,731 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:57:37,075 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:58:43,099 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 05:59:31,888 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:01:48,939 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:04:14,316 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:09:18,428 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-23 06:16:05,897 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]

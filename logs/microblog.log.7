@@ -1,15 +1,4 @@
-2020-05-22 00:04:22,405 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
-    context = constructor(dialect, self, conn, *args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
-    param.append(processors[key](compiled_params[key]))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 759, in process
-    "SQLite DateTime type only accepts Python "
-TypeError: SQLite DateTime type only accepts Python datetime and date objects as input.
-
-The above exception was the direct cause of the following exception:
-
+2020-05-26 01:33:25,275 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,9 +14,58 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 238, in sugarfunc
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 101, in user
+    predict_sug = lastpredict()
+  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 140, in lastpredict
+    sug = float(sug)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\pandas\core\series.py", line 112, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+TypeError: cannot convert the series to <class 'float'>
+2020-05-26 01:40:06,904 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-26 01:40:12,380 ERROR: Exception on /auth/user/doc [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 121, in user
+    ilabels=ilabels, ivalues=ivalues, imax=40, prsug = predict_sug,
+UnboundLocalError: local variable 'predict_sug' referenced before assignment
+2020-05-26 01:41:19,278 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+2020-05-26 01:46:07,933 ERROR: Exception on /auth/notifications [GET] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2241, in preprocess_request
+    rv = func()
+  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 20, in before_request
     db.session.commit()
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
     return getattr(self.registry(), name)(*args, **kwargs)
@@ -51,57 +89,29 @@ Traceback (most recent call last):
     rec.execute(self)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
     uow,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 245, in save_obj
-    insert,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1137, in _emit_insert_statements
-    statement, params
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 236, in save_obj
+    update,
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 996, in _emit_update_statements
+    statement, multiparams
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
     return meth(self, multiparams, params)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
     return connection._execute_clauseelement(self, multiparams, params)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
     distilled_params,
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1176, in _execute_context
-    e, util.text_type(statement), parameters, None, None
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
     util.raise_from_cause(sqlalchemy_exception, exc_info)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
     reraise(type(exception), exception, tb=exc_tb, cause=cause)
   File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
     raise value.with_traceback(tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1173, in _execute_context
-    context = constructor(dialect, self, conn, *args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 799, in _init_compiled
-    param.append(processors[key](compiled_params[key]))
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 759, in process
-    "SQLite DateTime type only accepts Python "
-sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite DateTime type only accepts Python datetime and date objects as input.
-[SQL: INSERT INTO sugar_table (eat, "BG", timestamp, time_after_eating, user_id) VALUES (?, ?, ?, ?, ?)]
-[parameters: [{'BG': Decimal('5.000'), 'eat': 'Натощак', 'time_after_eating': Timedelta('1 days 01:37:33.334919'), 'user_id': 5, 'timestamp': datetime.datetime(2020, 5, 22, 21, 20)}]]
-2020-05-22 00:09:57,336 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-22 00:18:13,034 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-22 00:18:33,639 ERROR: Exception on /auth/user/cat [POST] [in c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\diplom\site02.8.02.20\app\main\routes.py", line 96, in user
-    sugarfunc(formsug)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 232, in sugarfunc
-    taeating = sugarfoodtime(time)
-  File "D:\diplom\site02.8.02.20\app\main\functions.py", line 223, in sugarfoodtime
-    deltat.to_hours()
-AttributeError: 'Timedelta' object has no attribute 'to_hours'
-2020-05-22 01:25:30,388 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
-2020-05-22 01:28:17,398 INFO: msite startup [in D:\diplom\site02.8.02.20\app\__init__.py:77]
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\aiman\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
+[SQL: UPDATE user SET last_seen=? WHERE user.id = ?]
+[parameters: ('2020-05-25 22:46:02.893846', 4)]
+(Background on this error at: http://sqlalche.me/e/e3q8)

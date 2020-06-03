@@ -26,8 +26,8 @@ class SearchForm(FlaskForm):
 
 
 class EditProfileForm(FlaskForm):
-    username = StringField(_l('Username'), validators=[DataRequired()])
-    about_me = TextAreaField(_l('About me'),
+    username = StringField(_l('Имя пользователя'), validators=[DataRequired()])
+    about_me = TextAreaField(_l('Дополнительная информация'),
                              validators=[Length(min=0, max=140)])
     weight = DecimalField(_l('Вес, кг'), widget=widgets.NumberInput(max=300, min=1, step=1))
     height = IntegerField(_l('Рост, cм'), widget=widgets.NumberInput(min=30, max=300, step=1),
@@ -41,7 +41,7 @@ class EditProfileForm(FlaskForm):
     dtype = SelectField(u'Тип диабета', choices=[('1', 'диабет I типа'),
                                                  ('2', 'диабет II типа'), ('3', 'гестационный')
                                                  ], validators=[DataRequired()])
-    submit = SubmitField(_l('Submit'))
+    submit = SubmitField(_l('Сохранить изменения'))
 
     def __init__(self, original_username, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
@@ -55,8 +55,8 @@ class EditProfileForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(_l('Say something'), validators=[DataRequired()])
-    submit = SubmitField(_l('Submit'))
+    post = TextAreaField(_l('Как вы себя чувствуете?'), validators=[DataRequired()])
+    submit = SubmitField(_l('Сохранить'))
 
 
 class MessageForm(FlaskForm):
@@ -71,9 +71,10 @@ ch = [('0', 'Натощак'), ('1', 'После завтрака'),
 
 
 class SugarForm(FlaskForm):
-    eat = SelectField(u'Обстоятельства', choices=ch, validators=[DataRequired()])
+    eat = SelectField(label='Обстоятельства', choices=ch) #фактор - eat
     time = DateTimeLocalField(label='Время', format='%Y-%m-%dT%H:%M')
-    BG = DecimalField(label='Уровень сахара, ммоль/л', default=5, widget=widgets.NumberInput(max=20, min=1, step=0.1),
+    BG = DecimalField(label='Уровень сахара, ммоль/л', default=5,
+                      widget=widgets.NumberInput(max=20, min=1, step=0.1),
                       validators=[DataRequired()])
     submit = SubmitField(u'sugar')
 
